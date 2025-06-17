@@ -424,17 +424,17 @@ section {
 }
 
 .service-card {
-    background: #4B0C0C;
+    background: var(--card-bg);
     padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 15px rgba(75, 12, 12, 0.15);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
     text-align: center;
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 .service-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 25px rgba(75, 12, 12, 0.25);
+    box-shadow: var(--shadow-hover);
 }
 
 .service-icon {
@@ -451,7 +451,7 @@ section {
 }
 
 .service-card h3 {
-    color: #D4AF37;
+    color: var(--secondary-color);
     margin-bottom: 1rem;
 }
 
@@ -474,8 +474,8 @@ section {
 .step-number {
     width: 60px;
     height: 60px;
-    background-color: #D4AF37;
-    color: #4B0C0C;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -488,18 +488,18 @@ section {
 .step-icon {
     width: 80px;
     height: 80px;
-    background-color: #5A1010;
+    background-color: var(--section-bg);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1rem;
-    color: #D4AF37;
+    color: var(--secondary-color);
     font-size: 1.5rem;
 }
 
 .process-arrow {
-    color: #D4AF37;
+    color: var(--secondary-color);
     font-size: 1.5rem;
     display: flex;
     align-items: center;
@@ -507,19 +507,24 @@ section {
 
 /* Booking Section */
 .booking {
-    background: linear-gradient(135deg, #4B0C0C, #6B1C1C);
-    color: #F5F1EC;
+    background: var(--primary-color);
+    color: var(--text-light);
     text-align: center;
 }
 
+/* Dark mode booking gradient */
+[data-theme="dark"] .booking {
+    background: linear-gradient(135deg, #4B0C0C, #6B1C1C);
+}
+
 .booking h2 {
-    color: #D4AF37;
+    color: var(--secondary-color);
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
 .booking p {
-    color: #F5F1EC;
+    color: var(--text-light);
     font-size: 1.2rem;
     margin-bottom: 2rem;
     max-width: 800px;
@@ -533,8 +538,9 @@ section {
 
 .booking-hours {
     margin-top: 1rem;
-    color: rgba(245, 241, 236, 0.8);
+    color: var(--text-secondary);
     font-size: 1rem;
+    opacity: 0.8;
 }
 
 /* About Section */
