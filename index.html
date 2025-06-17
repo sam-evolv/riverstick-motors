@@ -303,6 +303,11 @@
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- JavaScript for mobile navigation -->
     <script>
         // Mobile navigation toggle
@@ -401,6 +406,41 @@
         // Observe all animation elements
         document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
             observer.observe(el);
+        });
+
+        // Timeline animation observer
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const timelineItems = entry.target.querySelectorAll('.timeline-item');
+                    timelineItems.forEach(item => {
+                        item.classList.add('visible');
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const timelineSection = document.querySelector('.heritage-timeline');
+        if (timelineSection) {
+            timelineObserver.observe(timelineSection);
+        }
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>
