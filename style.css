@@ -125,7 +125,7 @@ p {
 }
 
 .nav {
-    padding: 1rem 0;
+    padding: 0.5rem 0;
 }
 
 .nav-container {
@@ -148,9 +148,9 @@ p {
 }
 
 .logo-image {
-    height: 131px;
+    height: 80px;
     width: auto;
-    max-width: 525px;
+    max-width: 320px;
     object-fit: contain;
     display: block;
 }
@@ -587,8 +587,8 @@ section {
 @media (max-width: 768px) {
     /* Logo responsive sizing */
     .logo-image {
-        height: 102px;
-        max-width: 412px;
+        height: 65px;
+        max-width: 260px;
     }
     
     /* Mobile Navigation */
@@ -694,8 +694,8 @@ section {
     }
     
     .logo-image {
-        height: 84px;
-        max-width: 337px;
+        height: 55px;
+        max-width: 220px;
     }
     
     .hero-title {
