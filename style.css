@@ -148,9 +148,9 @@ p {
 }
 
 .logo-image {
-    height: 105px;
+    height: 131px;
     width: auto;
-    max-width: 420px;
+    max-width: 525px;
     object-fit: contain;
     display: block;
 }
@@ -587,8 +587,8 @@ section {
 @media (max-width: 768px) {
     /* Logo responsive sizing */
     .logo-image {
-        height: 82px;
-        max-width: 330px;
+        height: 102px;
+        max-width: 412px;
     }
     
     /* Mobile Navigation */
@@ -694,8 +694,8 @@ section {
     }
     
     .logo-image {
-        height: 67px;
-        max-width: 270px;
+        height: 84px;
+        max-width: 337px;
     }
     
     .hero-title {
