@@ -275,11 +275,16 @@ p {
 }
 
 .hero-image-photo {
+    max-width: 100%;
+    height: auto;
     width: 400px;
-    height: 300px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
+    image-rendering: high-quality;
+    image-rendering: -webkit-optimize-contrast;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 /* Section Styles */
@@ -645,7 +650,8 @@ section {
     
     .hero-image-photo {
         width: 300px;
-        height: 200px;
+        height: auto;
+        max-width: 100%;
     }
     
     /* Sections */
