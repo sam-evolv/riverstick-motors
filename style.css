@@ -561,16 +561,19 @@ section {
     font-size: 0.9rem;
 }
 
-.about-image-placeholder {
+.about-logo-image {
     width: 300px;
     height: 250px;
-    background: linear-gradient(135deg, var(--light-gray), #e0e0e0);
+    object-fit: contain;
     border-radius: var(--border-radius);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--dark-gray);
     margin: 0 auto;
+    display: block;
+    transition: var(--transition);
+}
+
+/* Dark mode logo filter for about section */
+[data-theme="dark"] .about-logo-image {
+    filter: brightness(0) invert(1);
 }
 
 /* Footer */
