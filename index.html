@@ -73,13 +73,13 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in">
                 <h2 class="section-title">Our Testing Services</h2>
                 <p class="section-subtitle">Comprehensive vehicle testing services to keep you safe on the road</p>
             </div>
             
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card scale-in">
                     <div class="service-icon">
                         <i class="fas fa-car"></i>
                     </div>
@@ -87,7 +87,7 @@
                     <p>Complete DOE testing for private cars, ensuring compliance with all safety and environmental standards.</p>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card scale-in">
                     <div class="service-icon">
                         <i class="fas fa-truck"></i>
                     </div>
@@ -95,7 +95,7 @@
                     <p>Professional testing services for commercial vehicles, vans, and light trucks with fast turnaround times.</p>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card scale-in">
                     <div class="service-icon">
                         <i class="fas fa-motorcycle"></i>
                     </div>
@@ -103,7 +103,7 @@
                     <p>Specialized DOE testing for motorcycles and scooters, conducted by certified motorcycle testing professionals.</p>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card scale-in">
                     <div class="service-icon">
                         <i class="fas fa-tools"></i>
                     </div>
@@ -111,7 +111,7 @@
                     <p>Quick and efficient re-testing for vehicles that require follow-up testing after initial failures.</p>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card scale-in">
                     <div class="service-icon">
                         <i class="fas fa-certificate"></i>
                     </div>
@@ -125,13 +125,13 @@
     <!-- How It Works Section -->
     <section id="how-it-works" class="how-it-works">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in">
                 <h2 class="section-title">How It Works</h2>
                 <p class="section-subtitle">Simple steps to get your vehicle tested</p>
             </div>
             
             <div class="process-flow">
-                <div class="process-step">
+                <div class="process-step slide-in-left">
                     <div class="step-number">1</div>
                     <div class="step-content">
                         <div class="step-icon">
@@ -142,11 +142,11 @@
                     </div>
                 </div>
                 
-                <div class="process-arrow">
+                <div class="process-arrow fade-in">
                     <i class="fas fa-arrow-right"></i>
                 </div>
                 
-                <div class="process-step">
+                <div class="process-step slide-in-right">
                     <div class="step-number">2</div>
                     <div class="step-content">
                         <div class="step-icon">
@@ -157,11 +157,11 @@
                     </div>
                 </div>
                 
-                <div class="process-arrow">
+                <div class="process-arrow fade-in">
                     <i class="fas fa-arrow-right"></i>
                 </div>
                 
-                <div class="process-step">
+                <div class="process-step slide-in-left">
                     <div class="step-number">3</div>
                     <div class="step-content">
                         <div class="step-icon">
@@ -172,11 +172,11 @@
                     </div>
                 </div>
                 
-                <div class="process-arrow">
+                <div class="process-arrow fade-in">
                     <i class="fas fa-arrow-right"></i>
                 </div>
                 
-                <div class="process-step">
+                <div class="process-step slide-in-right">
                     <div class="step-number">4</div>
                     <div class="step-content">
                         <div class="step-icon">
@@ -210,7 +210,7 @@
     <section id="about" class="about">
         <div class="container">
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text slide-in-left">
                     <h2>About Riverstick Motors DOE Testing Centre</h2>
                     <p>With over 15 years of experience in vehicle testing and automotive services, Riverstick Motors DOE Testing Centre has established itself as the most trusted testing facility in the region. Our state-of-the-art testing equipment and certified technicians ensure that every vehicle test is conducted to the highest standards.</p>
                     
@@ -218,7 +218,7 @@
                     
                     <p>At Riverstick Motors, we understand that getting your vehicle tested shouldn't be a hassle. That's why we've streamlined our process to make it as quick and convenient as possible, while never compromising on the quality and thoroughness of our testing services.</p>
                     
-                    <div class="about-stats">
+                    <div class="about-stats fade-in">
                         <div class="stat">
                             <span class="stat-number">15+</span>
                             <span class="stat-label">Years Experience</span>
@@ -234,7 +234,7 @@
                     </div>
                 </div>
                 
-                <div class="about-image">
+                <div class="about-image slide-in-right">
                     <div class="about-image-placeholder">
                         <i class="fas fa-tools fa-4x"></i>
                     </div>
@@ -369,6 +369,25 @@
                 themeIcon.className = 'fas fa-moon';
                 themeToggle.title = 'Switch to dark mode';
             }
+        });
+
+        // Scroll Animation Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animation elements
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>
