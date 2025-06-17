@@ -12,36 +12,46 @@ html {
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    color: #F5F1EC;
-    background-color: #4B0C0C;
+    color: #4B0C0C;
+    background-color: #FFFFFF;
     overflow-x: hidden;
     transition: all 0.3s ease;
 }
 
-/* CSS Variables */
+/* Dark mode body */
+[data-theme="dark"] body {
+    color: #F5F1EC;
+    background-color: #4B0C0C;
+}
+
+/* Light Mode Variables (Default) */
 :root {
     --primary-color: #4B0C0C;  /* Deep burgundy */
     --secondary-color: #D4AF37; /* Gold */
-    --white: #F5F1EC;  /* Light cream */
-    --light-gray: #F5F1EC;  /* Light cream */
-    --dark-gray: #8B6914;  /* Dark gold */
-    --text-dark: #F5F1EC;  /* Light cream text */
-    --shadow: 0 2px 15px rgba(75, 12, 12, 0.15);
-    --shadow-hover: 0 5px 25px rgba(75, 12, 12, 0.25);
+    --bg-color: #FFFFFF;  /* White background */
+    --section-bg: #F8F8F8;  /* Light gray for sections */
+    --card-bg: #FFFFFF;  /* White cards */
+    --text-primary: #4B0C0C;  /* Burgundy text */
+    --text-secondary: #666666;  /* Gray text */
+    --text-light: #4B0C0C;  /* Burgundy for light text */
+    --shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 5px 25px rgba(0, 0, 0, 0.15);
     --border-radius: 8px;
     --transition: all 0.3s ease;
 }
 
 /* Dark Mode Variables */
 [data-theme="dark"] {
-    --primary-color: #6B1C1C;  /* Lighter burgundy for dark mode */
-    --secondary-color: #E6C547;  /* Brighter gold */
-    --white: #1A0B0B;  /* Very dark burgundy */
-    --light-gray: #2D1111;  /* Dark burgundy gray */
-    --dark-gray: #C9A961;  /* Light gold */
-    --text-dark: #F2E6D3;  /* Light cream text */
-    --shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
-    --shadow-hover: 0 5px 25px rgba(0, 0, 0, 0.5);
+    --primary-color: #4B0C0C;  /* Deep burgundy */
+    --secondary-color: #D4AF37;  /* Gold */
+    --bg-color: #4B0C0C;  /* Burgundy background */
+    --section-bg: #5A1010;  /* Darker burgundy for sections */
+    --card-bg: #4B0C0C;  /* Burgundy cards */
+    --text-primary: #F5F1EC;  /* Light cream text */
+    --text-secondary: #F5F1EC;  /* Light cream text */
+    --text-light: #F5F1EC;  /* Light cream for light text */
+    --shadow: 0 2px 15px rgba(75, 12, 12, 0.15);
+    --shadow-hover: 0 5px 25px rgba(75, 12, 12, 0.25);
 }
 
 /* Container */
@@ -54,7 +64,7 @@ body {
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
-    color: #D4AF37;
+    color: var(--secondary-color);
     margin-bottom: 1rem;
 }
 
@@ -73,7 +83,7 @@ h3 {
 
 p {
     margin-bottom: 1rem;
-    color: #F5F1EC;
+    color: var(--text-secondary);
 }
 
 /* Buttons */
@@ -127,20 +137,15 @@ p {
     top: 0;
     left: 0;
     right: 0;
-    background-color: #4B0C0C;
+    background-color: var(--primary-color);
     z-index: 1000;
-    box-shadow: 0 2px 15px rgba(75, 12, 12, 0.15);
-    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
 }
 
 .header-scrolled {
     background-color: rgba(75, 12, 12, 0.95);
     backdrop-filter: blur(10px);
-}
-
-/* Dark mode header when scrolled */
-[data-theme="dark"] .header-scrolled {
-    background-color: rgba(26, 11, 11, 0.95);
 }
 
 .nav {
@@ -195,14 +200,14 @@ p {
 
 .nav-link {
     text-decoration: none;
-    color: #F5F1EC;
+    color: var(--text-light);
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     position: relative;
 }
 
 .nav-link:hover {
-    color: #D4AF37;
+    color: var(--secondary-color);
 }
 
 .nav-link::after {
@@ -278,10 +283,15 @@ p {
 /* Hero Section */
 .hero {
     padding: 120px 0 80px;
-    background: linear-gradient(135deg, #4B0C0C 0%, #6B1C1C 100%);
+    background: var(--bg-color);
     min-height: 100vh;
     display: flex;
     align-items: center;
+}
+
+/* Dark mode hero */
+[data-theme="dark"] .hero {
+    background: linear-gradient(135deg, #4B0C0C 0%, #6B1C1C 100%);
 }
 
 .hero-container {
@@ -297,14 +307,14 @@ p {
 .hero-title {
     font-size: 3rem;
     font-weight: 700;
-    color: #D4AF37;
+    color: var(--secondary-color);
     margin-bottom: 1.5rem;
     line-height: 1.2;
 }
 
 .hero-subtitle {
     font-size: 1.2rem;
-    color: #F5F1EC;
+    color: var(--text-primary);
     margin-bottom: 2rem;
 }
 
@@ -336,6 +346,7 @@ p {
 /* Section Styles */
 section {
     padding: 80px 0;
+    background-color: var(--bg-color);
 }
 
 /* Scroll Animation Classes */
@@ -390,20 +401,20 @@ section {
 
 .section-title {
     font-size: 2.5rem;
-    color: #D4AF37;
+    color: var(--secondary-color);
     margin-bottom: 1rem;
 }
 
 .section-subtitle {
     font-size: 1.2rem;
-    color: #F5F1EC;
+    color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto;
 }
 
 /* Services Section */
 .services {
-    background-color: #5A1010;
+    background-color: var(--section-bg);
 }
 
 .services-grid {
