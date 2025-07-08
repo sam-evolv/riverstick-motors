@@ -308,6 +308,33 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- Booking Modal -->
+    <div id="booking-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Select Your Vehicle Type</h2>
+            <p>Choose the appropriate testing category for your vehicle:</p>
+            
+            <div class="booking-options">
+                <div class="booking-option">
+                    <h3>LCV (Light Commercial Vehicle)</h3>
+                    <p>Includes vans and light goods vehicles up to 3.5 tonnes.</p>
+                    <button class="btn btn-primary booking-btn" data-type="lcv">
+                        <i class="fas fa-van-shuttle"></i> Book LCV Test
+                    </button>
+                </div>
+                
+                <div class="booking-option">
+                    <h3>HCV (Heavy Commercial Vehicle)</h3>
+                    <p>Includes trucks, articulated vehicles, and anything over 3.5 tonnes.</p>
+                    <button class="btn btn-primary booking-btn" data-type="hcv">
+                        <i class="fas fa-truck"></i> Book HCV Test
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript for mobile navigation -->
     <script>
         // Mobile navigation toggle
@@ -440,6 +467,66 @@
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
+            });
+        });
+
+        // Booking Modal Functionality
+        const bookingModal = document.getElementById('booking-modal');
+        const closeModal = document.querySelector('.close-modal');
+        const bookingTriggers = document.querySelectorAll('[data-booking-trigger]');
+        
+        // Add data attribute to existing booking buttons
+        document.addEventListener('DOMContentLoaded', () => {
+            const bookNowBtns = document.querySelectorAll('a[href="#booking"], .btn-primary');
+            bookNowBtns.forEach(btn => {
+                if (btn.textContent.includes('Book') || btn.textContent.includes('Call')) {
+                    btn.setAttribute('data-booking-trigger', 'true');
+                }
+            });
+        });
+
+        // Show modal when booking buttons are clicked
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('[data-booking-trigger]') || 
+                e.target.closest('a[href="#booking"]') || 
+                (e.target.closest('.btn-primary') && e.target.textContent.includes('Book'))) {
+                e.preventDefault();
+                bookingModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        });
+
+        // Close modal when clicking the close button
+        closeModal.addEventListener('click', () => {
+            bookingModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside
+        bookingModal.addEventListener('click', (e) => {
+            if (e.target === bookingModal) {
+                bookingModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close modal when pressing Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && bookingModal.style.display === 'block') {
+                bookingModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Handle booking option selection
+        document.querySelectorAll('.booking-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const vehicleType = e.target.dataset.type;
+                // Here you can redirect to specific booking pages later
+                console.log('Booking selected for:', vehicleType);
+                alert(`Booking ${vehicleType.toUpperCase()} test - this would redirect to booking page`);
+                bookingModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
             });
         });
     </script>
