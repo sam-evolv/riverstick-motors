@@ -301,16 +301,18 @@ p {
 
 /* Watermark R */
 .hero::before {
-    content: 'R';
+    content: '';
     position: absolute;
     bottom: -50px;
     right: -50px;
-    font-size: 300px;
-    font-weight: 900;
-    color: #D4AF37;
+    width: 400px;
+    height: 400px;
+    background-image: url('watermark-r.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     opacity: 0.1;
     z-index: 0;
-    font-family: 'Poppins', sans-serif;
     animation: watermark-pulse 4s ease-in-out infinite;
 }
 
@@ -835,7 +837,8 @@ section {
     
     /* Watermark responsive sizing */
     .hero::before {
-        font-size: 200px;
+        width: 250px;
+        height: 250px;
         bottom: -30px;
         right: -30px;
     }
