@@ -45,7 +45,7 @@
                     <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
                         <i class="fas fa-moon" id="theme-icon"></i>
                     </button>
-                    <a href="#booking" class="btn btn-primary nav-cta">Book Now</a>
+                    <a href="javascript:void(0);" onclick="openModal()" class="btn btn-primary nav-cta">Book Now</a>
                 </div>
             </div>
         </nav>
@@ -58,7 +58,7 @@
                 <h1 class="hero-title">Professional CVR Testing Services You Can Trust</h1>
                 <p class="hero-subtitle">Get your vehicle tested quickly and efficiently at Riverstick Motors CVR Testing Centre. Certified, reliable, and convenient testing services for all vehicle types.</p>
                 <div class="hero-cta">
-                    <a href="#booking" class="btn btn-primary btn-large">Book Your Test Today</a>
+                    <a href="javascript:void(0);" onclick="openModal()" class="btn btn-primary btn-large">Book Your Test Today</a>
                     <a href="tel:+353214775555" class="btn btn-secondary btn-large">
                         <i class="fas fa-phone"></i> Call Now
                     </a>
@@ -311,25 +311,51 @@
     <!-- Booking Modal -->
     <div id="booking-modal" class="modal">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
+            <span class="close-modal" onclick="closeModal()">&times;</span>
             <h2>Select Your Vehicle Type</h2>
-            <p>Choose the appropriate testing category for your vehicle:</p>
+            <p>Please choose the correct category for your vehicle test.</p>
             
             <div class="booking-options">
                 <div class="booking-option">
+                    <div class="vehicle-image">
+                        <svg width="120" height="80" viewBox="0 0 120 80" fill="none">
+                            <rect x="10" y="25" width="80" height="35" rx="3" fill="#FFFFFF" stroke="#7a1e1e" stroke-width="2"/>
+                            <rect x="90" y="30" width="20" height="25" rx="2" fill="#FFFFFF" stroke="#7a1e1e" stroke-width="2"/>
+                            <circle cx="25" cy="65" r="8" fill="#2c2c2c"/>
+                            <circle cx="75" cy="65" r="8" fill="#2c2c2c"/>
+                            <rect x="15" y="30" width="12" height="8" rx="1" fill="#87CEEB"/>
+                            <rect x="30" y="30" width="12" height="8" rx="1" fill="#87CEEB"/>
+                            <rect x="45" y="30" width="12" height="8" rx="1" fill="#87CEEB"/>
+                            <rect x="60" y="30" width="12" height="8" rx="1" fill="#87CEEB"/>
+                            <rect x="95" y="35" width="10" height="6" rx="1" fill="#87CEEB"/>
+                            <rect x="95" y="43" width="10" height="6" rx="1" fill="#87CEEB"/>
+                        </svg>
+                    </div>
                     <h3>LCV (Light Commercial Vehicle)</h3>
-                    <p>Includes vans and light goods vehicles up to 3.5 tonnes.</p>
-                    <button class="btn btn-primary booking-btn" data-type="lcv">
-                        <i class="fas fa-van-shuttle"></i> Book LCV Test
-                    </button>
+                    <p>Light Commercial Vehicle (up to 3.5 tonnes)</p>
+                    <button class="booking-btn" data-type="lcv">Book LCV</button>
                 </div>
                 
                 <div class="booking-option">
+                    <div class="vehicle-image">
+                        <svg width="120" height="80" viewBox="0 0 120 80" fill="none">
+                            <rect x="5" y="35" width="25" height="20" rx="2" fill="#FFFFFF" stroke="#7a1e1e" stroke-width="2"/>
+                            <rect x="30" y="25" width="60" height="30" rx="3" fill="#FFFFFF" stroke="#7a1e1e" stroke-width="2"/>
+                            <rect x="90" y="30" width="20" height="25" rx="2" fill="#FFFFFF" stroke="#7a1e1e" stroke-width="2"/>
+                            <circle cx="20" cy="65" r="8" fill="#2c2c2c"/>
+                            <circle cx="45" cy="65" r="8" fill="#2c2c2c"/>
+                            <circle cx="75" cy="65" r="8" fill="#2c2c2c"/>
+                            <rect x="10" y="40" width="8" height="6" rx="1" fill="#87CEEB"/>
+                            <rect x="35" y="30" width="12" height="8" rx="1" fill="#87CEEB"/>
+                            <rect x="50" y="30" width="12" height="8" rx="1" fill="#87CEEB"/>
+                            <rect x="65" y="30" width="12" height="8" rx="1" fill="#87CEEB"/>
+                            <rect x="95" y="35" width="10" height="6" rx="1" fill="#87CEEB"/>
+                            <rect x="95" y="43" width="10" height="6" rx="1" fill="#87CEEB"/>
+                        </svg>
+                    </div>
                     <h3>HCV (Heavy Commercial Vehicle)</h3>
-                    <p>Includes trucks, articulated vehicles, and anything over 3.5 tonnes.</p>
-                    <button class="btn btn-primary booking-btn" data-type="hcv">
-                        <i class="fas fa-truck"></i> Book HCV Test
-                    </button>
+                    <p>Heavy Commercial Vehicle (over 3.5 tonnes)</p>
+                    <button class="booking-btn" data-type="hcv">Book HCV</button>
                 </div>
             </div>
         </div>
@@ -470,51 +496,28 @@
             });
         });
 
-        // Booking Modal Functionality
-        const bookingModal = document.getElementById('booking-modal');
-        const closeModal = document.querySelector('.close-modal');
-        const bookingTriggers = document.querySelectorAll('[data-booking-trigger]');
-        
-        // Add data attribute to existing booking buttons
-        document.addEventListener('DOMContentLoaded', () => {
-            const bookNowBtns = document.querySelectorAll('a[href="#booking"], .btn-primary');
-            bookNowBtns.forEach(btn => {
-                if (btn.textContent.includes('Book') || btn.textContent.includes('Call')) {
-                    btn.setAttribute('data-booking-trigger', 'true');
-                }
-            });
-        });
+        // Booking Modal Functions
+        function openModal() {
+            document.getElementById('booking-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
 
-        // Show modal when booking buttons are clicked
-        document.addEventListener('click', (e) => {
-            if (e.target.closest('[data-booking-trigger]') || 
-                e.target.closest('a[href="#booking"]') || 
-                (e.target.closest('.btn-primary') && e.target.textContent.includes('Book'))) {
-                e.preventDefault();
-                bookingModal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            }
-        });
-
-        // Close modal when clicking the close button
-        closeModal.addEventListener('click', () => {
-            bookingModal.style.display = 'none';
+        function closeModal() {
+            document.getElementById('booking-modal').style.display = 'none';
             document.body.style.overflow = 'auto';
-        });
+        }
 
         // Close modal when clicking outside
-        bookingModal.addEventListener('click', (e) => {
-            if (e.target === bookingModal) {
-                bookingModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+        document.getElementById('booking-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
             }
         });
 
         // Close modal when pressing Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && bookingModal.style.display === 'block') {
-                bookingModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('booking-modal').style.display === 'block') {
+                closeModal();
             }
         });
 
@@ -525,8 +528,7 @@
                 // Here you can redirect to specific booking pages later
                 console.log('Booking selected for:', vehicleType);
                 alert(`Booking ${vehicleType.toUpperCase()} test - this would redirect to booking page`);
-                bookingModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+                closeModal();
             });
         });
     </script>
