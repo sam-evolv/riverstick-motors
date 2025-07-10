@@ -18,6 +18,12 @@ Preferred communication style: Simple, everyday language.
 - Updated modal vehicle images with professional white vehicles
 - Implemented 2x2 grid layout for service cards (removed motorcycle testing)
 - Increased logo size by 20% and switched to transparent Riverstick Industries logo
+- Updated "How It Works" section step 4 with RSA disc delivery timing (2-3 working days)
+- Standardized opening hours to Mon-Fri 9:00am-5:30pm, weekends closed
+- Updated contact details: Phone 021-4771362, Email reception@riverstickmotors.ie
+- Added dedicated Contact section with 4 contact cards (phone, email, hours, location)
+- Implemented proper tel: and mailto: links throughout the site
+- Added comprehensive contact card styling with hover effects and animations
 
 ## System Architecture
 
