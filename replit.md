@@ -24,6 +24,13 @@ Preferred communication style: Simple, everyday language.
 - Added dedicated Contact section with 4 contact cards (phone, email, hours, location)
 - Implemented proper tel: and mailto: links throughout the site
 - Added comprehensive contact card styling with hover effects and animations
+- Updated services section with 4 new specialized services:
+  * CVR Testing (combined LCV/HCV with RSA compliance focus)
+  * Tachograph Calibration (digital/analogue commercial vehicle standards)
+  * Declaration of Conversion of Vehicles (RSA compliance documentation)
+  * SQI Engineer's Reporting (certified inspections for modified vehicles)
+- Reverted Contact section to simplified text format as requested
+- Updated service icons to match new specialized service offerings
 
 ## System Architecture
 
