@@ -51,6 +51,11 @@ Preferred communication style: Simple, everyday language.
   * Smooth fade transitions (1.5s duration) every 4 seconds
   * Maintains exact image dimensions (400x300px desktop, responsive scaling)
   * Non-imposing design that enhances visual appeal without affecting layout
+- Added EvolvAi attribution footer:
+  * Professional "Designed & Developed by EvolvAi" credit with logo
+  * Right-aligned on desktop, center-aligned on mobile
+  * Matches site color scheme with hover effects and transitions
+  * Links to evolvai.ie website in new tab
 
 ## System Architecture
 
