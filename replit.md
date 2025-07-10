@@ -8,6 +8,17 @@ This is a professional website for Riverstick Motors CVR Testing Centre, providi
 
 Preferred communication style: Simple, everyday language.
 
+## Recent Changes
+
+### July 10, 2025
+- Updated service cards to focus on LCV/HCV testing
+- Replaced "Private Vehicle Testing" with "LCV Testing" (van icon)
+- Replaced "Commercial Vehicle Testing" with "HCV Testing" (truck icon)
+- Centralized navigation menu items in header toolbar
+- Updated modal vehicle images with professional white vehicles
+- Implemented 2x2 grid layout for service cards (removed motorcycle testing)
+- Increased logo size by 20% and switched to transparent Riverstick Industries logo
+
 ## System Architecture
 
 ### Frontend Architecture
