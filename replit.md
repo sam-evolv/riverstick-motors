@@ -31,6 +31,12 @@ Preferred communication style: Simple, everyday language.
   * SQI Engineer's Reporting (certified inspections for modified vehicles)
 - Reverted Contact section to simplified text format as requested
 - Updated service icons to match new specialized service offerings
+- Redesigned Contact section with premium two-column layout:
+  * Left column: "Get in Touch" with styled contact details and icons
+  * Right column: Professional contact form with Netlify integration
+  * Deep burgundy background with gradient and subtle texture
+  * Added section divider before About section for better separation
+  * Implemented glass-morphism effects and hover animations
 
 ## System Architecture
 
