@@ -18,13 +18,6 @@ Preferred communication style: Simple, everyday language.
 - Updated modal vehicle images with professional white vehicles
 - Implemented 2x2 grid layout for service cards (removed motorcycle testing)
 - Increased logo size by 20% and switched to transparent Riverstick Industries logo
-- Updated "How It Works" Step 4 text to clarify RSA disc delivery process
-- Updated opening hours to Monday-Friday 9:00am-5:30pm, weekends closed
-- Updated contact details: Phone 021-4771362, Email reception@riverstickmotors.ie
-- Added comprehensive Contact section with detailed contact information and services list
-- Updated footer services to include: CVR Testing, Tachograph Calibration, Declaration of Conversion, SQI Engineer's Reporting
-- Updated all phone numbers and hours throughout the site for consistency
-- Added responsive mobile styling for new Contact section
 
 ## System Architecture
 
