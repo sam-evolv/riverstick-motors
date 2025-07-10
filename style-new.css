@@ -954,6 +954,41 @@ section {
     to { opacity: 0.6; transform: translateY(0); }
 }
 
+/* EvolvAi Attribution */
+.evolvai-attribution {
+    text-align: right;
+    padding-top: 10px;
+    border-top: 1px solid rgba(245, 241, 236, 0.2);
+    margin-top: 1rem;
+}
+
+.evolvai-link {
+    text-decoration: none;
+    font-size: 13px;
+    color: #c7c7f7;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.evolvai-link:hover {
+    color: var(--secondary-color);
+    transform: translateY(-1px);
+}
+
+.evolvai-logo {
+    height: 16px;
+    margin-left: 6px;
+    filter: brightness(0.8);
+    transition: all 0.3s ease;
+}
+
+.evolvai-link:hover .evolvai-logo {
+    filter: brightness(1.2);
+    transform: scale(1.05);
+}
+
 /* Back to Top Button */
 .back-to-top {
     position: fixed;
@@ -1432,6 +1467,11 @@ section {
     
     .footer-content {
         grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    /* EvolvAi Attribution Mobile */
+    .evolvai-attribution {
         text-align: center;
     }
     
