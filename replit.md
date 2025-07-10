@@ -33,11 +33,11 @@ Preferred communication style: Simple, everyday language.
 - Updated service icons to match new specialized service offerings
 - Redesigned Contact section with premium card-based layout:
   * Removed contact form and redistributed contact information evenly
-  * Created 4 contact cards: Location, Phone, Email, Opening Hours
+  * Created 3 contact cards: Phone, Email, Opening Hours (removed Location)
   * Deep burgundy background with gradient and subtle texture overlay
   * Gold gradient icons with scale/rotate hover animations
   * Glass-morphism card effects with backdrop blur
-  * Responsive grid: 4 columns on desktop, 2 on tablet, 1 on mobile
+  * Responsive grid: 3 columns on desktop, 2/1 on tablet, 1 on mobile
   * Added section divider before About section for better separation
 
 ## System Architecture
