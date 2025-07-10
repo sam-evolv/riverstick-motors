@@ -53,8 +53,11 @@ Preferred communication style: Simple, everyday language.
   * Non-imposing design that enhances visual appeal without affecting layout
 - Added EvolvAi attribution footer:
   * Professional "Designed & Developed by EvolvAi" credit with logo
-  * Right-aligned on desktop, center-aligned on mobile
-  * Matches site color scheme with hover effects and transitions
+  * Side-by-side layout with copyright text in footer-bottom section
+  * Copyright text left-aligned, EvolvAi attribution right-aligned
+  * Matching font sizes (0.9rem) and colors (#F5F1EC) for consistency
+  * Logo color-matched to text with subtle grayscale filter
+  * Responsive: stacked vertically on mobile with centered alignment
   * Links to evolvai.ie website in new tab
 
 ## System Architecture
