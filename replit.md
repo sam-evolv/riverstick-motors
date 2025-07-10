@@ -39,6 +39,12 @@ Preferred communication style: Simple, everyday language.
   * Glass-morphism card effects with backdrop blur
   * Responsive grid: 3 columns on desktop, 2/1 on tablet, 1 on mobile
   * Added section divider before About section for better separation
+- Enhanced "Ready to Book Your CVR Test?" section:
+  * Added inline "Book Test" button alongside existing phone button
+  * Both buttons trigger appropriate actions: phone call vs booking modal
+  * Matching styling with burgundy/gold theme and hover animations
+  * Responsive design: side-by-side on desktop, stacked vertically on mobile
+  * Maintains accessibility with proper focus states and tab navigation
 
 ## System Architecture
 
