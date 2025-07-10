@@ -368,13 +368,39 @@ p {
     align-items: center;
 }
 
-.hero-image-photo {
-    max-width: 100%;
-    height: auto;
+.hero-slideshow {
+    position: relative;
     width: 400px;
-    object-fit: contain;
+    height: 300px;
+    overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 2px 15px rgba(75, 12, 12, 0.15);
+}
+
+.hero-slideshow .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.hero-slideshow .slide.active {
+    opacity: 1;
+}
+
+.hero-slideshow .slide.fade-out {
+    opacity: 0;
+}
+
+.hero-image-photo {
+    max-width: 100%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
     image-rendering: high-quality;
     image-rendering: -webkit-optimize-contrast;
     backface-visibility: hidden;
@@ -1130,6 +1156,11 @@ section {
         font-size: 2.5rem;
     }
     
+    .hero-slideshow {
+        width: 350px;
+        height: 260px;
+    }
+    
     .about-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -1322,6 +1353,11 @@ section {
         font-size: 0.9rem;
     }
     
+    .hero-slideshow {
+        width: 300px;
+        height: 220px;
+    }
+    
     .vehicle-img {
         width: 130px;
         height: auto;
@@ -1368,6 +1404,11 @@ section {
     
     .hero-title {
         font-size: 1.8rem;
+    }
+    
+    .hero-slideshow {
+        width: 280px;
+        height: 200px;
     }
     
     .section-title {

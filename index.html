@@ -69,7 +69,17 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="hero-image.png" alt="CVR Testing Centre with white van being tested" class="hero-image-photo">
+                <div class="hero-slideshow">
+                    <div class="slide active">
+                        <img src="truck-golden-hour.png" alt="MAN TGX truck at golden hour" class="hero-image-photo">
+                    </div>
+                    <div class="slide">
+                        <img src="truck-motorway.png" alt="Black truck on Irish motorway" class="hero-image-photo">
+                    </div>
+                    <div class="slide">
+                        <img src="van-adventure.png" alt="White van on Irish countryside road" class="hero-image-photo">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -518,6 +528,29 @@
         const timelineSection = document.querySelector('.heritage-timeline');
         if (timelineSection) {
             timelineObserver.observe(timelineSection);
+        }
+
+        // Hero Slideshow
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slideshow .slide');
+        const totalSlides = slides.length;
+
+        function nextSlide() {
+            if (totalSlides === 0) return;
+            
+            // Remove active class from current slide
+            slides[currentSlide].classList.remove('active');
+            
+            // Move to next slide
+            currentSlide = (currentSlide + 1) % totalSlides;
+            
+            // Add active class to new slide
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Start slideshow if slides exist
+        if (totalSlides > 1) {
+            setInterval(nextSlide, 4000); // Change slide every 4 seconds
         }
 
         // Back to Top Button

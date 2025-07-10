@@ -45,6 +45,12 @@ Preferred communication style: Simple, everyday language.
   * Matching styling with burgundy/gold theme and hover animations
   * Responsive design: side-by-side on desktop, stacked vertically on mobile
   * Maintains accessibility with proper focus states and tab navigation
+- Implemented hero image slideshow:
+  * Replaced static hero image with beautiful 3-image slideshow
+  * Professional truck/van photography: golden hour truck, motorway truck, adventure van
+  * Smooth fade transitions (1.5s duration) every 4 seconds
+  * Maintains exact image dimensions (400x300px desktop, responsive scaling)
+  * Non-imposing design that enhances visual appeal without affecting layout
 
 ## System Architecture
 
