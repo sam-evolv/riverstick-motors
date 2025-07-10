@@ -916,6 +916,13 @@ section {
     justify-content: center;
 }
 
+.vehicle-img {
+    width: 160px;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
 .booking-option h3 {
     color: #d4af37;
     margin-bottom: 1rem;
@@ -1130,9 +1137,9 @@ section {
         font-size: 0.9rem;
     }
     
-    .vehicle-image svg {
+    .vehicle-img {
         width: 130px;
-        height: 65px;
+        height: auto;
     }
 }
 
@@ -1180,9 +1187,9 @@ section {
         right: 15px;
     }
     
-    .vehicle-image svg {
+    .vehicle-img {
         width: 110px;
-        height: 55px;
+        height: auto;
     }
 }
 
