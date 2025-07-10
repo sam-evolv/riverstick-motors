@@ -916,12 +916,11 @@ section {
     justify-content: center;
 }
 
-.vehicle-svg {
+.vehicle-img {
     width: 160px;
     height: auto;
     max-width: 100%;
-    background: transparent;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+    object-fit: contain;
 }
 
 .booking-option h3 {
@@ -1138,7 +1137,7 @@ section {
         font-size: 0.9rem;
     }
     
-    .vehicle-svg {
+    .vehicle-img {
         width: 130px;
         height: auto;
     }
@@ -1188,7 +1187,7 @@ section {
         right: 15px;
     }
     
-    .vehicle-svg {
+    .vehicle-img {
         width: 110px;
         height: auto;
     }
