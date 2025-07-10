@@ -646,64 +646,32 @@ section {
     background-color: var(--background-color);
 }
 
-.contact-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.contact-card {
-    background-color: var(--card-background);
-    padding: 2rem;
-    border-radius: 12px;
+.contact-info {
+    max-width: 600px;
+    margin: 3rem auto 0;
     text-align: center;
-    box-shadow: var(--card-shadow);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(212, 175, 55, 0.1);
 }
 
-.contact-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(75, 12, 12, 0.15);
-    border-color: var(--secondary-color);
-}
-
-.contact-icon {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, var(--primary-color), #722424);
-    border-radius: 50%;
-    margin: 0 auto 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--secondary-color);
-    font-size: 1.8rem;
-    box-shadow: 0 4px 15px rgba(75, 12, 12, 0.2);
-}
-
-.contact-card h3 {
-    color: var(--text-primary);
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-.contact-card p {
+.contact-info p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
-    margin: 0;
     line-height: 1.6;
 }
 
-.contact-card a {
+.contact-info strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.contact-info a {
     color: var(--secondary-color);
     text-decoration: none;
     font-weight: 500;
     transition: var(--transition);
 }
 
-.contact-card a:hover {
+.contact-info a:hover {
     color: var(--primary-color);
     text-decoration: underline;
 }
@@ -1249,19 +1217,14 @@ section {
     }
     
     /* Contact Section Responsive */
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    .contact-info {
+        text-align: left;
+        margin-top: 2rem;
     }
     
-    .contact-card {
-        padding: 1.5rem;
-    }
-    
-    .contact-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
+    .contact-info p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
     }
 }
 
