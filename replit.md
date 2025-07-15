@@ -46,8 +46,8 @@ Preferred communication style: Simple, everyday language.
   * Responsive design: side-by-side on desktop, stacked vertically on mobile
   * Maintains accessibility with proper focus states and tab navigation
 - Implemented hero image slideshow:
-  * Replaced static hero image with beautiful 3-image slideshow
-  * Professional truck/van photography: golden hour truck, motorway truck, adventure van
+  * Replaced static hero image with beautiful 4-image slideshow
+  * Professional truck/van photography: golden hour truck, motorway truck, adventure van, Riverstick Motors evening truck
   * Smooth fade transitions (1.5s duration) every 4 seconds
   * Maintains exact image dimensions (400x300px desktop, responsive scaling)
   * Non-imposing design that enhances visual appeal without affecting layout
