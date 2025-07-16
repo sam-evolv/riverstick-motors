@@ -381,7 +381,10 @@
                     </div>
                     <h3>LCV</h3>
                     <p>Light Commercial Vehicle up to 3.5 tonnes</p>
-                    <button class="booking-btn" data-type="lcv">Book LCV</button>
+                    <a href="https://operator.cvrt.ie/Test/BookPublicLGVTest?CVRTID=120&type=LGV" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="booking-btn">Book LCV</a>
                 </div>
                 
                 <div class="booking-option">
@@ -390,7 +393,10 @@
                     </div>
                     <h3>HCV</h3>
                     <p>Heavy Commercial Vehicle over 3.5 tonnes</p>
-                    <button class="booking-btn" data-type="hcv">Book HCV</button>
+                    <a href="http://operator.cvrt.ie/Account/Login?ReturnUrl=/Test/BookHGVLGVTest?CVRTID=120&type=HGV" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="booking-btn">Book HCV</a>
                 </div>
             </div>
         </div>
@@ -594,13 +600,10 @@
                 });
             }
 
-            // Handle booking option selection
+            // Handle booking option selection - modal closes when booking links are clicked
             document.querySelectorAll('.booking-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault(); // prevent anchor tag from jumping
-                    const vehicleType = e.target.dataset.type;
-                    console.log('Booking selected for:', vehicleType);
-                    alert(`Booking ${vehicleType.toUpperCase()} test - this would redirect to booking page`);
+                btn.addEventListener('click', () => {
+                    // Close modal when booking link is clicked (link opens in new tab)
                     closeModal();
                 });
             });
