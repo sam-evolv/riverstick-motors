@@ -10,6 +10,15 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+### July 16, 2025
+- Updated booking modal with functional RSA booking portal links:
+  * LCV button now links directly to https://operator.cvrt.ie/Test/BookPublicLGVTest?CVRTID=120&type=LGV
+  * HCV button now links directly to http://operator.cvrt.ie/Account/Login?ReturnUrl=/Test/BookHGVLGVTest?CVRTID=120&type=HGV
+  * Both buttons open in new browser tabs with proper security attributes (target="_blank" rel="noopener noreferrer")
+  * Replaced placeholder alerts with direct navigation to official RSA booking portals
+  * Modal automatically closes when booking links are clicked
+  * Converted button elements to styled anchor tags for proper link functionality
+
 ### July 10, 2025
 - Updated service cards to focus on LCV/HCV testing
 - Replaced "Private Vehicle Testing" with "LCV Testing" (van icon)
