@@ -12,8 +12,8 @@ Preferred communication style: Simple, everyday language.
 
 ### July 17, 2025
 - Updated 'About Riverstick Motors' section with accurate business highlights:
-  * Replaced content with 43 years of experience (founded 1968, testing since 1982)
-  * Updated statistics: 500,000+ vehicles tested, 7,043 in 2024, founded 1968
+  * Replaced content with 57 years of experience (founded 1968, testing since 1982)
+  * Updated statistics: 57 years experience, 500,000+ vehicles tested, 7,043 in 2024, founded 1968
   * Removed outdated pass rate reference and 2005 CVR certification
   * Updated heritage timeline to reflect accurate milestones
   * Maintained professional styling with 4-stat grid layout (responsive: 4 desktop, 2 tablet, 1 mobile)
