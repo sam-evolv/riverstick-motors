@@ -483,10 +483,10 @@ section {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 2rem;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -1342,7 +1342,7 @@ section {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
-        max-width: 600px;
+        max-width: 700px;
     }
     
     /* Process Flow */
@@ -1467,9 +1467,9 @@ section {
     }
     
     .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-        max-width: 500px;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        max-width: 400px;
     }
     
     .footer-content {

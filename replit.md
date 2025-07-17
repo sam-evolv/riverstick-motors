@@ -11,6 +11,14 @@ Preferred communication style: Simple, everyday language.
 ## Recent Changes
 
 ### July 17, 2025
+- Updated 'Our Testing Services' section with comprehensive 6-service offering:
+  * Expanded from 4 to 6 services in professional 3x2 grid layout
+  * Added NSAI Approved ATC Centre service with award icon
+  * Combined SQI reporting with modification reports as "SQI & Modification Reports"
+  * Added Road Speed Limiter Calibration & Repairs service
+  * Updated service descriptions for clarity and compliance focus
+  * Maintained existing burgundy/gold styling and responsive design
+  * Services now include: CVR Testing, NSAI ATC Centre, Declaration of Conversion, SQI & Modification Reports, Tachograph Calibration, Road Speed Limiter services
 - Added Range Rover image to hero slideshow:
   * Expanded slideshow to 5 professional vehicle images
   * Added luxurious Range Rover on Irish countryside road
