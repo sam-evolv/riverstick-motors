@@ -10,6 +10,13 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+### July 17, 2025
+- Added Range Rover image to hero slideshow:
+  * Expanded slideshow to 5 professional vehicle images
+  * Added luxurious Range Rover on Irish countryside road
+  * Maintains same smooth fade transitions and timing
+  * Showcases diverse vehicle types relevant to testing services
+
 ### July 16, 2025
 - Updated booking modal with functional RSA booking portal links:
   * LCV button now links directly to https://operator.cvrt.ie/Test/BookPublicLGVTest?CVRTID=120&type=LGV
@@ -55,8 +62,8 @@ Preferred communication style: Simple, everyday language.
   * Responsive design: side-by-side on desktop, stacked vertically on mobile
   * Maintains accessibility with proper focus states and tab navigation
 - Implemented hero image slideshow:
-  * Replaced static hero image with beautiful 4-image slideshow
-  * Professional truck/van photography: golden hour truck, motorway truck, adventure van, Riverstick Motors evening truck
+  * Replaced static hero image with beautiful 5-image slideshow
+  * Professional vehicle photography: golden hour truck, motorway truck, adventure van, Riverstick Motors evening truck, Range Rover countryside
   * Smooth fade transitions (1.5s duration) every 4 seconds
   * Maintains exact image dimensions (400x300px desktop, responsive scaling)
   * Non-imposing design that enhances visual appeal without affecting layout
