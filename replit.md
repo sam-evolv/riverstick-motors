@@ -11,6 +11,13 @@ Preferred communication style: Simple, everyday language.
 ## Recent Changes
 
 ### July 17, 2025
+- Updated 'About Riverstick Motors' section with accurate business highlights:
+  * Replaced content with 43 years of experience (founded 1968, testing since 1982)
+  * Updated statistics: 500,000+ vehicles tested, 7,043 in 2024, founded 1968
+  * Removed outdated pass rate reference and 2005 CVR certification
+  * Updated heritage timeline to reflect accurate milestones
+  * Maintained professional styling with 4-stat grid layout (responsive: 4 desktop, 2 tablet, 1 mobile)
+  * Streamlined content to focus on trust, experience, and current achievements
 - Updated 'Our Testing Services' section with comprehensive 6-service offering:
   * Expanded from 4 to 6 services in professional 3x2 grid layout
   * Added NSAI Approved ATC Centre service with award icon
