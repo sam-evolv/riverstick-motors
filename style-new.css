@@ -661,7 +661,8 @@ section {
 }
 
 .about-stats {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -1355,7 +1356,7 @@ section {
     }
     
     .about-stats {
-        flex-direction: column;
+        grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }
     
