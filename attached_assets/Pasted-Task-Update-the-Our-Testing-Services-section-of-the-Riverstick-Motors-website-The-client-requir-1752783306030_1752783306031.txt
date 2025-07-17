@@ -1,0 +1,45 @@
+Task:
+Update the 'Our Testing Services' section of the Riverstick Motors website. The client requires all 7 core services listed below to be presented clearly, without disrupting the symmetrical grid layout. Use the existing service box style (dark burgundy background with gold icons and titles) and maintain two rows of 3 service boxes for visual symmetry.
+
+Services to include:
+1. CVR Testing (LCV and HCV) – Keep existing box, no change required.
+2. NSAI Approved ATC Centre – Create a new service box for this.
+3. Declaration of Conversion of Vehicles – Keep existing box.
+4. SQI & Engineer’s Reports – COMBINE:
+   - SQI Engineer’s Reporting (already exists)
+   - Modification Reports (new)
+   Title the box: “SQI & Modification Reports”
+   Update the description to include both certification and modification reporting.
+5. Tachograph Calibration – Keep existing box.
+6. Road Speed Limiter Calibration & Repairs – Create a new service box for this.
+
+Style Requirements:
+- Match all new boxes visually to the existing ones (same font, icons, colour scheme).
+- Place boxes in a responsive 3x2 grid (two rows of three).
+- Ensure even spacing, alignment, and mobile responsiveness.
+- Icons: Use new icons that are consistent with existing style (rounded gold circle background).
+
+Box Titles and Suggested Descriptions:
+
+1. CVR Testing  
+Certified CVR testing for Light (LCV) and Heavy (HCV) Commercial Vehicles, ensuring RSA compliance and fast turnaround times.
+
+2. NSAI Approved ATC Centre  
+Official NSAI-certified Approved Test Centre (ATC) providing certified vehicle testing and compliance services to national standards.
+
+3. Declaration of Conversion of Vehicles  
+Complete assistance with vehicle conversions, documentation, and inspection to meet RSA and legal compliance.
+
+4. SQI & Modification Reports  
+SQI-certified inspections, safety reports, and official modification certifications for converted or altered vehicles.
+
+5. Tachograph Calibration  
+Expert calibration and repairs of digital and analogue tachographs for commercial vehicles.
+
+6. Road Speed Limiter Calibration & Repairs  
+Specialised calibration and repairs of road speed limiters to meet safety regulations and enhance vehicle compliance.
+
+Do not alter other sections of the page.
+Do not change the heading or intro text above the service boxes.
+Ensure layout and flow remain professional and symmetrical across all screen sizes.
+
