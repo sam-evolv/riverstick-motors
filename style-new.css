@@ -686,6 +686,12 @@ section {
     font-size: 0.9rem;
 }
 
+.stat-label small {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    line-height: 1.2;
+}
+
 .about-logo-image {
     width: 300px;
     height: 250px;
