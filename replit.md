@@ -12,8 +12,8 @@ Preferred communication style: Simple, everyday language.
 
 ### July 17, 2025
 - Updated 'About Riverstick Motors' section with accurate business highlights:
-  * Updated content to clarify business history: Founded 1968 as garage, CVR testing since 1982
-  * Updated statistics: 57 years experience, 500,000+ vehicles tested, 7,043 in 2024, founded 1968
+  * Updated content to clearly distinguish 57 years industry experience vs 43 years CVR testing experience
+  * Updated statistics: 57+ years industry experience, 43+ years CVR testing experience, 500,000+ vehicles tested, 7,043 in 2024
   * Removed outdated pass rate reference and 2005 CVR certification
   * Updated heritage timeline to reflect accurate milestones: 1968 Founded as Garage, 1980 New Bay Added, 1982 CVR Testing Begins, 2024 500,000+ Vehicles Tested
   * Maintained professional styling with 4-stat grid layout (responsive: 4 desktop, 2 tablet, 1 mobile)
