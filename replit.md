@@ -126,7 +126,7 @@ Preferred communication style: Simple, everyday language.
 - **Booking**: Appointment scheduling functionality
 
 ### Visual Elements
-- **Logo Integration**: Custom logo (`new-logo.png`) with proper branding
+- **Logo Integration**: Custom logo (`riverstick-motors-new-logo.png`) with proper branding
 - **Professional Design**: Automotive service industry styling
 - **Interactive Elements**: Hover effects and smooth transitions
 
