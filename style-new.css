@@ -844,21 +844,42 @@ section {
     font-weight: 600;
 }
 
+.timeline-box {
+    border: 1px solid #D4AF37;
+    padding: 40px 20px;
+    margin: 40px auto;
+    border-radius: 8px;
+    background-color: transparent;
+    position: relative;
+    max-width: 1000px;
+}
+
 .timeline-strip {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
     gap: 1rem;
+    position: relative;
+    z-index: 2;
+    padding-bottom: 60px;
 }
 
 .timeline-item {
-    color: #D4AF37;
-    font-weight: 500;
-    font-size: 0.9rem;
+    flex: 1;
+    text-align: center;
+    position: relative;
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.6s ease;
+}
+
+.timeline-text {
+    color: #D4AF37;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    display: inline-block;
 }
 
 .timeline-item.visible {
@@ -870,6 +891,81 @@ section {
 .timeline-item:nth-child(2) { transition-delay: 0.2s; }
 .timeline-item:nth-child(3) { transition-delay: 0.3s; }
 .timeline-item:nth-child(4) { transition-delay: 0.4s; }
+
+/* Timeline Connector Lines */
+.timeline-connector {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    height: 40px;
+    z-index: 1;
+}
+
+.horizontal-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #D4AF37;
+}
+
+.vertical-line {
+    position: absolute;
+    bottom: 0;
+    width: 2px;
+    height: 30px;
+    background-color: #D4AF37;
+}
+
+.vertical-line-1 {
+    left: 12.5%;
+    transform: translateX(-50%);
+}
+
+.vertical-line-2 {
+    left: 37.5%;
+    transform: translateX(-50%);
+}
+
+.vertical-line-3 {
+    left: 62.5%;
+    transform: translateX(-50%);
+}
+
+.vertical-line-4 {
+    left: 87.5%;
+    transform: translateX(-50%);
+}
+
+/* Responsive Timeline */
+@media (max-width: 768px) {
+    .timeline-box {
+        padding: 30px 15px;
+        margin: 30px auto;
+    }
+    
+    .timeline-strip {
+        flex-direction: column;
+        gap: 2rem;
+        padding-bottom: 0;
+    }
+    
+    .timeline-item {
+        flex: none;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .timeline-text {
+        font-size: 1rem;
+    }
+    
+    .timeline-connector {
+        display: none;
+    }
+}
 
 /* Footer */
 .footer {
