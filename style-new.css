@@ -950,6 +950,16 @@ section {
     margin-bottom: 0.5rem;
 }
 
+.footer-logo {
+    max-width: 200px;
+    max-height: 120px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+}
+
 .footer-bottom {
     border-top: 1px solid rgba(212, 175, 55, 0.2);
     padding-top: 1rem;
