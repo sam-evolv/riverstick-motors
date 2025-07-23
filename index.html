@@ -327,11 +327,6 @@
                 <div class="timeline-item">1982 – CVR Testing Begins</div>
                 <div class="timeline-item">2024 – 500,000+ Vehicles Tested</div>
             </div>
-            
-            <!-- Heritage Logo -->
-            <div class="heritage-logo-container">
-                <img src="riverstick-motors-heritage-logo.png" alt="Riverstick Motors Heritage" class="heritage-logo">
-            </div>
         </div>
     </section>
 
@@ -571,17 +566,9 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const timelineItems = entry.target.querySelectorAll('.timeline-item');
-                    const heritageLogo = entry.target.querySelector('.heritage-logo');
-                    
                     timelineItems.forEach(item => {
                         item.classList.add('visible');
                     });
-                    
-                    if (heritageLogo) {
-                        setTimeout(() => {
-                            heritageLogo.classList.add('visible');
-                        }, 800); // Delay logo animation after timeline items
-                    }
                 }
             });
         }, { threshold: 0.3 });
