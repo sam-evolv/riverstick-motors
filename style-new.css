@@ -907,8 +907,8 @@ section {
 }
 
 .footer-heritage-logo {
-    max-width: 80px;
-    max-height: 80px;
+    max-width: 50px;
+    max-height: 50px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -1555,8 +1555,8 @@ section {
     }
     
     .footer-heritage-logo {
-        max-width: 60px;
-        max-height: 60px;
+        max-width: 40px;
+        max-height: 40px;
     }
     
     /* Footer Mobile */
