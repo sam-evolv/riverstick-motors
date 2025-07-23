@@ -871,6 +871,28 @@ section {
 .timeline-item:nth-child(3) { transition-delay: 0.3s; }
 .timeline-item:nth-child(4) { transition-delay: 0.4s; }
 
+/* Heritage Logo */
+.heritage-logo-container {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.heritage-logo {
+    max-width: 250px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.heritage-logo.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Footer */
 .footer {
     background-color: var(--primary-color);
@@ -880,9 +902,12 @@ section {
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
     margin-bottom: 2rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .footer-section h3,
@@ -1500,6 +1525,11 @@ section {
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+    
+    .heritage-logo {
+        max-width: 200px;
+        max-height: 150px;
     }
     
     /* Footer Mobile */
