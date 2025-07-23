@@ -928,6 +928,12 @@ section {
     line-height: 1.4;
 }
 
+/* Ensure milestones are visible by default */
+.milestone {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* Footer */
 .footer {
     background-color: var(--primary-color);
