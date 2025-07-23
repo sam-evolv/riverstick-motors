@@ -338,6 +338,12 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
+            <!-- Central Heritage Logo -->
+            <div class="footer-logo-section">
+                <img src="riverstick-motors-heritage-logo.png" alt="Riverstick Motors Heritage" class="footer-heritage-logo">
+            </div>
+            
+            <!-- Symmetrical Footer Content -->
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Contact Information</h4>
@@ -545,6 +551,20 @@
         document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
             observer.observe(el);
         });
+
+        // Footer Heritage Logo Animation
+        const footerLogoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const footerLogo = document.querySelector('.footer-heritage-logo');
+        if (footerLogo) {
+            footerLogoObserver.observe(footerLogo);
+        }
 
         // Timeline animation observer
         const timelineObserver = new IntersectionObserver((entries) => {
