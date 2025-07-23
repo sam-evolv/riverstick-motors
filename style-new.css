@@ -892,74 +892,15 @@ section {
 .timeline-item:nth-child(3) { transition-delay: 0.3s; }
 .timeline-item:nth-child(4) { transition-delay: 0.4s; }
 
-/* Timeline Connector Lines - Stepped Pattern exactly like sketch */
-.timeline-connector {
+/* Timeline SVG for stepped connecting lines */
+.timeline-svg {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    height: 40px;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    width: 100%;
     z-index: 1;
-}
-
-/* Remove the base horizontal line - we'll create stepped segments instead */
-.horizontal-line {
-    display: none;
-}
-
-/* Vertical connectors extending up to each milestone */
-.vertical-line {
-    position: absolute;
-    bottom: 2px;
-    width: 2px;
-    height: 30px;
-    background-color: #D4AF37;
-}
-
-.vertical-line-1 {
-    left: 12.5%;
-    transform: translateX(-50%);
-}
-
-.vertical-line-2 {
-    left: 37.5%;
-    transform: translateX(-50%);
-}
-
-.vertical-line-3 {
-    left: 62.5%;
-    transform: translateX(-50%);
-}
-
-.vertical-line-4 {
-    left: 87.5%;
-    transform: translateX(-50%);
-}
-
-/* Stepped horizontal segments connecting milestones exactly like sketch */
-.horizontal-segment {
-    position: absolute;
-    bottom: 2px;
-    height: 2px;
-    background-color: #D4AF37;
-}
-
-/* First segment: from first milestone to second */
-.segment-1 {
-    left: 12.5%;
-    width: 25%;
-}
-
-/* Second segment: from second milestone to third */
-.segment-2 {
-    left: 37.5%;
-    width: 25%;
-}
-
-/* Third segment: from third milestone to fourth */
-.segment-3 {
-    left: 62.5%;
-    width: 25%;
 }
 
 /* Responsive Timeline */
@@ -985,7 +926,7 @@ section {
         font-size: 1rem;
     }
     
-    .timeline-connector {
+    .timeline-svg {
         display: none;
     }
 }
