@@ -14,6 +14,9 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style-new.css">
 </head>
@@ -321,11 +324,40 @@
     <section class="heritage-timeline">
         <div class="timeline-container">
             <h3 class="timeline-title">Our Heritage</h3>
-            <div class="timeline-strip">
-                <div class="timeline-item">1968 – Founded as Garage</div>
-                <div class="timeline-item">1980 – New Bay Added</div>
-                <div class="timeline-item">1982 – CVR Testing Begins</div>
-                <div class="timeline-item">2024 – 500,000+ Vehicles Tested</div>
+            <div class="timeline-wrapper">
+                <!-- Horizontal Timeline Line -->
+                <div class="timeline-line"></div>
+                
+                <!-- Timeline Milestones -->
+                <div class="timeline-milestones">
+                    <div class="milestone" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                        <div class="milestone-marker"></div>
+                        <div class="milestone-icon"><i class="fas fa-tools"></i></div>
+                        <div class="milestone-year">1968</div>
+                        <div class="milestone-description">Founded as Garage</div>
+                    </div>
+                    
+                    <div class="milestone" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                        <div class="milestone-marker"></div>
+                        <div class="milestone-icon"><i class="fas fa-plus"></i></div>
+                        <div class="milestone-year">1980</div>
+                        <div class="milestone-description">New Bay Added</div>
+                    </div>
+                    
+                    <div class="milestone" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                        <div class="milestone-marker"></div>
+                        <div class="milestone-icon"><i class="fas fa-clipboard-check"></i></div>
+                        <div class="milestone-year">1982</div>
+                        <div class="milestone-description">CVR Testing Begins</div>
+                    </div>
+                    
+                    <div class="milestone" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                        <div class="milestone-marker"></div>
+                        <div class="milestone-icon"><i class="fas fa-car"></i></div>
+                        <div class="milestone-year">2024</div>
+                        <div class="milestone-description">500,000+ Vehicles Tested</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -333,12 +365,6 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <!-- Central Heritage Logo -->
-            <div class="footer-logo-section">
-                <img src="riverstick-motors-heritage-logo.png" alt="Riverstick Motors Heritage" class="footer-heritage-logo">
-            </div>
-            
-            <!-- Symmetrical Footer Content -->
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Contact Information</h4>
@@ -547,19 +573,7 @@
             observer.observe(el);
         });
 
-        // Footer Heritage Logo Animation
-        const footerLogoObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.5 });
 
-        const footerLogo = document.querySelector('.footer-heritage-logo');
-        if (footerLogo) {
-            footerLogoObserver.observe(footerLogo);
-        }
 
         // Timeline animation observer
         const timelineObserver = new IntersectionObserver((entries) => {
@@ -648,7 +662,18 @@
                 closeModal();
             }
         });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 50
+        });
     </script>
+    
+    <!-- AOS (Animate On Scroll) JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <!-- Booking Modal -->
 <div id="bookingModal" class="modal">
   <div class="modal-content">
