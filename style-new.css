@@ -878,8 +878,8 @@ section {
 }
 
 .heritage-logo {
-    max-width: 250px;
-    max-height: 200px;
+    max-width: 120px;
+    max-height: 120px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -898,6 +898,28 @@ section {
     background-color: var(--primary-color);
     color: #F5F1EC;
     padding: 3rem 0 1rem;
+}
+
+/* Footer Logo Section */
+.footer-logo-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.footer-heritage-logo {
+    max-width: 120px;
+    max-height: 120px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.footer-heritage-logo.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .footer-content {
@@ -1528,8 +1550,13 @@ section {
     }
     
     .heritage-logo {
-        max-width: 200px;
-        max-height: 150px;
+        max-width: 100px;
+        max-height: 100px;
+    }
+    
+    .footer-heritage-logo {
+        max-width: 100px;
+        max-height: 100px;
     }
     
     /* Footer Mobile */
