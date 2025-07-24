@@ -845,10 +845,8 @@ section {
 }
 
 .timeline-box {
-    border: 1px solid #D4AF37;
     padding: 40px 20px;
     margin: 40px auto;
-    border-radius: 8px;
     background-color: transparent;
     position: relative;
     max-width: 1000px;
