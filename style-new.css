@@ -804,14 +804,14 @@ section {
 }
 
 .contact-card a {
-    color: var(--secondary-color);
+    color: #F5F1EC;
     text-decoration: none;
     font-weight: 500;
     transition: var(--transition);
 }
 
 .contact-card a:hover {
-    color: #F5F1EC;
+    color: var(--secondary-color);
     text-decoration: underline;
 }
 
