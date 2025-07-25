@@ -815,6 +815,42 @@ section {
     text-decoration: underline;
 }
 
+/* Email text wrapping */
+.email-text {
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Clickable card styling */
+.contact-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    outline: none;
+}
+
+.contact-card-link:hover,
+.contact-card-link:focus,
+.contact-card-link:active {
+    text-decoration: none;
+    outline: none;
+    color: inherit;
+}
+
+.clickable-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-card-link:hover .clickable-card {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    border-color: var(--secondary-color);
+}
+
 /* Section Divider */
 .section-divider {
     height: 2px;
