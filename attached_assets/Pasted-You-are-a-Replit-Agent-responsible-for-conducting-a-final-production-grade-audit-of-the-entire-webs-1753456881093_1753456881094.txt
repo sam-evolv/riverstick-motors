@@ -1,0 +1,71 @@
+You are a Replit Agent responsible for conducting a final, production-grade audit of the entire website project.
+
+Your job is to check every component, layout, button, animation, image, link, font, and responsive breakpoint to ensure the site performs flawlessly on desktop, tablet, and mobile devices — without changing any branding, text, or structure.
+
+Perform the following actions step-by-step without modifying content or style unless a functional or visual inconsistency is found.
+
+---
+
+✅ 1. DEVICE & BROWSER RESPONSIVENESS
+
+- Simulate the site across all standard screen widths (mobile: 375px, tablet: 768px, laptop: 1024px, desktop: 1440px).
+- Ensure layout, padding, and alignment of every section (header, hero, buttons, contact, footer) scale correctly.
+- All interactive elements must remain tappable and visually clean on mobile.
+- No content should overflow or become unreadable on smaller screens.
+- Buttons and icons should not shrink or overlap.
+
+✅ 2. BUTTON & LINK FUNCTIONALITY
+
+- Test all clickable buttons (e.g. 'Book Test', 'Call', 'Riverstick Industries', 'Contact') on all devices.
+- Ensure that:
+  - The entire clickable box is responsive (not just the text inside).
+  - No highlight/underline effects appear if undesired.
+  - External links open in a new tab if appropriate.
+  - Scroll-to sections work smoothly (no jump glitches).
+
+✅ 3. HERO SECTION VIDEO & IMAGE HANDLING
+
+- If using a video in the hero, check:
+  - That it autoplays and loops on desktop.
+  - That a fallback image appears on mobile (or a mobile-optimised video is used).
+  - That video doesn’t delay load time or cause layout shift.
+
+✅ 4. ICONS, TEXT, AND VISUAL CONSISTENCY
+
+- Check all icons (FontAwesome or inline SVGs) are rendering consistently and are aligned visually across devices.
+- Make sure email addresses, phone numbers, and long text strings wrap properly and stay inside their containers.
+- Ensure that any text reflows smoothly on resize (no cut-off or excessive spacing).
+- Confirm that the Riverstick Industries icon matches in both header and contact box.
+
+✅ 5. PERFORMANCE CHECK
+
+- Compress all images to WebP or JPEG under 300kb.
+- Ensure no images or videos are blocking page render or are unoptimised.
+- Run a Lighthouse-style performance check and flag any:
+  - Render-blocking scripts
+  - Large layout shifts (CLS)
+  - High Time to First Paint (TTFP)
+
+✅ 6. HTML / CSS / JS CLEANLINESS
+
+- Remove or comment out any unused classes, test buttons, or commented-out HTML.
+- Make sure all `<a>` tags have meaningful `href` values and don’t throw 404s.
+- Check that hover and transition effects are smooth and consistent.
+
+✅ 7. ACCESSIBILITY
+
+- Add `alt` tags to all images and icons.
+- Ensure button labels and link texts are screen reader friendly.
+- Ensure high colour contrast between text and background, especially in footer and icons.
+
+✅ 8. BACKUP AND DEPLOY READINESS
+
+- Create a full `.zip` export of the current site and store it as `/final-export.zip`.
+- Prepare for deployment via Replit Static or export instructions for Netlify (if needed).
+- Ensure favicon is properly linked in the `<head>`, and `<meta name="viewport">` is present and correct.
+
+---
+
+Do not change content, branding, or text unless a functional issue is found. Maintain the visual style as-is unless explicitly broken.
+
+Output a clean report of fixes applied or no changes needed. Mark this audit as PASSING only if the site is truly launch-ready across all devices.
