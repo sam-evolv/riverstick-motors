@@ -1,0 +1,112 @@
+Here is your complete **“Final Clean & Optimise Before Launch” Replit Agent Prompt** for Riverstick Motors and Riverstick Industries — ready to run immediately before publishing.
+
+---
+
+## ✅ REPLIT AGENT PROMPT – FINAL CLEAN & OPTIMISE FOR LAUNCH
+
+```
+You are a front-end QA and optimisation engineer preparing the Riverstick Motors and Riverstick Industries websites for public launch. Do not change any visible branding, structure, or layout unless required to fix a bug. Apply the following clean-up and optimisation steps across both projects:
+
+---
+
+✅ RESPONSIVENESS (ALL DEVICES)
+- Audit and fix layout issues for common screen sizes: iPhone (portrait), Android, iPad (portrait and landscape), and desktop.
+- Fix any white space, overlapping elements, buttons off-screen, or non-tappable elements.
+- Ensure all containers are using responsive widths (e.g. max-width, % or vw), not hardcoded pixels.
+
+✅ PERFORMANCE OPTIMISATION
+- Compress all `.jpg`, `.png`, and `.webp` images using lossless or 80% lossy compression.
+- If a background video is used, compress it to under 3MB, ideally convert to `.webm`, and preload with a `poster` attribute fallback image.
+- Inline critical CSS for above-the-fold content.
+- Defer all non-essential JavaScript and mark it with `defer` or `async`.
+- Add `font-display: swap` to all custom fonts in CSS.
+- Preload any Google or local fonts using `<link rel="preload">`.
+
+✅ SEO & METADATA
+In the `<head>` of each page:
+- Add this meta tag to enable indexing: `<meta name="robots" content="index, follow">`
+- Add relevant SEO tags:
+```
+
+  <title>Riverstick Motors | CVR Testing in Cork</title>
+  <meta name="description" content="Riverstick Motors offers certified CVR testing and commercial vehicle servicing in Cork. Book online today.">
+  <meta property="og:title" content="Riverstick Motors | CVR Testing Cork">
+  <meta property="og:description" content="Book your CVR test or commercial vehicle checkup today with Riverstick Motors, Cork.">
+  <meta property="og:image" content="/og-thumbnail.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.riverstickmotors.ie">
+  ```
+- For Riverstick Industries, adjust title and meta description accordingly.
+- Ensure a favicon is linked in the `<head>`.
+
+✅ TECHNICAL FILES
+
+* Add a `robots.txt` file at root with:
+
+  ```
+  User-agent: *
+  Allow: /
+
+  Sitemap: https://www.riverstickmotors.ie/sitemap.xml
+  ```
+* Add a `sitemap.xml` file with the current page URLs (homepage, contact, about, etc.)
+* Create a basic `404.html` page with a helpful message and a button to return to homepage.
+
+✅ ACCESSIBILITY & UX
+
+* Ensure all interactive elements (buttons, links, nav items) are keyboard focusable and accessible.
+* Fix any layout shift issues (CLS > 0.1).
+* Add meaningful `alt` text to all images for screen readers.
+* Ensure logical tab order and correct ARIA labels if applicable.
+* Add hover and focus styles for all interactive elements.
+
+✅ NAVIGATION & FUNCTIONALITY
+
+* Ensure navigation is sticky (if needed), works on scroll, and collapses properly on mobile.
+* Confirm all internal links and buttons are working correctly.
+* If the RSA booking button is not functional yet, add a placeholder that says “Coming Soon” or links to a contact form.
+* Ensure contact forms submit correctly or include a `mailto:` fallback if not using a backend.
+
+✅ NETLIFY DEPLOYMENT READINESS
+
+* Add a `_headers` file to enforce:
+
+  ```
+  /* 
+    X-Frame-Options: DENY
+    X-Content-Type-Options: nosniff
+    Referrer-Policy: strict-origin-when-cross-origin
+    Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'
+  ```
+* Ensure HTTPS is enforced and canonical URL matches live domain.
+* Prepare the site folder for Netlify drag-and-drop or GitHub deployment.
+
+✅ BACKUP & HANDOVER
+
+* Create a ZIP of the final working version.
+* Ensure project is pushed to GitHub or prepared for GitHub connection.
+* Remove any commented-out dev code, lorem ipsum, or placeholder blocks.
+* Ensure all filenames are clean, lowercase, and properly structured for production.
+
+---
+
+Only output final optimised code. Do not use placeholder content. Prioritise stability, polish, and mobile performance.
+
+```
+
+---
+
+## ✅ Next Step
+After running this, preview the sites one last time on mobile and desktop. Once confirmed:
+
+1. Upload the zipped folder to Netlify.
+2. Connect the domains.
+3. Send the nameservers to the domain host.
+
+Let me know if you'd like me to:
+- Generate the `sitemap.xml` and `robots.txt` files for you
+- Review your hero video for compression
+- Prepare your Netlify `_headers` and `_redirects` files
+
+All optional — but they’ll give the launch a final polish.
+```
