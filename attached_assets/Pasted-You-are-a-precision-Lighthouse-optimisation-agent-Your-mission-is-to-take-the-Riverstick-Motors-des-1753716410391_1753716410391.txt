@@ -1,0 +1,116 @@
+You are a precision Lighthouse optimisation agent. Your mission is to take the Riverstick Motors desktop site from near-perfect (88–93 scores) to **100 across all categories** without changing layout, branding, or user experience.
+
+Focus on resolving the final issues in:
+
+- ✅ SEO (currently 88)
+- ✅ Best Practices (currently 69)
+- ✅ Performance (currently 93)
+- ✅ Accessibility (currently 93)
+
+---
+
+## 🔍 SEO (88 → 100)
+
+### 1. **Fix Indexing Block**
+- Confirm `<meta name="robots" content="noindex">` is **removed**.
+- Confirm `robots.txt` does **not** disallow `/`.
+- Ensure no `X-Robots-Tag: noindex` is served in headers.
+
+### 2. **Verify Meta Tags**
+```html
+<title>Riverstick Motors | CVR Testing in Cork</title>
+<meta name="description" content="Book your CVR test at Riverstick Motors. Fast, trusted testing in Cork.">
+<link rel="canonical" href="https://www.riverstickmotors.ie/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+3. Add JSON-LD Structured Data
+html
+Copy
+Edit
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Riverstick Motors",
+  "url": "https://www.riverstickmotors.ie",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Riverstick",
+    "addressRegion": "Cork",
+    "addressCountry": "IE"
+  },
+  "telephone": "+353 87 123 4567"
+}
+</script>
+4. Fix Crawlable Link Warnings
+All <a> tags must have real, valid href="".
+
+Avoid empty anchors (<a href="#">) or JS-only onclick handlers.
+
+🧱 Best Practices (69 → 100)
+1. Fix Console Errors
+Open Chrome DevTools → Console → eliminate all errors and warnings.
+
+Look for missing assets, deprecated APIs, or mixed content issues.
+
+2. Add Security Headers
+If deploying on Netlify, set in _headers:
+
+text
+Copy
+Edit
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';
+3. Add COOP / COEP and Trusted Types
+html
+Copy
+Edit
+<meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+<meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp">
+<meta http-equiv="Content-Security-Policy" content="require-trusted-types-for 'script'">
+⚡ Performance (93 → 100)
+1. Optimise Image Delivery
+Convert all hero and large images to .webp.
+
+Add loading="lazy" and ensure width and height attributes are defined.
+
+Preload the LCP image (likely the hero image):
+
+html
+Copy
+Edit
+<link rel="preload" as="image" href="/path-to-hero.webp" type="image/webp">
+2. Minify & Purge CSS
+Purge 16 KiB of unused CSS.
+
+Fully minify global stylesheets and inline styles.
+
+3. Reduce Network Payload
+Ensure all JS/CSS are served gzipped or Brotli.
+
+Avoid unused third-party libraries.
+
+Review and inline critical CSS.
+
+4. Set Long-Term Caching
+text
+Copy
+Edit
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+♿ Accessibility (93 → 100)
+1. Fix Contrast Ratio Warnings
+Use a11y contrast checker to fix low-contrast elements.
+
+Ensure text over images meets WCAG 2.1 AA (4.5:1 ratio minimum).
+
+2. Confirm Input Labels
+All form elements must have associated <label for=""> with matching id.
+
