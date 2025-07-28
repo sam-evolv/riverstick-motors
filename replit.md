@@ -10,7 +10,12 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
-### July 28, 2025 - COMPREHENSIVE RESPONSIVE OPTIMIZATION (ENTERPRISE READY)
+### July 28, 2025 - SLIDESHOW MOBILE FIX + COMPREHENSIVE RESPONSIVE OPTIMIZATION (ENTERPRISE READY)
+- **CRITICAL SLIDESHOW FIX**: Resolved image clipping on iPhone SE/12 mini - images now display fully
+- **MOBILE IMAGE OPTIMIZATION**: Added object-fit: contain with max-height constraints for small screens
+- **RESPONSIVE SLIDESHOW**: Aspect-ratio 4:3 maintained with min-height fallbacks for all devices
+- **VIEWPORT SPECIFIC**: Custom media queries for 320px, 375px, 480px screen widths
+- **CONTAINER RESPONSIVENESS**: Enhanced hero slideshow with fluid width and proper padding
 - **MOBILE NAVIGATION FIX**: Resolved critical dropdown menu issue - now works at all scroll positions
 - **RESPONSIVE TYPOGRAPHY**: Implemented clamp() functions for fluid text scaling across devices
 - **TOUCH OPTIMIZATION**: All buttons now meet 44px minimum tap target requirements  
