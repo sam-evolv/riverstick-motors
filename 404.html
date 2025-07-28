@@ -3,56 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found - Riverstick Motors CVR Testing Centre</title>
+    <title>Page Not Found - Riverstick Motors</title>
     <link rel="icon" type="image/png" href="watermark-r.png">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #4B0C0C;
-            color: #F5F1EC;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Arial', sans-serif; 
+            background: linear-gradient(135deg, #4B0C0C 0%, #8B1538 100%);
+            color: white;
             min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
         }
-        .container {
-            max-width: 500px;
-            padding: 2rem;
-        }
-        h1 {
-            color: #D4AF37;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-        .btn {
+        .container { max-width: 600px; padding: 2rem; }
+        .error-code { font-size: 8rem; font-weight: bold; color: #D4AF37; margin-bottom: 1rem; }
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        p { font-size: 1.2rem; margin-bottom: 2rem; line-height: 1.6; }
+        .btn { 
             display: inline-block;
-            padding: 12px 24px;
-            background-color: #D4AF37;
+            background: #D4AF37;
             color: #4B0C0C;
+            padding: 12px 30px;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: 500;
+            border-radius: 5px;
+            font-weight: bold;
             transition: all 0.3s ease;
         }
-        .btn:hover {
-            background-color: #B8941F;
-            transform: translateY(-2px);
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); }
+        @media (max-width: 768px) {
+            .error-code { font-size: 6rem; }
+            h1 { font-size: 2rem; }
+            p { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>404</h1>
-        <p>Sorry, the page you're looking for doesn't exist.</p>
-        <p>Let's get you back to testing your vehicle safely.</p>
+        <div class="error-code">404</div>
+        <h1>Page Not Found</h1>
+        <p>Sorry, the page you're looking for doesn't exist. It might have been moved, deleted, or you entered the wrong URL.</p>
         <a href="/" class="btn">Return to Homepage</a>
     </div>
 </body>
