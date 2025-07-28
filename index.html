@@ -16,7 +16,8 @@
     <meta property="og:url" content="https://www.riverstickmotors.ie">
     
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src * data:;">
+    <meta http-equiv="Content-Security-Policy" content="require-trusted-types-for 'script'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src * data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://fonts.googleapis.com;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
@@ -27,19 +28,28 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="watermark-r.png">
     
-    <!-- Preload Critical Fonts -->
+    <!-- Preload Critical Resources -->
     <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="truck-golden-hour.webp" as="image">
+    <link rel="preload" href="riverstick-motors-new-logo.png" as="image">
     
     <!-- Google Fonts with font-display swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Critical CSS Inline -->
+    <style>
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Poppins',sans-serif;line-height:1.6;color:#4B0C0C;background-color:#FFFFFF;overflow-x:hidden;transition:all 0.3s ease}:root{--primary-color:#4B0C0C;--secondary-color:#D4AF37;--bg-color:#FFFFFF;--section-bg:#F8F8F8;--card-bg:#FFFFFF;--text-primary:#4B0C0C;--text-secondary:#666666;--text-light:#4B0C0C;--shadow:0 2px 15px rgba(0,0,0,0.1);--shadow-hover:0 5px 25px rgba(0,0,0,0.15);--border-radius:8px;--transition:all 0.3s ease}.header{position:fixed;top:0;left:0;right:0;background:rgba(75,12,12,0.95);backdrop-filter:blur(10px);z-index:1000;padding:15px 0;transition:all 0.3s ease}.nav{max-width:1200px;margin:0 auto;padding:0 20px}.nav-container{display:flex;justify-content:space-between;align-items:center}.logo-image{height:60px;width:auto}.hero{min-height:100vh;display:flex;align-items:center;background:var(--bg-color);padding:100px 0 50px}.hero-content{flex:1;max-width:50%}.hero-title{font-size:3rem;font-weight:700;color:var(--secondary-color);margin-bottom:1.5rem;line-height:1.2}.hero-subtitle{font-size:1.2rem;color:var(--text-secondary);margin-bottom:2rem}.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:12px 24px;border:none;border-radius:var(--border-radius);text-decoration:none;font-weight:500;cursor:pointer;transition:var(--transition)}.btn-primary{background:var(--primary-color);color:#fff}.btn-secondary{background:var(--secondary-color);color:#fff}.btn-large{padding:15px 30px;font-size:1.1rem}.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}.hero-image{flex:1;max-width:50%}.hero-slideshow{position:relative;width:100%;height:300px}.slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 1.5s ease-in-out}.slide.active{opacity:1}.hero-image-photo{width:100%;height:100%;object-fit:cover;border-radius:var(--border-radius);aspect-ratio:4/3}
+    </style>
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style-new.min.css">
+    <!-- Non-critical CSS -->
+    <link rel="stylesheet" href="style-new.min.css" media="print" onload="this.media='all'; this.onload=null;">
+    <noscript><link rel="stylesheet" href="style-new.min.css"></noscript>
+    
+    <!-- Font Awesome Deferred -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -77,7 +87,7 @@
             <div class="nav-container">
                 <div class="nav-logo">
                     <a href="#home" class="logo-link">
-                        <img src="riverstick-motors-new-logo.png" alt="Riverstick Motors CVR Testing Centre" class="logo-image">
+                        <img src="riverstick-motors-new-logo.png" alt="Riverstick Motors CVR Testing Centre" class="logo-image" width="120" height="60" loading="eager">
                     </a>
                 </div>
                 
@@ -458,7 +468,7 @@
                 <div class="evolvai-attribution">
                     <a href="https://evolvai.ie" target="_blank" class="evolvai-link">
                         Designed & Developed by EvolvAi
-                        <img src="evolvai-logo.png" alt="EvolvAi Logo" class="evolvai-logo" />
+                        <img src="evolvai-logo.png" alt="EvolvAi Logo" class="evolvai-logo" width="20" height="20" loading="lazy" style="aspect-ratio: 1;" />
                     </a>
                 </div>
             </div>
@@ -480,7 +490,7 @@
             <div class="booking-options">
                 <div class="booking-option">
                     <div class="vehicle-image">
-                        <img src="lcv-van-final.webp" alt="Light Commercial Vehicle" class="vehicle-img" loading="lazy" width="200" height="150">
+                        <img src="lcv-van-final.webp" alt="Light Commercial Vehicle" class="vehicle-img" loading="lazy" width="200" height="150" style="aspect-ratio: 4/3;">
                     </div>
                     <h3>LCV</h3>
                     <p>Light Commercial Vehicle up to 3.5 tonnes</p>
@@ -492,7 +502,7 @@
                 
                 <div class="booking-option">
                     <div class="vehicle-image">
-                        <img src="hcv-truck-white.webp" alt="Heavy Commercial Vehicle" class="vehicle-img" loading="lazy" width="200" height="150">
+                        <img src="hcv-truck-white.webp" alt="Heavy Commercial Vehicle" class="vehicle-img" loading="lazy" width="200" height="150" style="aspect-ratio: 4/3;">
                     </div>
                     <h3>HCV</h3>
                     <p>Heavy Commercial Vehicle over 3.5 tonnes</p>
