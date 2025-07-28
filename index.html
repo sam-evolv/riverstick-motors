@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riverstick Motors CVR Testing Centre - Professional Vehicle Testing Services</title>
-    <meta name="description" content="Riverstick Motors offers CVR testing and vehicle servicing in Cork. Book your test today.">
+    <title>CVR Testing Cork | Riverstick Motors Vehicle Testing</title>
+    <meta name="description" content="CVR test centre in Riverstick, Cork. Book your vehicle inspection online with Riverstick Motors.">
     <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.riverstickmotors.ie/">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Riverstick Motors | CVR Testing Cork">
@@ -15,10 +16,13 @@
     <meta property="og:url" content="https://www.riverstickmotors.ie">
     
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src * data:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src * data:;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
-    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+    <meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="watermark-r.png">
@@ -36,6 +40,35 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style-new.min.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoRepair",
+      "name": "Riverstick Motors",
+      "url": "https://www.riverstickmotors.ie",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Riverstick",
+        "addressRegion": "Cork",
+        "addressCountry": "Ireland"
+      },
+      "telephone": "+353214771362",
+      "email": "reception@riverstickmotors.ie",
+      "openingHours": "Mo-Fr 09:00-17:30",
+      "description": "Professional CVR testing centre providing comprehensive vehicle inspection services in Cork, Ireland.",
+      "serviceArea": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 51.7520,
+          "longitude": -8.3877
+        },
+        "geoRadius": "50000"
+      }
+    }
+    </script>
 </head>
 <body>
     <!-- Sticky Header -->
@@ -69,7 +102,7 @@
                     <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
                         <i class="fas fa-moon" id="theme-icon"></i>
                     </button>
-                    <a href="javascript:void(0);" onclick="openModal()" class="btn btn-primary nav-cta">Book Now</a>
+                    <a href="#booking" onclick="openModal(); return false;" class="btn btn-primary nav-cta">Book Now</a>
                 </div>
             </div>
         </nav>
@@ -82,7 +115,7 @@
                 <h1 class="hero-title">Professional CVR Testing Services You Can Trust</h1>
                 <p class="hero-subtitle">Get your vehicle tested quickly and efficiently at Riverstick Motors CVR Testing Centre. Certified, reliable, and convenient testing services for all vehicle types.</p>
                 <div class="hero-cta">
-                    <a href="javascript:void(0);" onclick="openModal()" class="btn btn-primary btn-large">Book Your Test Today</a>
+                    <a href="#booking" onclick="openModal(); return false;" class="btn btn-primary btn-large">Book Your Test Today</a>
                     <a href="tel:+353214771362" class="btn btn-secondary btn-large">
                         <i class="fas fa-phone"></i> Call Now
                     </a>
