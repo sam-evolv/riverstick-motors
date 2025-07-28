@@ -30,7 +30,7 @@
     
     <!-- Preload Critical Resources -->
     <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="truck-golden-hour.webp" as="image">
+    <link rel="preload" href="truck-golden-hour.webp" as="image" type="image/webp">
     <link rel="preload" href="riverstick-motors-new-logo.png" as="image">
     
     <!-- Google Fonts with font-display swap -->
@@ -96,18 +96,15 @@
                     <span class="nav-toggle-icon"></span>
                 </button>
                 
-                <!-- Center Navigation menu -->
+                <!-- Navigation Menu -->
                 <div class="nav-center" id="nav-center">
-                    <ul class="nav-list">
-                        <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
-                        <li class="nav-item"><a href="#how-it-works" class="nav-link">How It Works</a></li>
-                        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-                    </ul>
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#how-it-works" class="nav-link">How It Works</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
                 </div>
                 
-                <!-- Right side controls -->
                 <div class="nav-menu" id="nav-menu">
                     <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
                         <i class="fas fa-moon" id="theme-icon"></i>
@@ -120,7 +117,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-container">
+        <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Professional CVR Testing Services You Can Trust</h1>
                 <p class="hero-subtitle">Get your vehicle tested quickly and efficiently at Riverstick Motors CVR Testing Centre. Certified, reliable, and convenient testing services for all vehicle types.</p>
@@ -221,85 +218,118 @@
                 <p class="section-subtitle">Simple steps to get your vehicle tested</p>
             </div>
             
-            <div class="process-flow">
-                <div class="process-step slide-in-left">
+            <div class="steps-grid">
+                <div class="step-card slide-in-left">
                     <div class="step-number">1</div>
-                    <div class="step-content">
-                        <div class="step-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <h3>Book Your Appointment</h3>
-                        <p>Call us or book online to schedule your CVR test at a time that suits you.</p>
-                    </div>
+                    <h3>Book Online</h3>
+                    <p>Choose your vehicle type and book your test slot online through our secure booking system.</p>
                 </div>
                 
-                <div class="process-arrow fade-in">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-                
-                <div class="process-step slide-in-right">
+                <div class="step-card slide-in-left">
                     <div class="step-number">2</div>
-                    <div class="step-content">
-                        <div class="step-icon">
-                            <i class="fas fa-car-side"></i>
-                        </div>
-                        <h3>Bring Your Vehicle</h3>
-                        <p>Arrive at our testing centre with your vehicle and required documentation.</p>
-                    </div>
+                    <h3>Bring Your Vehicle</h3>
+                    <p>Arrive at our testing centre with your vehicle and required documentation.</p>
                 </div>
                 
-                <div class="process-arrow fade-in">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-                
-                <div class="process-step slide-in-left">
+                <div class="step-card slide-in-right">
                     <div class="step-number">3</div>
-                    <div class="step-content">
-                        <div class="step-icon">
-                            <i class="fas fa-clipboard-check"></i>
-                        </div>
-                        <h3>Professional Testing</h3>
-                        <p>Our certified technicians conduct thorough testing following CVR standards.</p>
-                    </div>
+                    <h3>Professional Testing</h3>
+                    <p>Our certified technicians conduct comprehensive testing to RSA standards.</p>
                 </div>
                 
-                <div class="process-arrow fade-in">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-                
-                <div class="process-step slide-in-right">
+                <div class="step-card slide-in-right">
                     <div class="step-number">4</div>
-                    <div class="step-content">
-                        <div class="step-icon">
-                            <i class="fas fa-certificate"></i>
-                        </div>
-                        <h3>Get Your Certificate</h3>
-                        <p>Receive your official CVR Test Certificate. Your disc will follow in the post from the RSA within 2–3 working days.</p>
-                    </div>
+                    <h3>Receive Certificate</h3>
+                    <p>Get your CVR certificate and disc within 2-3 working days once testing is complete.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Booking Section -->
-    <section id="booking" class="booking">
+    <!-- Call to Action Section -->
+    <section class="cta-section">
         <div class="container">
-            <div class="booking-content">
+            <div class="cta-content fade-in">
                 <h2>Ready to Book Your CVR Test?</h2>
-                <p>Don't wait until the last minute. Book your CVR test today and ensure your vehicle meets all safety requirements. Our friendly team is ready to help you schedule at a time that works for you.</p>
-                <div class="booking-cta">
-                    <div class="booking-buttons">
-                        <a href="tel:+353214771362" class="btn btn-primary btn-large">
-                            <i class="fas fa-phone"></i> Call 021-477 1362
-                        </a>
-                        <button onclick="openModal()" class="btn btn-primary btn-large">
-                            <i class="fas fa-clipboard-check"></i> Book Test
-                        </button>
-                        <a href="https://ac3c0da4-f666-402c-b269-fa69800d9582-00-3qpvbjab8u15s.kirk.replit.dev/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
-                            <i class="fas fa-cubes"></i> Riverstick Industries
-                        </a>
+                <p>Don't wait – secure your test slot today and ensure your vehicle meets all safety requirements.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+353214771362" class="btn btn-secondary btn-large">
+                        <i class="fas fa-phone"></i> Call 021-477 1362
+                    </a>
+                    <a href="#booking" onclick="openModal(); return false;" class="btn btn-primary btn-large">Book Test</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">About Riverstick Motors</h2>
+                <p class="section-subtitle">Your trusted partner in vehicle testing and compliance</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text slide-in-left">
+                    <p>With over 57 years of experience in the automotive industry and 43 years specialising in CVR testing, Riverstick Motors has established itself as Cork's premier vehicle testing centre. We pride ourselves on professional service, quick turnaround times, and maintaining the highest standards of vehicle safety compliance.</p>
+                    
+                    <p>Our team of certified technicians uses state-of-the-art equipment to ensure your vehicle meets all RSA requirements. From light commercial vehicles to heavy goods vehicles, we provide comprehensive testing services that you can trust.</p>
+                </div>
+                
+                <div class="about-stats slide-in-right">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">57+</div>
+                            <div class="stat-label">Years Industry Experience</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">43+</div>
+                            <div class="stat-label">Years CVR Testing Experience</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">500,000+</div>
+                            <div class="stat-label">Vehicles Tested</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">7,043</div>
+                            <div class="stat-label">Vehicles Tested in 2024</div>
+                        </div>
                     </div>
-                    <p class="booking-hours">Monday to Friday – 9:00am to 5:30pm | Saturday – Closed | Sunday – Closed</p>
+                </div>
+            </div>
+            
+            <div class="timeline-section scale-in">
+                <h3>Our Heritage</h3>
+                <div class="timeline-strip">
+                    <div class="timeline-item">
+                        <div class="timeline-year">1968</div>
+                        <div class="timeline-content">
+                            <h4>Founded as Garage</h4>
+                            <p>Riverstick Motors established as automotive service centre</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1980</div>
+                        <div class="timeline-content">
+                            <h4>New Bay Added</h4>
+                            <p>Expanded facilities to accommodate growing business</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1982</div>
+                        <div class="timeline-content">
+                            <h4>CVR Testing Begins</h4>
+                            <p>Commenced commercial vehicle roadworthiness testing</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-content">
+                            <h4>500,000+ Vehicles Tested</h4>
+                            <p>Milestone achievement in vehicle testing excellence</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -310,119 +340,21 @@
         <div class="container">
             <div class="section-header fade-in">
                 <h2 class="section-title">Contact Us</h2>
-                <p class="section-subtitle">Get in touch with our team for bookings and inquiries</p>
+                <p class="section-subtitle">Get in touch with our team</p>
             </div>
             
-            <div class="contact-grid">
-                <div class="contact-card slide-in-left">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <h3>Phone</h3>
-                    <p><a href="tel:+353214771362">021-477 1362</a></p>
-                </div>
-                
-                <div class="contact-card fade-in">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <h3>Email</h3>
-                    <p class="email-text"><a href="mailto:reception@riverstickmotors.ie">reception@<br>riverstickmotors.ie</a></p>
-                </div>
-                
-                <div class="contact-card scale-in">
-                    <div class="contact-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Opening Hours</h3>
-                    <p>Mon–Fri: 9:00am–5:30pm<br>Closed Saturday & Sunday</p>
-                </div>
-                
-                <a href="https://ac3c0da4-f666-402c-b269-fa69800d9582-00-3qpvbjab8u15s.kirk.replit.dev/" target="_blank" rel="noopener noreferrer" class="contact-card-link">
-                    <div class="contact-card slide-in-right clickable-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-cubes"></i>
-                        </div>
-                        <h3>Riverstick Industries</h3>
-                        <p>Suppliers of bark mulch, equestrian matting, rubber flooring, and more – explore our full range of durable products.</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Section Divider -->
-    <div class="section-divider"></div>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text slide-in-left">
-                    <h2>About Riverstick Motors CVR Testing Centre</h2>
-                    <p>Founded in 1968 as a family-run garage, Riverstick Motors has over 57 years of experience in the Irish automotive industry. Originally established as a general vehicle service and repair centre, we expanded into CVR (Commercial Vehicle Roadworthiness) testing in 1982. Since then, we've grown to become one of Ireland's most trusted CVR Testing Centres.</p>
+            <div class="contact-content">
+                <div class="contact-info slide-in-left">
+                    <h3>Get In Touch</h3>
+                    <p>Ready to book your CVR test or have questions about our services? Contact us using the details below, and our friendly team will be happy to help.</p>
                     
-                    <p>With over 43 years of specialised CVR testing experience, we have tested more than 500,000 vehicles – continually delivering certified, reliable, and efficient service to our valued customers.</p>
-                    
-                    <p>In 2024 alone, over 7,043 vehicles were tested at our centre – a testament to our reputation for professionalism, efficiency, and dedication to road safety.</p>
-                    
-                    <div class="about-stats fade-in">
-                        <div class="stat">
-                            <span class="stat-number">57+</span>
-                            <span class="stat-label">Years<br>Industry Experience</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">43+</span>
-                            <span class="stat-label">Years<br>CVR Testing Experience</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">500,000+</span>
-                            <span class="stat-label">Vehicles Tested</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">7,043</span>
-                            <span class="stat-label">Vehicles Tested in 2024</span>
-                        </div>
+                    <div class="contact-details">
+                        <p><strong>Phone:</strong> <a href="tel:+353214771362">021-477 1362</a></p>
+                        <p><strong>Email:</strong> <a href="mailto:reception@riverstickmotors.ie">reception@riverstickmotors.ie</a></p>
+                        <p><strong>Address:</strong> Main Street, Riverstick, Co. Cork, P43 EY24</p>
+                        <p><strong>Opening Hours:</strong> Monday to Friday, 9:00am - 5:30pm<br>
+                        Weekends: Closed</p>
                     </div>
-                </div>
-                
-                <div class="about-image slide-in-right">
-                    <img src="riverstick-motors-new-logo.png" alt="Riverstick Motors CVR Testing Centre" class="about-logo-image">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Heritage Timeline -->
-    <section class="heritage-timeline">
-        <div class="timeline-container">
-            <h3 class="timeline-title">Our Heritage</h3>
-            <div class="timeline-box">
-                <div class="timeline-strip">
-                    <div class="timeline-item">
-                        <span class="timeline-text">1968<br>Founded as Garage</span>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-text">1980<br>New Bay Added</span>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-text">1982<br>CVR Testing Begins</span>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-text">2024<br>500,000+ Vehicles Tested</span>
-                    </div>
-                </div>
-                <!-- Connecting Lines -->
-                <div class="timeline-connector">
-                    <div class="horizontal-line"></div>
-                    <div class="vertical-line vertical-line-1"></div>
-                    <div class="vertical-line vertical-line-2"></div>
-                    <div class="vertical-line vertical-line-3"></div>
-                    <div class="vertical-line vertical-line-4"></div>
-                    <!-- Additional horizontal segments for stepped pattern -->
-                    <div class="horizontal-segment segment-1"></div>
-                    <div class="horizontal-segment segment-2"></div>
-                    <div class="horizontal-segment segment-3"></div>
                 </div>
             </div>
         </div>
@@ -432,8 +364,6 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-
-                
                 <div class="footer-section">
                     <h4>Contact Information</h4>
                     <div class="contact-info">
@@ -519,5 +449,3 @@
     <script src="script.min.js" defer></script>
 </body>
 </html>
-            const modal = document.getElementById('booking-modal');
-</body>
