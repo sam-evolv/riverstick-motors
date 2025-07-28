@@ -224,6 +224,8 @@ background: none;
 border: none;
 cursor: pointer;
 padding: 5px;
+position: relative;
+z-index: 10000;
 }
 .nav-toggle-icon {
 width: 25px;
@@ -267,6 +269,7 @@ background-position: center;
 opacity: 0.1;
 z-index: 0;
 animation: watermark-pulse 4s ease-in-out infinite;
+pointer-events: none;
 }
 @keyframes watermark-pulse {
 0%, 100% { opacity: 0.1; }
@@ -1178,42 +1181,50 @@ position: fixed;
 top: 100%;
 left: 0;
 right: 0;
-background-color: #4B0C0C;
+width: 100%;
+background-color: rgba(75, 12, 12, 0.95);
+backdrop-filter: blur(10px);
 flex-direction: column;
 align-items: center;
 padding: 1rem 2rem;
-box-shadow: 0 2px 15px rgba(75, 12, 12, 0.15);
+box-shadow: 0 2px 15px rgba(75, 12, 12, 0.25);
 transform: translateY(-100%);
 opacity: 0;
 visibility: hidden;
 transition: all 0.3s ease;
-z-index: 999;
+z-index: 9999;
+pointer-events: none;
 }
 .nav-center-active {
 transform: translateY(0);
 opacity: 1;
 visibility: visible;
+pointer-events: auto;
 }
 .nav-menu {
 position: fixed;
 top: calc(100% + 70px);
 left: 0;
 right: 0;
-background-color: #4B0C0C;
+width: 100%;
+background-color: rgba(75, 12, 12, 0.95);
+backdrop-filter: blur(10px);
 flex-direction: column;
 align-items: center;
 padding: 1rem 2rem 2rem;
-box-shadow: 0 2px 15px rgba(75, 12, 12, 0.15);
+box-shadow: 0 2px 15px rgba(75, 12, 12, 0.25);
 transform: translateY(-100%);
 opacity: 0;
 visibility: hidden;
 transition: all 0.3s ease;
-z-index: 998;
+z-index: 9999;
+pointer-events: none;
 }
 .nav-menu-active {
 transform: translateY(0);
 opacity: 1;
 visibility: visible;
+pointer-events: auto;
 }
 .nav-list {
 flex-direction: column;
