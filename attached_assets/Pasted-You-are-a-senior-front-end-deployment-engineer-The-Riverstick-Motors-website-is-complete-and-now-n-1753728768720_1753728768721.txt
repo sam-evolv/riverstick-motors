@@ -1,0 +1,127 @@
+You are a senior front-end deployment engineer. The Riverstick Motors website is complete, and now needs to be fully cleaned, formatted, and prepared for export so that the final ZIP file:
+
+- Looks exactly like it does in Replit when deployed to Netlify
+- Functions perfectly across all devices (desktop, tablet, iPhone, Android)
+- Loads all images, styles, and scripts properly
+- Has no broken links, case sensitivity issues, or missing files
+- Is structured correctly for Netlify drag-and-drop deployment
+
+---
+
+✅ 1. FILE STRUCTURE
+
+Restructure the project as follows:
+/
+├── index.html  
+├── css/  
+│   └── style.css (and any others)  
+├── js/  
+│   └── script.js (and any others)  
+├── assets/  
+│   ├── images (e.g. .jpg, .webp)  
+│   └── video (if applicable)  
+├── favicon.ico  
+├── 404.html  
+├── robots.txt  
+├── sitemap.xml  
+
+- Ensure `index.html` is at the root, not inside any subfolder.
+- Move all image and video assets into `assets/` and update references accordingly.
+
+---
+
+✅ 2. PATH CORRECTION
+
+- In `index.html`, ensure all asset links are **relative and lowercase**:
+  - `<link rel="stylesheet" href="css/style.css">`
+  - `<script src="js/script.js" defer></script>`
+  - `<img src="assets/your-image.jpg">`
+- Fix any mismatched filenames (e.g. `Style.css` vs `style.css`)
+
+---
+
+✅ 3. RESPONSIVE IMAGE + SLIDESHOW FIXES
+
+- Fix all slideshow/hero image cropping issues using:
+width: 100%;
+height: auto;
+object-fit: cover;
+aspect-ratio: 16/9;
+
+yaml
+Copy
+Edit
+- Add mobile-specific media queries to contain image height (`max-height: 50vh`) on small screens.
+
+---
+
+✅ 4. MOBILE NAV MENU FIX
+
+- Ensure mobile dropdown menu works when scrolled to top of page:
+- Apply `z-index: 9999`
+- Use `position: fixed` or `absolute`
+- Remove any overlap or click-blocking from the hero section
+
+---
+
+✅ 5. POLISH & PERFORMANCE
+
+- Remove any unused files or folders
+- Minify CSS and JS if possible
+- Optimise all `.jpg`, `.png`, and `.webp` images (80% lossy compression)
+- Ensure all font files are loaded with `font-display: swap` and preloaded if necessary
+- Add basic favicons
+
+---
+
+✅ 6. SEO + TECHNICAL FILES
+
+In the `<head>` of `index.html`, include:
+<meta name="robots" content="index, follow"> <meta name="description" content="Riverstick Motors offers certified CVR testing and commercial vehicle servicing in Cork. Book online today."> <meta property="og:title" content="Riverstick Motors | CVR Testing Cork"> <meta property="og:description" content="Book your CVR test with Riverstick Motors – certified and local."> <meta property="og:image" content="assets/og-image.jpg"> <meta property="og:url" content="https://www.riverstickmotors.ie"> ```
+Create:
+
+robots.txt:
+
+makefile
+Copy
+Edit
+User-agent: *
+Allow: /
+Sitemap: https://www.riverstickmotors.ie/sitemap.xml
+sitemap.xml with all core pages listed
+
+404.html with helpful styling and return-home CTA
+
+✅ 7. FINAL BUILD EXPORT
+
+Verify all file names are lowercase and web-safe
+
+Confirm everything works offline by double-clicking index.html in the downloaded ZIP
+
+Package entire project as a clean .zip with no nesting
+
+Output only the final working code, properly linked and deployable to Netlify. Do not use placeholder content. Do not change site layout, structure, or branding.
+
+yaml
+Copy
+Edit
+
+---
+
+Once this prompt is executed:
+
+✅ Your site will deploy **exactly as it looks on Replit**  
+✅ All styling, images, and JS will work properly  
+✅ Mobile and tablet views will render correctly  
+✅ You’ll have a **perfect ZIP file** ready for drag-and-drop into Netlify
+
+Let me know when you’re ready to test the final ZIP upload or want a deployment checklist to follow once live.
+
+
+
+
+
+
+
+
+Ask ChatGPT
