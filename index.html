@@ -15,15 +15,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.riverstickmotors.ie">
     
-    <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="require-trusted-types-for 'script'">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src * data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://fonts.googleapis.com;">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
-    <meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp">
+    <!-- Security Headers - Moved to netlify.toml for deployment compatibility -->
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/watermark-r.png">
@@ -40,12 +32,11 @@
     
     <!-- Critical CSS Inline -->
     <style>
-    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Poppins',sans-serif;line-height:1.6;color:#4B0C0C;background-color:#FFFFFF;overflow-x:hidden;transition:all 0.3s ease}:root{--primary-color:#4B0C0C;--secondary-color:#D4AF37;--bg-color:#FFFFFF;--section-bg:#F8F8F8;--card-bg:#FFFFFF;--text-primary:#4B0C0C;--text-secondary:#666666;--text-light:#4B0C0C;--shadow:0 2px 15px rgba(0,0,0,0.1);--shadow-hover:0 5px 25px rgba(0,0,0,0.15);--border-radius:8px;--transition:all 0.3s ease}.header{position:fixed;top:0;left:0;right:0;background:rgba(75,12,12,0.95);backdrop-filter:blur(10px);z-index:1000;padding:15px 0;transition:all 0.3s ease}.nav{max-width:1200px;margin:0 auto;padding:0 20px}.nav-container{display:flex;justify-content:space-between;align-items:center}.logo-image{height:60px;width:auto}.hero{min-height:100vh;display:flex;align-items:center;background:var(--bg-color);padding:100px 0 50px}.hero-content{flex:1;max-width:50%}.hero-title{font-size:3rem;font-weight:700;color:var(--secondary-color);margin-bottom:1.5rem;line-height:1.2}.hero-subtitle{font-size:1.2rem;color:var(--text-secondary);margin-bottom:2rem}.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:12px 24px;border:none;border-radius:var(--border-radius);text-decoration:none;font-weight:500;cursor:pointer;transition:var(--transition)}.btn-primary{background:var(--primary-color);color:#fff}.btn-secondary{background:var(--secondary-color);color:#fff}.btn-large{padding:15px 30px;font-size:1.1rem}.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}.hero-image{flex:1;max-width:50%}.hero-slideshow{position:relative;width:100%;height:300px}.slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 1.5s ease-in-out}.slide.active{opacity:1}.hero-image-photo{width:100%;height:100%;object-fit:cover;border-radius:var(--border-radius);aspect-ratio:4/3}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Poppins',sans-serif;line-height:1.6;color:#4B0C0C;background-color:#FFFFFF;overflow-x:hidden;transition:all 0.3s ease}:root{--primary-color:#4B0C0C;--secondary-color:#D4AF37;--bg-color:#FFFFFF;--section-bg:#F8F8F8;--card-bg:#FFFFFF;--text-primary:#4B0C0C;--text-secondary:#666666;--text-light:#4B0C0C;--shadow:0 2px 15px rgba(0,0,0,0.1);--shadow-hover:0 5px 25px rgba(0,0,0,0.15);--border-radius:8px;--transition:all 0.3s ease}.header{position:fixed;top:0;left:0;right:0;background:rgba(75,12,12,0.95);backdrop-filter:blur(10px);z-index:1000;padding:15px 0;transition:all 0.3s ease}.nav{max-width:1200px;margin:0 auto;padding:0 20px}.nav-container{display:flex;justify-content:space-between;align-items:center}.hero{min-height:100vh;display:flex;align-items:center;background:var(--bg-color);padding:100px 0 50px;position:relative}.hero-container{max-width:1200px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}.hero-title{font-size:3rem;font-weight:700;color:var(--secondary-color);margin-bottom:1.5rem;line-height:1.2}.hero-subtitle{font-size:1.2rem;color:var(--text-primary);margin-bottom:2rem;line-height:1.5}.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}.hero-image{display:flex;justify-content:center;align-items:center}.hero-slideshow{position:relative;width:100%;max-width:400px;height:auto;aspect-ratio:4/3;overflow:hidden;border-radius:8px;box-shadow:0 2px 15px rgba(75,12,12,0.15);min-height:200px}.slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 1.5s ease-in-out}.slide.active{opacity:1}.hero-image-photo{width:100%;height:100%;object-fit:cover;border-radius:8px;aspect-ratio:4/3}.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:12px 24px;border:none;border-radius:var(--border-radius);text-decoration:none;font-weight:500;cursor:pointer;transition:var(--transition)}.btn-primary{background:var(--primary-color);color:#fff}.btn-secondary{background:var(--secondary-color);color:#fff}.btn-large{padding:15px 30px;font-size:1.1rem}
     </style>
     
-    <!-- Non-critical CSS -->
-    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'; this.onload=null;">
-    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
     
     <!-- Font Awesome Deferred -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
