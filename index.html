@@ -15,7 +15,9 @@
     <meta property="og:url" content="https://www.riverstickmotors.ie">
     
     <!-- Security -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src * data:;">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="watermark-r.png">
@@ -32,7 +34,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style-new.css">
+    <link rel="stylesheet" href="style-new.min.css">
 </head>
 <body>
     <!-- Sticky Header -->
@@ -88,19 +90,19 @@
             <div class="hero-image">
                 <div class="hero-slideshow">
                     <div class="slide active">
-                        <img src="truck-golden-hour.png" alt="MAN TGX truck at golden hour" class="hero-image-photo" loading="eager">
+                        <img src="truck-golden-hour.webp" alt="MAN TGX truck at golden hour" class="hero-image-photo" loading="eager" width="400" height="300">
                     </div>
                     <div class="slide">
-                        <img src="truck-motorway.png" alt="Black truck on Irish motorway" class="hero-image-photo" loading="lazy">
+                        <img src="truck-motorway.webp" alt="Black truck on Irish motorway" class="hero-image-photo" loading="lazy" width="400" height="300">
                     </div>
                     <div class="slide">
-                        <img src="van-adventure.png" alt="White van on Irish countryside road" class="hero-image-photo" loading="lazy">
+                        <img src="van-adventure.webp" alt="White van on Irish countryside road" class="hero-image-photo" loading="lazy" width="400" height="300">
                     </div>
                     <div class="slide">
-                        <img src="riverstick-truck-evening.png" alt="Riverstick Motors MAN truck at evening" class="hero-image-photo" loading="lazy">
+                        <img src="riverstick-truck-evening.webp" alt="Riverstick Motors MAN truck at evening" class="hero-image-photo" loading="lazy" width="400" height="300">
                     </div>
                     <div class="slide">
-                        <img src="range-rover-countryside.png" alt="Range Rover on Irish countryside road" class="hero-image-photo" loading="lazy">
+                        <img src="range-rover-countryside.webp" alt="Range Rover on Irish countryside road" class="hero-image-photo" loading="lazy" width="400" height="300">
                     </div>
                 </div>
             </div>
@@ -444,7 +446,7 @@
             <div class="booking-options">
                 <div class="booking-option">
                     <div class="vehicle-image">
-                        <img src="lcv-van-final.png" alt="Light Commercial Vehicle" class="vehicle-img" loading="lazy">
+                        <img src="lcv-van-final.webp" alt="Light Commercial Vehicle" class="vehicle-img" loading="lazy" width="200" height="150">
                     </div>
                     <h3>LCV</h3>
                     <p>Light Commercial Vehicle up to 3.5 tonnes</p>
@@ -456,7 +458,7 @@
                 
                 <div class="booking-option">
                     <div class="vehicle-image">
-                        <img src="hcv-truck-white.png" alt="Heavy Commercial Vehicle" class="vehicle-img" loading="lazy">
+                        <img src="hcv-truck-white.webp" alt="Heavy Commercial Vehicle" class="vehicle-img" loading="lazy" width="200" height="150">
                     </div>
                     <h3>HCV</h3>
                     <p>Heavy Commercial Vehicle over 3.5 tonnes</p>
@@ -471,26 +473,20 @@
 
     <!-- JavaScript for mobile navigation -->
     <script defer>
-        // Booking Modal Functions (placed at top to avoid conflicts)
+        // Booking Modal Functions
         function openModal() {
-            console.log('Opening modal...');
             const modal = document.getElementById('booking-modal');
             if (modal) {
                 modal.style.display = 'block';
                 document.body.style.overflow = 'hidden';
-                console.log('Modal opened');
-            } else {
-                console.error('Modal not found');
             }
         }
 
         function closeModal() {
-            console.log('Closing modal...');
             const modal = document.getElementById('booking-modal');
             if (modal) {
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';
-                console.log('Modal closed');
             }
         }
 
