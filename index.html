@@ -4,12 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riverstick Motors CVR Testing Centre - Professional Vehicle Testing Services</title>
-    <meta name="description" content="Professional CVR testing services at Riverstick Motors. Book your vehicle test today with our certified testing centre.">
+    <meta name="description" content="Riverstick Motors offers CVR testing and vehicle servicing in Cork. Book your test today.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Riverstick Motors | CVR Testing Cork">
+    <meta property="og:description" content="Book your CVR test online with Riverstick Motors – Cork's trusted testing centre.">
+    <meta property="og:image" content="/riverstick-motors-new-logo.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.riverstickmotors.ie">
+    
+    <!-- Security -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="watermark-r.png">
     
-    <!-- Google Fonts -->
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Google Fonts with font-display swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -74,19 +88,19 @@
             <div class="hero-image">
                 <div class="hero-slideshow">
                     <div class="slide active">
-                        <img src="truck-golden-hour.png" alt="MAN TGX truck at golden hour" class="hero-image-photo">
+                        <img src="truck-golden-hour.png" alt="MAN TGX truck at golden hour" class="hero-image-photo" loading="eager">
                     </div>
                     <div class="slide">
-                        <img src="truck-motorway.png" alt="Black truck on Irish motorway" class="hero-image-photo">
+                        <img src="truck-motorway.png" alt="Black truck on Irish motorway" class="hero-image-photo" loading="lazy">
                     </div>
                     <div class="slide">
-                        <img src="van-adventure.png" alt="White van on Irish countryside road" class="hero-image-photo">
+                        <img src="van-adventure.png" alt="White van on Irish countryside road" class="hero-image-photo" loading="lazy">
                     </div>
                     <div class="slide">
-                        <img src="riverstick-truck-evening.png" alt="Riverstick Motors MAN truck at evening" class="hero-image-photo">
+                        <img src="riverstick-truck-evening.png" alt="Riverstick Motors MAN truck at evening" class="hero-image-photo" loading="lazy">
                     </div>
                     <div class="slide">
-                        <img src="range-rover-countryside.png" alt="Range Rover on Irish countryside road" class="hero-image-photo">
+                        <img src="range-rover-countryside.png" alt="Range Rover on Irish countryside road" class="hero-image-photo" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -430,7 +444,7 @@
             <div class="booking-options">
                 <div class="booking-option">
                     <div class="vehicle-image">
-                        <img src="lcv-van-final.png" alt="Light Commercial Vehicle" class="vehicle-img">
+                        <img src="lcv-van-final.png" alt="Light Commercial Vehicle" class="vehicle-img" loading="lazy">
                     </div>
                     <h3>LCV</h3>
                     <p>Light Commercial Vehicle up to 3.5 tonnes</p>
@@ -442,7 +456,7 @@
                 
                 <div class="booking-option">
                     <div class="vehicle-image">
-                        <img src="hcv-truck-white.png" alt="Heavy Commercial Vehicle" class="vehicle-img">
+                        <img src="hcv-truck-white.png" alt="Heavy Commercial Vehicle" class="vehicle-img" loading="lazy">
                     </div>
                     <h3>HCV</h3>
                     <p>Heavy Commercial Vehicle over 3.5 tonnes</p>
@@ -456,7 +470,7 @@
     </div>
 
     <!-- JavaScript for mobile navigation -->
-    <script>
+    <script defer>
         // Booking Modal Functions (placed at top to avoid conflicts)
         function openModal() {
             console.log('Opening modal...');
@@ -486,9 +500,11 @@
         const navCenter = document.getElementById('nav-center');
 
         navToggle.addEventListener('click', () => {
+            const isExpanded = navMenu.classList.contains('nav-menu-active');
             navMenu.classList.toggle('nav-menu-active');
             navCenter.classList.toggle('nav-center-active');
             navToggle.classList.toggle('nav-toggle-active');
+            navToggle.setAttribute('aria-expanded', !isExpanded);
         });
 
         // Close mobile menu when clicking on a link
