@@ -1,0 +1,56 @@
+# Objective:
+Fully restore the Riverstick Motors website to match the previously working version shown in the video (2025-07-24). The current site is broken and reverting is not functioning. Restore layout, styling, structure, and all content precisely as it was in the original polished version.
+
+---
+
+## 🔧 Core Fix Instructions
+
+1. **Rollback all recent changes and overrides** that were made after the last working version.
+   - Discard current broken structure and styling files unless verified working.
+   - If previous working CSS/HTML files exist in `.replit` backups or git history, restore those.
+
+2. **Restore Section Styling and Layout**:
+   - Reinstate all original paddings, margins, and alignments seen in the video.
+   - Match the structure of the homepage including:
+     - Hero section with gold “Book Now” button
+     - “Ready to Book Your CVR Test?” with two side-by-side buttons (call and test)
+     - “About Riverstick Motors” with correct font sizes, spacing, and info blocks
+     - “Simple steps to get your vehicle tested” (four-step layout with gold numbers)
+   - Ensure all gold/yellow highlight text is styled using the correct `font-weight: bold` and consistent spacing.
+
+3. **Typography and Colors**:
+   - Font: Reinstate the original font pairing used in the video.
+   - Ensure body text is crisp and white (#ffffff), and headers are gold (#ddb63b or matching brand hex).
+   - Reapply correct line height, font weight, and spacing from the video reference.
+
+4. **Fix Header and Navbar**:
+   - Navigation should be **perfectly centered** and spaced.
+   - Right-aligned gold “Book Now” button should retain hover state and elevation.
+   - Add back light glow/hover effect if previously implemented.
+
+5. **Responsive Styling**:
+   - Reinstate mobile-responsive styles seen in the working version.
+   - Fix any breakage in layout, alignment, or spacing on mobile.
+   - Ensure step-by-step guide and About section are centered and stack cleanly on smaller screens.
+
+6. **CSS & Icon Fonts**:
+   - Confirm Font Awesome 6.4 is loaded correctly with fallback.
+   - Ensure call icon and other icons are displaying cleanly.
+   - Review and correct any broken `@font-face` or missing CDN issues.
+
+7. **Ensure the following performance standards**:
+   - LCP < 2.5s
+   - CLS < 0.01
+   - TBT < 50ms
+   - Mobile performance score above 90
+
+---
+
+## ✅ Final Output:
+
+The restored site should:
+- Match the video from July 24th in appearance, structure, and interactions.
+- Render perfectly across all modern browsers and mobile devices.
+- Be ready for public publishing with no layout or component errors.
+
+If unclear, prompt user to confirm visual parity with their reference video.
