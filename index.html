@@ -18,11 +18,10 @@
     <!-- Security Headers - Moved to netlify.toml for deployment compatibility -->
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/png" href="assets/watermark-r.png">
     
     <!-- Preload Critical Resources -->
-    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/truck-golden-hour.webp" as="image" type="image/webp">
     <link rel="preload" href="assets/riverstick-motors-new-logo.png" as="image">
     
@@ -89,11 +88,9 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="style.css">
 
-<!-- Font Awesome - Optimised and Secure -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-  integrity="sha512-uO3SXrGSmHZp8XzGmIxUBvS0FREZPhsXf2gZ7mj9IfOwR8Dp7ycwkk2fvWjzY3jBdFXxzEw+KD3Wz84P5ZTR/Q=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer" />
+    <!-- Font Awesome - CSP Compliant -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -490,7 +487,7 @@
         </div>
     </div>
 
-    <!-- JavaScript for mobile navigation (deferred for performance) -->
+    <!-- JavaScript - CSP compliant with defer -->
     <script src="script.js" defer></script>
 </body>
 </html>
