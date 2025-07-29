@@ -1,0 +1,110 @@
+You are an expert frontend performance agent. Your job is to bring the desktop version of Riverstick Motors (https://www.riverstickmotors.ie) to **100 in all Lighthouse categories**: Performance, Accessibility, Best Practices, SEO.
+
+Do not change layout, content, or functionality. Optimise strictly behind-the-scenes (HTML head, assets, loading behaviour, headers).
+
+---
+
+## 🎯 SEO (Current: 69 → Target: 100)
+
+### 1. Fix "Page is blocked from indexing"
+- Remove any of the following if present:
+  - `<meta name="robots" content="noindex">`
+  - `X-Robots-Tag: noindex` HTTP header
+  - `Disallow: /` in `robots.txt`
+- Ensure homepage and main pages are crawlable.
+
+### 2. Add SEO essentials in `<head>`
+```html
+<title>Riverstick Motors | CVR Testing in Cork</title>
+<meta name="description" content="Book your CVR test with Riverstick Motors in Cork. RSA integrated, fast and reliable.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://www.riverstickmotors.ie/">
+3. Add Structured Data
+html
+Copy
+Edit
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Riverstick Motors",
+  "url": "https://www.riverstickmotors.ie",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Riverstick",
+    "addressRegion": "Cork",
+    "addressCountry": "IE"
+  },
+  "telephone": "+353 87 123 4567"
+}
+</script>
+4. Ensure all links are crawlable
+Avoid JS-only links like onclick.
+
+Every <a> tag must have a valid href with no dynamic replacement.
+
+🎯 BEST PRACTICES (Current: 69 → Target: 100)
+1. Remove console errors
+Open DevTools, fix all runtime errors and warnings.
+
+Address any asset 404s, deprecated API usage, or security policy violations.
+
+2. Add missing security headers
+Via Netlify _headers file or in HTML:
+
+text
+Copy
+Edit
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';
+3. Add COOP/COEP + Trusted Types headers
+html
+Copy
+Edit
+<meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+<meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp">
+<meta http-equiv="Content-Security-Policy" content="require-trusted-types-for 'script'">
+🎯 PERFORMANCE (Current: 93 → Target: 100)
+1. Improve caching
+In Netlify _headers:
+
+text
+Copy
+Edit
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+2. Optimise images
+Convert all large .jpg/.png images to .webp.
+
+Compress and resize to fit display sizes.
+
+Add loading="lazy" and define width/height for each <img>.
+
+3. Minify and purge CSS
+Remove 11 KiB of unused CSS (target all component imports).
+
+Minify remaining CSS to remove whitespace and comments.
+
+4. Preload key LCP asset
+html
+Copy
+Edit
+<link rel="preload" as="image" href="your-hero-image.webp" type="image/webp">
+🎯 ACCESSIBILITY (Current: 93 → Target: 100)
+1. Fix contrast issues
+Use contrast checkers to ensure all text meets WCAG AA (4.5:1).
+
+Pay special attention to light text over images and buttons.
+
+2. Check labels and roles
+Every form input must have a <label> with a corresponding for attribute.
+
+All buttons must use role="button" if not a native <button>.

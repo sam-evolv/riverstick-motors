@@ -1,0 +1,85 @@
+# Replit Agent Prompt: Fix Netlify Deployment CSP Issues
+
+## Problem Description
+My CVR Testing website works perfectly in Replit but breaks when deployed to Netlify. The layout is completely broken - the hero section should show text on the left and a truck image on the right, but it's displaying as stacked content. 
+
+Browser console shows these specific errors:
+- "Content Security Policy of your site blocks some resources"
+- "Content Security Policy of your site blocks the use of 'eval' in JavaScript" 
+- "Verify stylesheet URLs"
+
+The HTML structure shows sections for: hero, services, how-it-works, about, contact - but the CSS is not loading properly.
+
+## Required Actions
+
+### 1. Create Netlify Configuration File
+Create `netlify.toml` in project root with these specific headers:
+```toml
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: https:;"
+```
+
+### 2. Fix Stylesheet Loading Issues
+- Check all `<link>` tags in HTML - ensure they use correct relative paths
+- Verify CSS files exist in the correct locations
+- Remove any broken external stylesheet references
+- Ensure all CSS files are included in the build/deployment
+
+### 3. Fix Hero Section Layout
+The hero section should display as a grid/flexbox with:
+- Left side: "Professional CVR Testing Services You Can Trust" heading and description
+- Right side: Truck image
+- Two buttons: "Book Your Test Today" and "Call Now"
+
+Ensure the CSS includes proper layout styles like:
+```css
+.hero-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+```
+
+### 4. Layout Restoration
+- Identify the CSS responsible for the side-by-side layout (likely Grid or Flexbox)
+- Ensure responsive design works correctly
+- Test that the truck image and text layout matches the working version
+
+### 5. Font and Asset Optimization
+- Fix Google Fonts loading issues
+- Ensure all images load correctly
+- Optimize asset paths for production deployment
+
+## Expected Output
+After fixes, the deployed site should:
+- Display the hero section with text on left, truck image on right
+- Load all styles correctly without CSP violations
+- Show proper typography and spacing
+- Work responsively on different screen sizes
+- Have zero console errors
+
+## Specific Files to Check
+Based on the HTML structure visible, examine these files:
+- `index.html` - main HTML file with hero, services, how-it-works, about, contact sections  
+- Main CSS file (likely `style.css` or `styles.css`)
+- Any external font/CSS dependencies
+- Image files (especially the truck image for hero section)
+
+## Critical Issues to Address
+1. **CSP blocking resources** - Add proper Content-Security-Policy headers
+2. **Stylesheet verification** - Fix broken CSS links
+3. **JavaScript 'eval' usage** - Remove any eval() calls if present  
+4. **Missing truck image** - Ensure hero section image loads properly
+5. **Grid/Flexbox layout** - Restore side-by-side hero layout
+
+## Verification Steps
+1. Check that all console errors are resolved
+2. Verify layout matches the working Replit version
+3. Test responsive behavior
+4. Confirm all fonts and assets load properly
+5. Validate HTML and CSS syntax
+
+Please examine the codebase, identify all issues causing the CSP violations and layout problems, then implement comprehensive fixes to ensure the site deploys correctly to Netlify.

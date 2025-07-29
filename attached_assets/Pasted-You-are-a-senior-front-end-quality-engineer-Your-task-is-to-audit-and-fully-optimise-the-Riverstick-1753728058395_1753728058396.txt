@@ -1,0 +1,100 @@
+You are a senior front-end quality engineer. Your task is to audit and fully optimise the Riverstick Motors website for visual consistency, responsiveness, and full functional behaviour across all devices — including iPhones, Androids, iPads (portrait and landscape), and large desktop screens.
+
+Do not change any branding, structure, or content intention. Focus only on ensuring the website looks just as beautiful and functions just as smoothly on smaller screens as it does on a full desktop display.
+
+Apply the following actions:
+
+---
+
+✅ 1. RESPONSIVE LAYOUT & MEDIA QUERIES
+
+- Review all sections, containers, text blocks, buttons, and images to ensure they scale fluidly using responsive units (`%`, `vw`, `vh`, `em`, or `rem`).
+- Eliminate any fixed pixel widths or heights that cause overflow or squashing on mobile screens.
+- Ensure margins and padding scale with screen size to maintain elegant spacing and alignment.
+- For text-heavy sections, adjust line spacing and font size using `clamp()` or media queries.
+- On mobile, reduce any oversized buttons or headlines that crowd the viewport.
+
+---
+
+✅ 2. NAVIGATION FIXES & Z-INDEX LAYERS
+
+- Ensure the dropdown mobile menu (hamburger menu) is **always clickable**, even when the page is fully scrolled to the top.
+- Assign it a high `z-index` (e.g. `9999`) and `position: fixed` or `absolute` to ensure it's layered above all hero or header content.
+- Ensure no hero video or banner image overlaps or blocks clicks — use `pointer-events: none` or lower `z-index` where necessary.
+- Maintain full visibility of navigation links on all devices.
+
+---
+
+✅ 3. HERO SECTION RESPONSIVENESS
+
+- Scale any background images or hero videos appropriately to avoid cropping or overflow.
+- Ensure videos have fallback `poster` images and are no larger than 3MB (prefer `.webm` format).
+- Avoid text overlapping with the background on smaller screens — use media queries to adjust positioning or layout.
+
+---
+
+✅ 4. IMAGE & ASSET OPTIMISATION
+
+- Compress all `.jpg`, `.png`, and `.webp` images using lossy or lossless methods (80% compression preferred).
+- Ensure `img` tags include responsive styling: `width: 100%`, `height: auto`, and avoid setting fixed pixel dimensions.
+- Use `object-fit: cover` where needed to maintain visual consistency.
+
+---
+
+✅ 5. BUTTONS & TAP TARGETS
+
+- Ensure all buttons are:
+  - Easily tappable on mobile (minimum 44px height)
+  - Well-spaced apart to avoid accidental taps
+  - Visually strong with hover and active states
+- Confirm all CTA buttons are properly linked or gracefully disabled if not ready (e.g. RSA "Book Now").
+
+---
+
+✅ 6. INTERACTION & ACCESSIBILITY
+
+- Ensure all links and buttons are keyboard-navigable.
+- Add visible `:focus` states to interactive elements.
+- Confirm all images have meaningful `alt` attributes.
+- Validate proper tab order from nav → main content → footer.
+
+---
+
+✅ 7. MOBILE MENU PERFORMANCE
+
+- Ensure mobile nav opens and closes smoothly with appropriate animations or transitions.
+- Prevent content shift or scroll-lock when menu is opened.
+- Test tap area and visibility on devices under 400px wide.
+
+---
+
+✅ 8. SECTION SPACING & SCROLLING EXPERIENCE
+
+- Audit vertical spacing between sections on small screens to avoid crowded or cluttered appearance.
+- Use consistent scroll spacing for headers, CTA sections, and footers.
+- Ensure no horizontal scrolling is possible on mobile (i.e., remove all unintended overflow).
+
+---
+
+✅ 9. VISUAL BALANCE & TYPOGRAPHY
+
+- Use consistent font sizing, hierarchy, and colour contrast across devices.
+- Ensure headings do not dominate or break layout on mobile.
+- Smooth out any abrupt line breaks, text overflow, or inconsistent alignments.
+
+---
+
+✅ 10. FINAL MOBILE + TABLET QA
+
+- Simulate viewports for:
+  - iPhone 13–16 (Safari)
+  - Samsung Galaxy (Chrome)
+  - iPad (portrait + landscape)
+  - MacBook + large desktop (1080p+)
+- Confirm all sections render cleanly, all content is visible, and no visual bugs or interaction issues occur.
+
+---
+
+Ensure no core design elements are lost or degraded. Maintain the premium, elegant visual style across all screen sizes. Do not use default mobile simplifications — this site must feel high-end on both desktop and mobile.
+
+Only output the optimised responsive code. Prepare it for deployment immediately after testing.
