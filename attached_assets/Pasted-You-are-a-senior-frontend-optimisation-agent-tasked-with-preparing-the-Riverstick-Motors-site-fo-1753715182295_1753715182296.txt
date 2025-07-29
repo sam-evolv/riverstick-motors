@@ -1,0 +1,134 @@
+You are a senior frontend optimisation agent tasked with preparing the **Riverstick Motors** site for full launch. The mobile version is already highly performant (98+) — your focus is to bring the **desktop version to 100 across all Lighthouse categories**, while protecting layout, branding, and functional integrity across both devices.
+
+---
+
+## 🔧 CRITICAL OBJECTIVES
+
+**Target Scores (Desktop):**
+- Performance: 100
+- Accessibility: 100
+- Best Practices: 100
+- SEO: 100
+
+---
+
+## 🟡 SEO FIXES (Current: 69 Desktop, 98 Mobile)
+
+1. **Page is blocked from indexing**
+   - Remove `<meta name="robots" content="noindex">` if present.
+   - Ensure no blocking rules in `robots.txt`
+   - Check for `X-Robots-Tag` headers — must allow indexing.
+
+2. **Add Canonical Tag**
+   ```html
+   <link rel="canonical" href="https://www.riverstickmotors.ie/" />
+Structured Data (Homepage)
+
+html
+Copy
+Edit
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Riverstick Motors",
+  "url": "https://www.riverstickmotors.ie",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Riverstick",
+    "addressRegion": "Cork",
+    "addressCountry": "IE"
+  },
+  "telephone": "+353 87 123 4567"
+}
+</script>
+Title and Meta Description
+
+html
+Copy
+Edit
+<title>Riverstick Motors | CVR Testing in Cork</title>
+<meta name="description" content="Book your CVR test with Riverstick Motors, a trusted vehicle testing centre in Cork. Fully integrated with RSA.">
+Ensure All <a> Tags Are Crawlable
+
+Use only valid href attributes (not # or javascript:void(0)).
+
+Avoid wrapping links in JS-only onclick handlers.
+
+🟡 BEST PRACTICES FIXES (Current: 69)
+Console Errors
+
+Inspect DevTools and eliminate all console errors and warnings.
+
+Fix asset 404s, CORS issues, and deprecated API calls.
+
+Security Headers (in <head> or via _headers in Netlify)
+
+text
+Copy
+Edit
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'
+Enable Trusted Types
+
+html
+Copy
+Edit
+<meta http-equiv="Content-Security-Policy" content="require-trusted-types-for 'script'">
+COOP / COEP Headers
+
+html
+Copy
+Edit
+<meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+<meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp">
+🟡 PERFORMANCE FIXES (Current: 93)
+Optimise Image Delivery
+
+Convert all .jpg/.png hero images to .webp.
+
+Add loading="lazy" and set width/height attributes explicitly.
+
+Minify CSS & Remove Unused Styles
+
+Remove 11 KiB+ of unused CSS (especially from components not in use).
+
+Minify all global and inline styles.
+
+Reduce Network Payload
+
+Defer non-critical JavaScript.
+
+Gzip or Brotli compress all static assets.
+
+Preload the hero image and any LCP element.
+
+Efficient Cache Policy
+
+In _headers:
+
+lua
+Copy
+Edit
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+🟡 ACCESSIBILITY FIXES (Current: 93)
+Fix Contrast Issues
+
+Review all text on images or colored backgrounds.
+
+Adjust color pairs to meet WCAG AA minimum contrast (4.5:1).
+
+Ensure Labels & Roles
+
+All inputs should have <label for=""> with matching id.
+
+All interactive elements should use proper roles: button, navigation, etc.

@@ -1,0 +1,52 @@
+<!-- Our Testing Services Section -->
+<section class="services" id="services">
+  <h2>Our Testing Services</h2>
+  <p>Comprehensive vehicle testing services to keep you safe on the road</p>
+  
+  <div class="services-container">
+    
+    <!-- CVR Testing (Combined LCV + HCV) -->
+    <div class="service-card">
+      <div class="service-icon">
+        <img src="path/to/cvr-icon.png" alt="CVR Icon" />
+      </div>
+      <h3>CVR Testing</h3>
+      <p>
+        Full Commercial Vehicle Roadworthiness (CVR) testing for all vehicle classes including Light (LCV) and Heavy (HCV) commercial vehicles. We test everything from vans to articulated trucks – ensuring compliance, safety, and certification.
+      </p>
+    </div>
+
+    <!-- Tachograph Calibration -->
+    <div class="service-card">
+      <div class="service-icon">
+        <img src="path/to/tacho-icon.png" alt="Tachograph Icon" />
+      </div>
+      <h3>Tachograph Calibration</h3>
+      <p>
+        Accurate calibration and verification of digital and analogue tachographs to ensure compliance with driver hour regulations and legal standards.
+      </p>
+    </div>
+
+    <!-- Declaration of Conversion -->
+    <div class="service-card">
+      <div class="service-icon">
+        <img src="path/to/conversion-icon.png" alt="Conversion Icon" />
+      </div>
+      <h3>Declaration of Conversion</h3>
+      <p>
+        Certification and inspection for vehicles that have undergone structural or usage changes, in compliance with RSA conversion documentation requirements.
+      </p>
+    </div>
+
+    <!-- SQI Engineer’s Reporting -->
+    <div class="service-card">
+      <div class="service-icon">
+        <img src="path/to/sqi-icon.png" alt="SQI Icon" />
+      </div>
+      <h3>SQI Engineer’s Reporting</h3>
+      <p>
+        Reports and assessments prepared by an approved Suitably Qualified Individual (SQI) engineer – required for conversions, modifications, or certain vehicle registrations.
+      </p>
+    </div>
+  </div>
+</section>
