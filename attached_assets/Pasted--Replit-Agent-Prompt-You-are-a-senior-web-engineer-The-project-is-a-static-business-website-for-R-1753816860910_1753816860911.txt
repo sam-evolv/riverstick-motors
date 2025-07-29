@@ -1,0 +1,76 @@
+# Replit Agent Prompt
+You are a senior web engineer. The project is a static business website for Riverstick Motors. Your task is to fix font loading, CSP policy violations, and deployment issues. The current code uses HTML, CSS, and JavaScript only. It is deployed to Netlify from a GitHub repo.
+
+## OBJECTIVE
+Fix all known frontend issues and make the site deploy-ready with zero warnings in Chrome DevTools.
+
+---
+
+## 🔧 1. HEAD SECTION OVERHAUL
+In index.html:
+- Replace the entire <head> section with the following:
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riverstick Motors</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome: secure, no integrity hash -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- JS -->
+  <script src="script.js" defer></script>
+</head>
+
+---
+
+## 🧹 2. REMOVE CSP ISSUES
+- Completely remove any use of `eval()` in script.js. Rewrite any dynamic function execution without using eval or new Function.
+
+---
+
+## 💅 3. STYLE.CSS FIX
+Ensure this font declaration is placed at the top:
+
+```css
+body {
+  font-family: 'Poppins', sans-serif;
+}
+🚫 4. REMOVE REDUNDANT PRELOADS
+In index.html, delete any preload links like:
+
+<link rel="preload" href="https://fonts.gstatic.com/..." as="font" ...>
+🧾 5. ADD HEADERS FILE FOR NETLIFY
+In the project root, create a new file called _headers (no file extension) with the following content:
+
+lua
+Copy
+Edit
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+⚙️ 6. GIT COMMIT & PUSH
+Run the following:
+git add .
+git commit -m "Final production fix: CSP-safe, fonts fixed, Netlify ready"
+git push origin main
+
+🌍 7. NETLIFY CONFIGURATION
+Verify Netlify's Build & Deploy Settings:
+
+Base directory: /
+
+Publish directory: .
+
+No build command needed
+
+Ensure auto-deploy from GitHub is active
+

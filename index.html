@@ -1,126 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riverstick Motors | CVR Testing in Cork</title>
-    <meta name="description" content="Book your CVR test at Riverstick Motors. Fast, trusted testing in Cork with RSA integration for reliable vehicle compliance.">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.riverstickmotors.ie/">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Riverstick Motors | CVR Testing Cork">
-    <meta property="og:description" content="Book your CVR test online with Riverstick Motors – Cork's trusted testing centre.">
-    <meta property="og:image" content="/riverstick-motors-new-logo.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.riverstickmotors.ie">
-    
-    <!-- Security Headers - Moved to netlify.toml for deployment compatibility -->
-    
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/png" href="assets/watermark-r.png">
-    
-    <!-- Preload Critical Resources -->
-    <link rel="preload" href="assets/truck-golden-hour.webp" as="image" type="image/webp">
-    <link rel="preload" href="assets/riverstick-motors-new-logo.png" as="image">
-    
-    <!-- Google Fonts with font-display swap -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Critical CSS Inline - Full Styling for Netlify -->
-    <style>
-    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Poppins',sans-serif;line-height:1.6;color:#4B0C0C;background-color:#FFFFFF;overflow-x:hidden;transition:all 0.3s ease}
-    
-    /* Dark theme by default */
-    [data-theme="dark"] body{background-color:#1A1A1A;color:#F5F1EC}
-    
-    :root{--primary-color:#4B0C0C;--secondary-color:#D4AF37;--bg-color:#FFFFFF;--section-bg:#F8F8F8;--card-bg:#FFFFFF;--text-primary:#4B0C0C;--text-secondary:#666666;--text-light:#4B0C0C;--shadow:0 2px 15px rgba(0,0,0,0.1);--shadow-hover:0 5px 25px rgba(0,0,0,0.15);--border-radius:8px;--transition:all 0.3s ease}
-    
-    /* Header Styling */
-    .header{position:fixed;top:0;left:0;right:0;background:rgba(75,12,12,0.95);backdrop-filter:blur(10px);z-index:1000;padding:15px 0;transition:all 0.3s ease;box-shadow:0 2px 20px rgba(0,0,0,0.1)}
-    .nav{max-width:1200px;margin:0 auto;padding:0 20px}
-    .nav-container{display:flex;justify-content:space-between;align-items:center}
-    .logo-image{height:60px;width:auto}
-    .nav-center{display:flex;gap:2rem}
-    .nav-link{color:#F5F1EC;text-decoration:none;font-weight:500;padding:8px 12px;border-radius:4px;transition:all 0.3s ease}
-    .nav-link:hover{background:rgba(212,175,55,0.1);color:#D4AF37}
-    .nav-menu{display:flex;align-items:center;gap:1rem}
-    .theme-toggle{background:none;border:none;color:#D4AF37;font-size:1.2rem;cursor:pointer;padding:8px;border-radius:4px;transition:all 0.3s ease}
-    .theme-toggle:hover{background:rgba(212,175,55,0.1)}
-    .nav-cta{margin-left:1rem}
-    
-    /* Hero Section - Critical for Layout */
-    .hero{min-height:100vh;display:flex;align-items:center;background:linear-gradient(135deg,#4B0C0C 0%,#6B1C1C 100%);padding:100px 0 50px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;bottom:-50px;right:-50px;width:400px;height:400px;background-image:url('assets/watermark-r.png');background-size:contain;background-repeat:no-repeat;background-position:center;opacity:0.1;z-index:0;pointer-events:none}
-    .hero-container{max-width:1200px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
-    .hero-title{font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#D4AF37;margin-bottom:1.5rem;line-height:1.2}
-    .hero-subtitle{font-size:clamp(1rem,3vw,1.2rem);color:#F5F1EC;margin-bottom:2rem;line-height:1.5}
-    .hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
-    .hero-image{display:flex;justify-content:center;align-items:center}
-    .hero-slideshow{position:relative;width:100%;max-width:400px;height:auto;aspect-ratio:4/3;overflow:hidden;border-radius:8px;box-shadow:0 2px 15px rgba(75,12,12,0.15);min-height:200px}
-    .slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 1.5s ease-in-out}
-    .slide.active{opacity:1}
-    .hero-image-photo{width:100%;height:100%;object-fit:cover;border-radius:8px;aspect-ratio:4/3}
-    
-    /* Button Styling */
-    .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:15px 30px;border:none;border-radius:8px;text-decoration:none;font-weight:600;cursor:pointer;transition:all 0.3s ease;min-height:44px;font-size:1.1rem}
-    .btn-primary{background:#4B0C0C;color:#fff;box-shadow:0 4px 15px rgba(75,12,12,0.3)}
-    .btn-primary:hover{background:#6B1C1C;transform:translateY(-2px);box-shadow:0 6px 20px rgba(75,12,12,0.4)}
-    .btn-secondary{background:#D4AF37;color:#4B0C0C;box-shadow:0 4px 15px rgba(212,175,55,0.3)}
-    .btn-secondary:hover{background:#E5BF48;transform:translateY(-2px);box-shadow:0 6px 20px rgba(212,175,55,0.4)}
-    .btn-large{padding:15px 30px;font-size:1.1rem}
-    
-    /* Mobile Navigation Toggle */
-    .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;color:#D4AF37;cursor:pointer;z-index:10000}
-    .nav-toggle-icon{display:block;width:25px;height:3px;background:#D4AF37;margin:5px 0;transition:all 0.3s ease}
-    
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .hero-container{grid-template-columns:1fr;gap:2rem;text-align:center}
-        .nav-center{display:none}
-        .nav-toggle{display:block}
-    }
-    </style>
-    
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riverstick Motors</title>
 
-    <!-- Font Awesome - CSP Compliant -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 
+  <!-- Font Awesome: secure, no integrity hash -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "AutoRepair",
-      "name": "Riverstick Motors",
-      "url": "https://www.riverstickmotors.ie",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Riverstick",
-        "addressRegion": "Cork",
-        "addressCountry": "Ireland"
-      },
-      "telephone": "+353214771362",
-      "priceRange": "$$",
-      "email": "reception@riverstickmotors.ie",
-      "openingHours": ["Mo-Fr 09:00-17:30"],
-      "description": "Professional CVR testing centre providing comprehensive vehicle inspection services in Cork, Ireland.",
-      "serviceArea": {
-        "@type": "GeoCircle",
-        "geoMidpoint": {
-          "@type": "GeoCoordinates",
-          "latitude": 51.7520,
-          "longitude": -8.3877
-        },
-        "geoRadius": "50000"
-      }
-    }
-    </script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- JS -->
+  <script src="script.js" defer></script>
 </head>
 <body>
     <!-- Sticky Header -->
