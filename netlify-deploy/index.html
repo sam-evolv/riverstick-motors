@@ -3,119 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riverstick Motors | CVR Testing in Cork</title>
-    <meta name="description" content="Book your CVR test at Riverstick Motors. Fast, trusted testing in Cork with RSA integration for reliable vehicle compliance.">
-    <meta name="robots" content="index, follow">
+    <title>CVR Testing Cork | Riverstick Motors Vehicle Testing</title>
+    <meta name="description" content="Professional CVR testing services in Cork. Riverstick Motors offers certified Light Commercial Vehicle (LCV) and Heavy Commercial Vehicle (HCV) testing with 43+ years experience. Book your CVR test today.">
     <link rel="canonical" href="https://www.riverstickmotors.ie/">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Riverstick Motors | CVR Testing Cork">
-    <meta property="og:description" content="Book your CVR test online with Riverstick Motors – Cork's trusted testing centre.">
-    <meta property="og:image" content="/riverstick-motors-new-logo.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.riverstickmotors.ie">
-    
-    <!-- Security Headers - Moved to netlify.toml for deployment compatibility -->
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/watermark-r.png">
     
-    <!-- Preload Critical Resources -->
-    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="assets/truck-golden-hour.webp" as="image" type="image/webp">
-    <link rel="preload" href="assets/riverstick-motors-new-logo.png" as="image">
+    <!-- Open Graph -->
+    <meta property="og:title" content="CVR Testing Cork | Riverstick Motors Vehicle Testing">
+    <meta property="og:description" content="Professional CVR testing services in Cork. Certified LCV and HCV testing with 43+ years experience.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.riverstickmotors.ie/">
+    <meta property="og:image" content="assets/truck-golden-hour.webp">
     
-    <!-- Google Fonts with font-display swap -->
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="assets/truck-golden-hour.webp" as="image">
+    <link rel="preload" href="assets/riverstick-motors-new-logo.png" as="image">
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Critical CSS Inline - Full Styling for Netlify -->
-    <style>
-    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Poppins',sans-serif;line-height:1.6;color:#4B0C0C;background-color:#FFFFFF;overflow-x:hidden;transition:all 0.3s ease}
-    
-    /* Dark theme by default */
-    [data-theme="dark"] body{background-color:#1A1A1A;color:#F5F1EC}
-    
-    :root{--primary-color:#4B0C0C;--secondary-color:#D4AF37;--bg-color:#FFFFFF;--section-bg:#F8F8F8;--card-bg:#FFFFFF;--text-primary:#4B0C0C;--text-secondary:#666666;--text-light:#4B0C0C;--shadow:0 2px 15px rgba(0,0,0,0.1);--shadow-hover:0 5px 25px rgba(0,0,0,0.15);--border-radius:8px;--transition:all 0.3s ease}
-    
-    /* Header Styling */
-    .header{position:fixed;top:0;left:0;right:0;background:rgba(75,12,12,0.95);backdrop-filter:blur(10px);z-index:1000;padding:15px 0;transition:all 0.3s ease;box-shadow:0 2px 20px rgba(0,0,0,0.1)}
-    .nav{max-width:1200px;margin:0 auto;padding:0 20px}
-    .nav-container{display:flex;justify-content:space-between;align-items:center}
-    .logo-image{height:60px;width:auto}
-    .nav-center{display:flex;gap:2rem}
-    .nav-link{color:#F5F1EC;text-decoration:none;font-weight:500;padding:8px 12px;border-radius:4px;transition:all 0.3s ease}
-    .nav-link:hover{background:rgba(212,175,55,0.1);color:#D4AF37}
-    .nav-menu{display:flex;align-items:center;gap:1rem}
-    .theme-toggle{background:none;border:none;color:#D4AF37;font-size:1.2rem;cursor:pointer;padding:8px;border-radius:4px;transition:all 0.3s ease}
-    .theme-toggle:hover{background:rgba(212,175,55,0.1)}
-    .nav-cta{margin-left:1rem}
-    
-    /* Hero Section - Critical for Layout */
-    .hero{min-height:100vh;display:flex;align-items:center;background:linear-gradient(135deg,#4B0C0C 0%,#6B1C1C 100%);padding:100px 0 50px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;bottom:-50px;right:-50px;width:400px;height:400px;background-image:url('assets/watermark-r.png');background-size:contain;background-repeat:no-repeat;background-position:center;opacity:0.1;z-index:0;pointer-events:none}
-    .hero-container{max-width:1200px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
-    .hero-title{font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#D4AF37;margin-bottom:1.5rem;line-height:1.2}
-    .hero-subtitle{font-size:clamp(1rem,3vw,1.2rem);color:#F5F1EC;margin-bottom:2rem;line-height:1.5}
-    .hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
-    .hero-image{display:flex;justify-content:center;align-items:center}
-    .hero-slideshow{position:relative;width:100%;max-width:400px;height:auto;aspect-ratio:4/3;overflow:hidden;border-radius:8px;box-shadow:0 2px 15px rgba(75,12,12,0.15);min-height:200px}
-    .slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 1.5s ease-in-out}
-    .slide.active{opacity:1}
-    .hero-image-photo{width:100%;height:100%;object-fit:cover;border-radius:8px;aspect-ratio:4/3}
-    
-    /* Button Styling */
-    .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:15px 30px;border:none;border-radius:8px;text-decoration:none;font-weight:600;cursor:pointer;transition:all 0.3s ease;min-height:44px;font-size:1.1rem}
-    .btn-primary{background:#4B0C0C;color:#fff;box-shadow:0 4px 15px rgba(75,12,12,0.3)}
-    .btn-primary:hover{background:#6B1C1C;transform:translateY(-2px);box-shadow:0 6px 20px rgba(75,12,12,0.4)}
-    .btn-secondary{background:#D4AF37;color:#4B0C0C;box-shadow:0 4px 15px rgba(212,175,55,0.3)}
-    .btn-secondary:hover{background:#E5BF48;transform:translateY(-2px);box-shadow:0 6px 20px rgba(212,175,55,0.4)}
-    .btn-large{padding:15px 30px;font-size:1.1rem}
-    
-    /* Mobile Navigation Toggle */
-    .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;color:#D4AF37;cursor:pointer;z-index:10000}
-    .nav-toggle-icon{display:block;width:25px;height:3px;background:#D4AF37;margin:5px 0;transition:all 0.3s ease}
-    
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .hero-container{grid-template-columns:1fr;gap:2rem;text-align:center}
-        .nav-center{display:none}
-        .nav-toggle{display:block}
-    }
-    </style>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
-    
-    <!-- Font Awesome Deferred -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "AutoRepair",
-      "name": "Riverstick Motors",
+      "name": "Riverstick Motors CVR Testing Centre",
+      "description": "Professional CVR testing services for Light Commercial Vehicles (LCV) and Heavy Commercial Vehicles (HCV) in Cork, Ireland.",
       "url": "https://www.riverstickmotors.ie",
+      "telephone": "+353214771362",
+      "email": "reception@riverstickmotors.ie",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Riverstick",
-        "addressRegion": "Cork",
-        "addressCountry": "Ireland"
+        "streetAddress": "Riverstick",
+        "addressLocality": "Cork",
+        "addressCountry": "IE"
       },
-      "telephone": "+353214771362",
-      "priceRange": "$$",
-      "email": "reception@riverstickmotors.ie",
-      "openingHours": ["Mo-Fr 09:00-17:30"],
-      "description": "Professional CVR testing centre providing comprehensive vehicle inspection services in Cork, Ireland.",
-      "serviceArea": {
+      "openingHours": "Mo-Fr 09:00-17:30",
+      "priceRange": "€€",
+      "areaServed": {
         "@type": "GeoCircle",
         "geoMidpoint": {
           "@type": "GeoCoordinates",
-          "latitude": 51.7520,
-          "longitude": -8.3877
+          "latitude": "51.7",
+          "longitude": "-8.3"
         },
         "geoRadius": "50000"
       }
@@ -243,7 +186,7 @@
                 
                 <div class="service-card scale-in">
                     <div class="service-icon">
-                        <i class="fas fa-shipping-fast"></i>
+                        <i class="fas fa-tools"></i>
                     </div>
                     <h3>Road Speed Limiter Calibration & Repairs</h3>
                     <p>Specialised calibration and repairs of road speed limiters to meet safety regulations and enhance vehicle compliance.</p>
@@ -264,7 +207,7 @@
                 <div class="step-card slide-in-left">
                     <div class="step-number">1</div>
                     <h3>Book Online</h3>
-                    <p>Choose your vehicle type and book your test slot online through our secure booking system.</p>
+                    <p>Choose your vehicle type and book your test online through our secure booking system.</p>
                 </div>
                 
                 <div class="step-card slide-in-left">
@@ -282,23 +225,7 @@
                 <div class="step-card slide-in-right">
                     <div class="step-number">4</div>
                     <h3>Receive Certificate</h3>
-                    <p>Get your CVR certificate and disc within 2-3 working days once testing is complete.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content fade-in">
-                <h2>Ready to Book Your CVR Test?</h2>
-                <p>Don't wait – secure your test slot today and ensure your vehicle meets all safety requirements.</p>
-                <div class="cta-buttons">
-                    <a href="tel:+353214771362" class="btn btn-secondary btn-large">
-                        <i class="fas fa-phone"></i> Call 021-477 1362
-                    </a>
-                    <a href="#booking" onclick="openModal(); return false;" class="btn btn-primary btn-large">Book Test</a>
+                    <p>Get your CVR test results and certificate. RSA disc delivered within 2-3 working days.</p>
                 </div>
             </div>
         </div>
@@ -307,71 +234,46 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="section-title">About Riverstick Motors</h2>
-                <p class="section-subtitle">Your trusted partner in vehicle testing and compliance</p>
-            </div>
-            
             <div class="about-content">
-                <div class="about-text slide-in-left">
-                    <p>With over 57 years of experience in the automotive industry and 43 years specialising in CVR testing, Riverstick Motors has established itself as Cork's premier vehicle testing centre. We pride ourselves on professional service, quick turnaround times, and maintaining the highest standards of vehicle safety compliance.</p>
-                    
-                    <p>Our team of certified technicians uses state-of-the-art equipment to ensure your vehicle meets all RSA requirements. From light commercial vehicles to heavy goods vehicles, we provide comprehensive testing services that you can trust.</p>
+                <div class="about-text fade-in">
+                    <h2 class="section-title">About Riverstick Motors</h2>
+                    <p>With over 57 years of industry experience and 43+ years specialising in CVR testing, Riverstick Motors has become Cork's most trusted vehicle testing centre. Our commitment to excellence and customer satisfaction has made us the preferred choice for commercial vehicle owners throughout the region.</p>
+                    <p>We pride ourselves on providing efficient, reliable, and professional testing services that keep your business moving. Our state-of-the-art facility and experienced technicians ensure your vehicle meets all RSA requirements.</p>
                 </div>
                 
-                <div class="about-stats slide-in-right">
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-number">57+</div>
-                            <div class="stat-label">Years Industry Experience</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">43+</div>
-                            <div class="stat-label">Years CVR Testing Experience</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">500,000+</div>
-                            <div class="stat-label">Vehicles Tested</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">7,043</div>
-                            <div class="stat-label">Vehicles Tested in 2024</div>
-                        </div>
+                <div class="stats-grid scale-in">
+                    <div class="stat-card">
+                        <div class="stat-number">57+</div>
+                        <div class="stat-label">Years Industry Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">43+</div>
+                        <div class="stat-label">Years CVR Testing Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">500,000+</div>
+                        <div class="stat-label">Vehicles Tested</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">7,043</div>
+                        <div class="stat-label">Tests in 2024</div>
                     </div>
                 </div>
             </div>
-            
-            <div class="timeline-section scale-in">
-                <h3>Our Heritage</h3>
-                <div class="timeline-strip">
-                    <div class="timeline-item">
-                        <div class="timeline-year">1968</div>
-                        <div class="timeline-content">
-                            <h4>Founded as Garage</h4>
-                            <p>Riverstick Motors established as automotive service centre</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">1980</div>
-                        <div class="timeline-content">
-                            <h4>New Bay Added</h4>
-                            <p>Expanded facilities to accommodate growing business</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">1982</div>
-                        <div class="timeline-content">
-                            <h4>CVR Testing Begins</h4>
-                            <p>Commenced commercial vehicle roadworthiness testing</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2024</div>
-                        <div class="timeline-content">
-                            <h4>500,000+ Vehicles Tested</h4>
-                            <p>Milestone achievement in vehicle testing excellence</p>
-                        </div>
-                    </div>
+        </div>
+    </section>
+
+    <!-- Ready to Book Section -->
+    <section class="ready-to-book">
+        <div class="container">
+            <div class="ready-content fade-in">
+                <h2>Ready to Book Your CVR Test?</h2>
+                <p>Fast, reliable, and trusted by thousands of customers across Cork</p>
+                <div class="ready-buttons">
+                    <a href="#booking" onclick="openModal(); return false;" class="btn btn-primary btn-large">Book Test</a>
+                    <a href="tel:+353214771362" class="btn btn-secondary btn-large">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
                 </div>
             </div>
         </div>
@@ -385,18 +287,29 @@
                 <p class="section-subtitle">Get in touch with our team</p>
             </div>
             
-            <div class="contact-content">
-                <div class="contact-info slide-in-left">
-                    <h3>Get In Touch</h3>
-                    <p>Ready to book your CVR test or have questions about our services? Contact us using the details below, and our friendly team will be happy to help.</p>
-                    
-                    <div class="contact-details">
-                        <p><strong>Phone:</strong> <a href="tel:+353214771362">021-477 1362</a></p>
-                        <p><strong>Email:</strong> <a href="mailto:reception@riverstickmotors.ie">reception@riverstickmotors.ie</a></p>
-                        <p><strong>Address:</strong> Main Street, Riverstick, Co. Cork, P43 EY24</p>
-                        <p><strong>Opening Hours:</strong> Monday to Friday, 9:00am - 5:30pm<br>
-                        Weekends: Closed</p>
+            <div class="contact-grid">
+                <div class="contact-card scale-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
                     </div>
+                    <h3>Phone</h3>
+                    <p><a href="tel:+353214771362">021-4771362</a></p>
+                </div>
+                
+                <div class="contact-card scale-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:reception@riverstickmotors.ie">reception@riverstickmotors.ie</a></p>
+                </div>
+                
+                <div class="contact-card scale-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Opening Hours</h3>
+                    <p>Mon-Fri: 9:00am-5:30pm<br>Weekends: Closed</p>
                 </div>
             </div>
         </div>
@@ -407,87 +320,99 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Contact Information</h4>
-                    <div class="contact-info">
-                        <p><i class="fas fa-map-marker-alt"></i> Main Street, Riverstick, Co. Cork, P43 EY24</p>
-                        <p><i class="fas fa-phone"></i> <a href="tel:+353214771362">021-477 1362</a></p>
-                        <p><i class="fas fa-envelope"></i> <a href="mailto:reception@riverstickmotors.ie">reception@riverstickmotors.ie</a></p>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Opening Hours</h4>
-                    <div class="opening-hours">
-                        <p>Monday to Friday – 9:00am to 5:30pm</p>
-                        <p>Saturday – Closed</p>
-                        <p>Sunday – Closed</p>
-                    </div>
+                    <img src="assets/riverstick-motors-new-logo.png" alt="Riverstick Motors" class="footer-logo" loading="lazy">
+                    <p>Cork's trusted CVR testing centre with over 43 years of experience in commercial vehicle testing.</p>
                 </div>
                 
                 <div class="footer-section">
                     <h4>Services</h4>
-                    <ul class="footer-links">
+                    <ul>
                         <li><a href="#services">CVR Testing</a></li>
                         <li><a href="#services">NSAI Approved ATC Centre</a></li>
                         <li><a href="#services">Declaration of Conversion</a></li>
+                        <li><a href="#services">SQI & Modification Reports</a></li>
                         <li><a href="#services">Tachograph Calibration</a></li>
+                        <li><a href="#services">Road Speed Limiter Services</a></li>
                     </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+353214771362">021-4771362</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:reception@riverstickmotors.ie">reception@riverstickmotors.ie</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Riverstick, Cork</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Hours</h4>
+                    <p>Monday - Friday: 9:00am - 5:30pm</p>
+                    <p>Saturday - Sunday: Closed</p>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Riverstick Motors CVR Testing Centre. All rights reserved.</p>
-                <div class="evolvai-attribution">
-                    <a href="https://evolvai.ie" target="_blank" class="evolvai-link">
-                        Designed & Developed by EvolvAi
-                        <img src="assets/evolvai-logo.png" alt="EvolvAi Logo" class="evolvai-logo" width="20" height="20" loading="lazy" style="aspect-ratio: 1;" />
-                    </a>
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 Riverstick Motors CVR Testing Centre. All rights reserved.</p>
+                    <div class="footer-credit">
+                        <span>Designed & Developed by</span>
+                        <a href="https://evolvai.ie" target="_blank" rel="noopener noreferrer" class="evolvai-link">
+                            <img src="assets/evolvai-logo.png" alt="EvolvAi" class="evolvai-logo" loading="lazy"> EvolvAi
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
-        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
     </button>
 
     <!-- Booking Modal -->
     <div id="booking-modal" class="modal">
         <div class="modal-content">
-            <button class="close-modal" onclick="closeModal()" aria-label="Close modal">&times;</button>
-            <h2>Select Your Vehicle Type</h2>
-            <p>Please choose the correct category for your vehicle test.</p>
+            <button class="modal-close" onclick="closeModal()" aria-label="Close booking modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Book Your CVR Test</h2>
+            <p>Choose your vehicle type to book directly through the RSA portal:</p>
             
             <div class="booking-options">
-                <div class="booking-option">
-                    <div class="vehicle-image">
-                        <img src="assets/lcv-van-final.webp" alt="Light Commercial Vehicle" class="vehicle-img" loading="lazy" width="200" height="150" style="aspect-ratio: 4/3;">
+                <a href="https://operator.cvrt.ie/Test/BookPublicLGVTest?CVRTID=120&type=LGV" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="booking-option" 
+                   onclick="closeModal()">
+                    <div class="booking-icon">
+                        <img src="assets/lcv-van-final.webp" alt="Light Commercial Vehicle" class="booking-vehicle-image">
                     </div>
-                    <h3>LCV</h3>
-                    <p>Light Commercial Vehicle up to 3.5 tonnes</p>
-                    <a href="https://operator.cvrt.ie/Test/BookPublicLGVTest?CVRTID=120&type=LGV" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="booking-btn">Book LCV</a>
-                </div>
+                    <div class="booking-details">
+                        <h3>Light Commercial Vehicle (LCV)</h3>
+                        <p>Vans, pick-ups, and light trucks under 3.5 tonnes</p>
+                        <span class="booking-btn">Book LCV Test</span>
+                    </div>
+                </a>
                 
-                <div class="booking-option">
-                    <div class="vehicle-image">
-                        <img src="assets/hcv-truck-white.webp" alt="Heavy Commercial Vehicle" class="vehicle-img" loading="lazy" width="200" height="150" style="aspect-ratio: 4/3;">
+                <a href="http://operator.cvrt.ie/Account/Login?ReturnUrl=/Test/BookHGVLGVTest?CVRTID=120&type=HGV" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="booking-option" 
+                   onclick="closeModal()">
+                    <div class="booking-icon">
+                        <img src="assets/hcv-truck-white.webp" alt="Heavy Commercial Vehicle" class="booking-vehicle-image">
                     </div>
-                    <h3>HCV</h3>
-                    <p>Heavy Commercial Vehicle over 3.5 tonnes</p>
-                    <a href="http://operator.cvrt.ie/Account/Login?ReturnUrl=/Test/BookHGVLGVTest?CVRTID=120&type=HGV" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="booking-btn">Book HCV</a>
-                </div>
+                    <div class="booking-details">
+                        <h3>Heavy Commercial Vehicle (HCV)</h3>
+                        <p>Trucks, lorries, and heavy vehicles over 3.5 tonnes</p>
+                        <span class="booking-btn">Book HCV Test</span>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript for mobile navigation (deferred for performance) -->
-    <script src="js/script.js" defer></script>
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
 </body>
 </html>
