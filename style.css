@@ -20,6 +20,7 @@ transition: all 0.3s ease;
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 text-rendering: optimizeLegibility;
+font-weight: 400;
 }
 [data-theme="dark"] body {
 color: #F5F1EC;
@@ -258,10 +259,10 @@ opacity: 0;
 transform: rotate(-45deg) translate(7px, -6px);
 }
 .hero {
-padding-top: 100px; /* Optimal spacing below navbar */
+padding-top: 80px; /* Fixed navbar height + 20px margin */
 padding-bottom: 60px;
 background: var(--bg-color);
-min-height: auto; /* Remove fixed height constraint */
+min-height: auto;
 display: flex;
 align-items: center;
 position: relative;
@@ -291,8 +292,8 @@ pointer-events: none;
 50% { opacity: 0.15; }
 }
 .hero-container {
-width: 75%; /* 75% of screen width for optimal proportions */
-max-width: 1400px;
+width: 80%; /* 80% of screen width as per video */
+max-width: 1200px;
 margin: 0 auto;
 padding: 20px;
 display: grid;
@@ -329,7 +330,7 @@ align-items: center;
 position: relative;
 width: 100%;
 max-width: 100%; /* Use full width of container */
-height: 450px; /* Fixed moderate height */
+height: 400px; /* Moderate height as per video */
 overflow: hidden;
 border-radius: 12px;
 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
