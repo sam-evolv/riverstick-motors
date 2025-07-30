@@ -10,16 +10,15 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
-### July 28, 2025 - DEPLOYMENT-READY PACKAGE COMPLETE (NETLIFY OPTIMIZED)
-- **DEPLOYMENT STRUCTURE**: Organized all files into proper folder hierarchy (/css/, /js/, /assets/)
-- **SEO OPTIMIZATION**: Added comprehensive Open Graph, Twitter Cards, and structured data
-- **FAVICON INTEGRATION**: Created favicon.ico from watermark-r.png for browser tab display
-- **PATH VALIDATION**: All asset links verified as relative and lowercase for deployment
-- **MOBILE FIXES**: Slideshow image clipping resolved with responsive object-fit strategies
-- **PERFORMANCE**: Maintained perfect Lighthouse 100 scores across all categories
-- **SECURITY**: Enhanced CSP headers and security policies for enterprise deployment
-- **CROSS-DEVICE**: Verified functionality across iPhone, Android, tablet, and desktop
-- **NETLIFY READY**: Complete drag-and-drop deployment package with all technical files
+### July 30, 2025 - REVERTED TO BASIC VERSION
+- **REVERTED**: Website restored to earlier, simpler version per user request
+- **REMOVED**: All performance optimizations, security headers, and structured data
+- **SIMPLIFIED**: Basic HTML structure without inline critical CSS or deferred loading
+- **RESTORED**: Original static hero image instead of slideshow
+- **BASIC STYLING**: Simple CSS without minification or optimization
+- **STANDARD JAVASCRIPT**: Basic functionality without performance enhancements
+- **REMOVED FILES**: Deleted _headers, robots.txt, sitemap.xml, 404.html, favicon.ico
+- **FOCUS**: Simple, functional website with emphasis on readability and basic features
 
 ### July 28, 2025 - SLIDESHOW MOBILE FIX + COMPREHENSIVE RESPONSIVE OPTIMIZATION (ENTERPRISE READY)
 - **CRITICAL SLIDESHOW FIX**: Resolved image clipping on iPhone SE/12 mini - images now display fully
