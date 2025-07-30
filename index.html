@@ -47,7 +47,6 @@
                 </div>
                 
                 <div class="nav-menu" id="nav-menu">
-                    <a href="https://riverstickindustries.com" target="_blank" class="nav-link">Riverstick Industries</a>
                     <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
                         <i class="fas fa-moon" id="theme-icon"></i>
                     </button>
@@ -61,33 +60,17 @@
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">Professional CVR Testing Services You Can Trust</h1>
-                <p class="hero-subtitle">Get your vehicle tested quickly and efficiently at Riverstick Motors CVR Testing Centre. Certified, reliable, and convenient testing services for all vehicle types.</p>
+                <h1 class="hero-title">Professional CVR<br>Testing Services You<br>Can Trust</h1>
+                <p class="hero-subtitle">Get your vehicle tested quickly and efficiently at<br>Riverstick Motors CVR Testing Centre. Certified, reliable,<br>and convenient testing services for all vehicle types.</p>
                 <div class="hero-cta">
                     <a href="#booking" onclick="openModal(); return false;" class="btn btn-primary btn-large">Book Your Test Today</a>
-                    <a href="tel:+353214771362" class="btn btn-secondary btn-large">
+                    <a href="tel:+353214771362" class="btn btn-outline btn-large">
                         <i class="fas fa-phone"></i> Call Now
                     </a>
                 </div>
             </div>
             <div class="hero-image">
-                <div class="hero-slideshow">
-                    <div class="slide active">
-                        <img src="assets/truck-golden-hour.webp" alt="MAN TGX truck at golden hour" class="hero-image-photo" loading="eager" width="400" height="300">
-                    </div>
-                    <div class="slide">
-                        <img src="assets/truck-motorway.webp" alt="Black truck on Irish motorway" class="hero-image-photo" loading="lazy" width="400" height="300">
-                    </div>
-                    <div class="slide">
-                        <img src="assets/van-adventure.webp" alt="White van on Irish countryside road" class="hero-image-photo" loading="lazy" width="400" height="300">
-                    </div>
-                    <div class="slide">
-                        <img src="assets/riverstick-truck-evening.webp" alt="Riverstick Motors MAN truck at evening" class="hero-image-photo" loading="lazy" width="400" height="300">
-                    </div>
-                    <div class="slide">
-                        <img src="assets/range-rover-countryside.webp" alt="Range Rover on Irish countryside road" class="hero-image-photo" loading="lazy" width="400" height="300">
-                    </div>
-                </div>
+                <img src="assets/van-adventure.webp" alt="White van on wet road" class="hero-image-photo">
             </div>
         </div>
     </section>
@@ -193,13 +176,16 @@
         <div class="container">
             <div class="cta-content fade-in">
                 <h2>Ready to Book Your CVR Test?</h2>
-                <p>Don't wait – secure your test slot today and ensure your vehicle meets all safety requirements.</p>
+                <p>Don't wait until the last minute, Book your CVR test today and ensure your vehicle<br>meets all safety requirements. Our friendly team is ready to help you schedule at a<br>time that works for you.</p>
                 <div class="cta-buttons">
-                    <a href="tel:+353214771362" class="btn btn-secondary btn-large">
+                    <a href="tel:+353214771362" class="btn btn-outline btn-large">
                         <i class="fas fa-phone"></i> Call 021-477 1362
                     </a>
-                    <a href="#booking" onclick="openModal(); return false;" class="btn btn-primary btn-large">Book Test</a>
+                    <a href="#booking" onclick="openModal(); return false;" class="btn btn-primary btn-large">
+                        <i class="fas fa-car"></i> Book Test
+                    </a>
                 </div>
+                <p class="cta-footer">Monday to Friday • 9:00am to 5:30pm | Saturday <i class="fas fa-times"></i> Closed | Sunday <i class="fas fa-times"></i> Closed</p>
             </div>
         </div>
     </section>
@@ -293,21 +279,32 @@
         <div class="container">
             <div class="section-header fade-in">
                 <h2 class="section-title">Contact Us</h2>
-                <p class="section-subtitle">Get in touch with our team</p>
+                <p class="section-subtitle">Get in touch with our team for bookings and inquiries</p>
             </div>
             
-            <div class="contact-content">
-                <div class="contact-info slide-in-left">
-                    <h3>Get In Touch</h3>
-                    <p>Ready to book your CVR test or have questions about our services? Contact us using the details below, and our friendly team will be happy to help.</p>
-                    
-                    <div class="contact-details">
-                        <p><strong>Phone:</strong> <a href="tel:+353214771362">021-477 1362</a></p>
-                        <p><strong>Email:</strong> <a href="mailto:reception@riverstickmotors.ie">reception@riverstickmotors.ie</a></p>
-                        <p><strong>Address:</strong> Main Street, Riverstick, Co. Cork, P43 EY24</p>
-                        <p><strong>Opening Hours:</strong> Monday to Friday, 9:00am - 5:30pm<br>
-                        Weekends: Closed</p>
+            <div class="contact-cards">
+                <div class="contact-card slide-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
                     </div>
+                    <h3>Phone</h3>
+                    <p><a href="tel:+353214771362">021-477 1362</a></p>
+                </div>
+                
+                <div class="contact-card slide-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:reception@riverstickmotors.ie">reception@riverstickmotors.ie</a></p>
+                </div>
+                
+                <div class="contact-card slide-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Opening Hours</h3>
+                    <p>Mon-Fri: 9:00am-5:30pm,<br>Closed Saturday & Sunday</p>
                 </div>
             </div>
         </div>
@@ -316,62 +313,39 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Contact Information</h4>
-                    <div class="contact-info">
-                        <p><i class="fas fa-map-marker-alt"></i> Main Street, Riverstick, Co. Cork, P43 EY24</p>
-                        <p><i class="fas fa-phone"></i> <a href="tel:+353214771362">021-477 1362</a></p>
-                        <p><i class="fas fa-envelope"></i> <a href="mailto:reception@riverstickmotors.ie">reception@riverstickmotors.ie</a></p>
-                    </div>
+            <div class="footer-main">
+                <div class="footer-left">
+                    <h3>Contact Information</h3>
+                    <p class="footer-address">
+                        <i class="fas fa-map-marker-alt"></i> Main Street, Riverstick, Co. Cork
+                    </p>
+                    <p class="footer-phone">
+                        <i class="fas fa-phone"></i> 021-477 1362
+                    </p>
+                    <p class="footer-email">
+                        <i class="fas fa-envelope"></i> reception@riverstickmotors.ie
+                    </p>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Opening Hours</h4>
-                    <div class="opening-hours">
-                        <p>Monday to Friday – 9:00am to 5:30pm</p>
-                        <p>Saturday – Closed</p>
-                        <p>Sunday – Closed</p>
-                    </div>
+                <div class="footer-center">
+                    <h3>Opening Hours</h3>
+                    <p>Monday to Friday – 9:00am to 5:30pm</p>
+                    <p>Saturday – Closed</p>
+                    <p>Sunday – Closed</p>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <ul class="footer-links">
-                        <li><a href="#services">CVR Testing</a></li>
-                        <li><a href="#services">NSAI Approved ATC Centre</a></li>
-                        <li><a href="#services">Declaration of Conversion</a></li>
-                        <li><a href="#services">Tachograph Calibration</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Follow Us</h4>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
+                <div class="footer-right">
+                    <h3>Services</h3>
+                    <p>CVR Testing<br>
+                    Re-Testing<br>
+                    Commercial Vehicles<br>
+                    Motorcycles</p>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p>&copy; 2025 Riverstick Motors CVR Testing Centre. All rights reserved.</p>
-                <div class="evolvai-attribution">
-                    <a href="https://evolvai.ie" target="_blank" class="evolvai-link">
-                        Designed & Developed by EvolvAi
-                        <img src="assets/evolvai-logo.png" alt="EvolvAi Logo" class="evolvai-logo" width="20" height="20" loading="lazy" style="aspect-ratio: 1;" />
-                    </a>
-                </div>
+                <p class="footer-designed">Designed & Developed by EvolvAi</p>
             </div>
         </div>
     </footer>
