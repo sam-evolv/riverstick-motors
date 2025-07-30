@@ -197,6 +197,30 @@ Preferred communication style: Simple, everyday language.
   * Responsive: stacked vertically on mobile with centered alignment
   * Links to evolvai.ie website in new tab
 
+### July 30, 2025 - SLIDESHOW POSITIONING & LAYOUT REFACTOR
+- **HERO SLIDESHOW REFACTOR**: Complete redesign of slideshow dimensions and positioning
+  - Changed container width to 75% of screen (70-80% range as requested)
+  - Fixed height of 450px on desktop for moderate, non-fullscreen display
+  - Removed zoom/panning effects for static presentation
+  - Enhanced smooth fade transitions with cubic-bezier easing (2s duration)
+  - Proper spacing below navbar with 100px top padding
+- **RESPONSIVE OPTIMIZATION**: Tailored heights for all breakpoints
+  - Desktop: 450px fixed height
+  - Tablet (1024px): 400px height with 85% container width
+  - Mobile (768px): 300px height with 90% container width  
+  - Small screens (480px): 250px height
+  - Very small (375px): 220px height
+  - Tiny screens (320px): 200px height
+- **ABOUT SECTION FIX**: Re-added Riverstick Motors logo above title
+  - Centered display with 2rem bottom margin
+  - Max-width of 180px for proper scaling
+- **HERITAGE SECTION**: Moved to standalone section outside About
+  - Added dedicated navigation link
+  - Proper section styling with background color
+  - Clear separation from About content
+- **JAVASCRIPT FIX**: Removed duplicate script.js loading that caused navToggle error
+- **IMAGE QUALITY**: Verified all slideshow images are optimized WebP format (6-16KB)
+
 ## System Architecture
 
 ### Frontend Architecture
