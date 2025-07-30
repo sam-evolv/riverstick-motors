@@ -255,12 +255,12 @@ opacity: 0;
 transform: rotate(-45deg) translate(7px, -6px);
 }
 .hero {
-padding-top: 140px; /* Increased to ensure slideshow is properly positioned below navbar */
+padding-top: 100px; /* Optimal spacing below navbar */
 padding-bottom: 60px;
 background: var(--bg-color);
-min-height: calc(100vh - 140px); /* Adjust min-height to account for navbar */
+min-height: auto; /* Remove fixed height constraint */
 display: flex;
-align-items: flex-start; /* Align content to top instead of center */
+align-items: center;
 position: relative;
 overflow: hidden;
 }
@@ -288,12 +288,13 @@ pointer-events: none;
 50% { opacity: 0.15; }
 }
 .hero-container {
-max-width: 1200px;
+width: 75%; /* 75% of screen width for optimal proportions */
+max-width: 1400px;
 margin: 0 auto;
-padding: 40px 20px 0; /* Add top padding to push content down from navbar */
+padding: 20px;
 display: grid;
 grid-template-columns: 1fr 1fr;
-gap: clamp(2rem, 5vw, 4rem);
+gap: 3rem;
 align-items: center;
 position: relative;
 z-index: 1;
@@ -324,14 +325,12 @@ align-items: center;
 .hero-slideshow {
 position: relative;
 width: 100%;
-max-width: 600px; /* Increased for better desktop display */
-height: auto;
-aspect-ratio: 4/3;
+max-width: 100%; /* Use full width of container */
+height: 450px; /* Fixed moderate height */
 overflow: hidden;
-border-radius: 8px;
-box-shadow: 0 2px 15px rgba(75, 12, 12, 0.15);
-min-height: 300px; /* Increased min-height */
-max-height: 90vh; /* Ensure it doesn't exceed viewport height */
+border-radius: 12px;
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+background-color: #f0f0f0; /* Fallback for loading */
 }
 .hero-slideshow .slide {
 position: absolute;
@@ -340,25 +339,28 @@ left: 0;
 width: 100%;
 height: 100%;
 opacity: 0;
-transition: opacity 1.5s ease-in-out;
+transition: opacity 2s cubic-bezier(0.4, 0.0, 0.2, 1); /* Smoother easing function */
+z-index: 1;
 }
 .hero-slideshow .slide.active {
 opacity: 1;
+z-index: 2;
 }
 .hero-slideshow .slide.fade-out {
 opacity: 0;
+z-index: 1;
 }
 .hero-image-photo {
 width: 100%;
 height: 100%;
 object-fit: cover;
-aspect-ratio: 4/3;
-border-radius: 8px;
-image-rendering: high-quality;
+border-radius: 12px;
+image-rendering: crisp-edges;
 image-rendering: -webkit-optimize-contrast;
 backface-visibility: hidden;
-transform: translateZ(0);
+transform: translateZ(0) scale(1); /* Static scale */
 display: block;
+will-change: opacity; /* Optimize for fade transitions only */
 }
 section {
 padding: clamp(40px, 8vh, 80px) 0;
@@ -1168,13 +1170,13 @@ background: #e6c144;
 grid-template-columns: 1fr;
 text-align: center;
 gap: 2rem;
+width: 85%; /* Slightly wider on tablets */
 }
 .hero-title {
 font-size: 2.5rem;
 }
 .hero-slideshow {
-width: 350px;
-height: 260px;
+height: 400px; /* Maintain good height on tablets */
 }
 .about-content {
 grid-template-columns: 1fr;
@@ -1269,13 +1271,14 @@ margin-right: 0;
 margin-left: 0;
 }
 .hero {
-padding: 100px 0 60px;
+padding: 80px 0 40px;
 min-height: auto;
 }
 .hero-container {
 grid-template-columns: 1fr;
 gap: 2rem;
 text-align: center;
+width: 90%; /* Wider on mobile for better use of space */
 }
 .hero-title {
 font-size: 2rem;
@@ -1287,10 +1290,13 @@ font-size: 1.1rem;
 flex-direction: column;
 align-items: center;
 }
+.hero-slideshow {
+height: 300px; /* Appropriate height for mobile */
+}
 .hero-image-photo {
-width: 300px;
-height: auto;
-max-width: 100%;
+width: 100%;
+height: 100%;
+object-fit: cover;
 }
 section {
 padding: 60px 0;
@@ -1394,16 +1400,12 @@ font-size: 1.8rem;
 }
 .hero-slideshow {
 width: 100%;
-max-width: 280px;
-height: auto;
-aspect-ratio: 4/3;
-min-height: 160px;
+height: 250px; /* Fixed height for small screens */
 }
 .hero-image-photo {
-object-fit: contain;
-max-height: 50vh;
 width: 100%;
-height: auto;
+height: 100%;
+object-fit: cover;
 }
 .hero-container {
 padding: 0 10px;
@@ -1471,34 +1473,19 @@ height: auto;
 /* Additional media query for iPhone SE and very small screens */
 @media (max-width: 375px) {
 .hero-slideshow {
-max-width: 260px;
-min-height: 140px;
-aspect-ratio: 4/3;
-}
-.hero-image-photo {
-object-fit: contain;
-max-height: 40vh;
-width: 100%;
-height: auto;
+height: 220px; /* Smaller height for very small screens */
 }
 .hero-container {
-padding: 0 5px;
+padding: 0 10px;
 gap: 1rem;
-}
-.hero-image {
-padding: 0 5px;
+width: 95%; /* Almost full width on very small screens */
 }
 }
 
 /* iPhone 12 mini and similar */
 @media (max-width: 320px) {
 .hero-slideshow {
-max-width: 240px;
-min-height: 120px;
-}
-.hero-image-photo {
-object-fit: contain;
-max-height: 35vh;
+height: 200px; /* Even smaller for tiny screens */
 }
 .hero-container {
 gap: 0.8rem;
