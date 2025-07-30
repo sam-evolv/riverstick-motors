@@ -853,136 +853,101 @@ opacity: 0.3;
 background-color: var(--primary-color);
 padding: 80px 0;
 }
-.heritage-timeline {
-background-color: var(--primary-color);
-padding: 3rem 0;
-margin: 4rem 0;
-}
-.timeline-container {
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 20px;
+.heritage .section-title {
 text-align: center;
-}
-.timeline-title {
 color: var(--secondary-color);
-font-size: 1.5rem;
-margin-bottom: 2rem;
-font-weight: 600;
+font-size: 2rem;
+margin-bottom: 3rem;
 }
-.timeline-box {
-padding: 40px 20px;
-margin: 40px auto;
-background-color: transparent;
+.heritage-timeline-box {
+border: 2px solid rgba(212, 175, 55, 0.3);
+border-radius: 12px;
+padding: 3rem 2rem;
+margin: 0 auto 3rem;
+max-width: 800px;
 position: relative;
-max-width: 1000px;
 }
-.timeline-strip {
-display: flex;
-justify-content: space-between;
-align-items: flex-start;
-flex-wrap: wrap;
-gap: 1rem;
+.timeline-track {
 position: relative;
-z-index: 2;
-padding-bottom: 60px;
+height: 100px;
 }
-.timeline-item {
-flex: 1;
-text-align: center;
-position: relative;
-opacity: 0;
-transform: translateY(20px);
-transition: all 0.6s ease;
-}
-.timeline-text {
-color: #D4AF37;
-font-weight: 600;
-font-size: 0.95rem;
-line-height: 1.4;
-display: inline-block;
-}
-.timeline-item.visible {
-opacity: 1;
-transform: translateY(0);
-}
-.timeline-item:nth-child(1) { transition-delay: 0.1s; }
-.timeline-item:nth-child(2) { transition-delay: 0.2s; }
-.timeline-item:nth-child(3) { transition-delay: 0.3s; }
-.timeline-item:nth-child(4) { transition-delay: 0.4s; }
-.timeline-connector {
+.timeline-line {
 position: absolute;
 bottom: 20px;
-left: 20px;
-right: 20px;
-height: 40px;
-z-index: 1;
-}
-.horizontal-line {
-display: none;
-}
-.vertical-line {
-position: absolute;
-bottom: 2px;
-width: 2px;
-height: 30px;
-background-color: #D4AF37;
-}
-.vertical-line-1 {
-left: 12.5%;
-transform: translateX(-50%);
-}
-.vertical-line-2 {
-left: 37.5%;
-transform: translateX(-50%);
-}
-.vertical-line-3 {
-left: 62.5%;
-transform: translateX(-50%);
-}
-.vertical-line-4 {
-left: 87.5%;
-transform: translateX(-50%);
-}
-.horizontal-segment {
-position: absolute;
-bottom: 2px;
+left: 10%;
+right: 10%;
 height: 2px;
-background-color: #D4AF37;
+background-color: var(--secondary-color);
 }
-.segment-1 {
-left: 12.5%;
-width: 25%;
-}
-.segment-2 {
-left: 37.5%;
-width: 25%;
-}
-.segment-3 {
-left: 62.5%;
-width: 25%;
-}
-@media (max-width: 768px) {
-.timeline-box {
-padding: 30px 15px;
-margin: 30px auto;
-}
-.timeline-strip {
-flex-direction: column;
-gap: 2rem;
-padding-bottom: 0;
-}
-.timeline-item {
-flex: none;
-width: 100%;
+.timeline-marker {
+position: absolute;
 text-align: center;
+transform: translateX(-50%);
 }
-.timeline-text {
+.timeline-marker::before {
+content: '';
+position: absolute;
+top: 25px;
+left: 50%;
+transform: translateX(-50%);
+width: 2px;
+height: 20px;
+background-color: var(--secondary-color);
+}
+.timeline-year {
+color: var(--secondary-color);
+font-size: 1.2rem;
+font-weight: 700;
+margin-bottom: 0.5rem;
+}
+.timeline-label {
+color: #F5F1EC;
+font-size: 0.75rem;
+margin-top: 2.5rem;
+white-space: nowrap;
+}
+.heritage-info-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 3rem;
+margin-bottom: 3rem;
+}
+.heritage-info-column h3 {
+color: #F5F1EC;
 font-size: 1rem;
+font-weight: 600;
+margin-bottom: 1rem;
 }
-.timeline-connector {
-display: none;
+.heritage-info-column p {
+color: #F5F1EC;
+font-size: 0.85rem;
+line-height: 1.6;
+margin-bottom: 0.5rem;
+opacity: 0.9;
 }
+.heritage-info-column i {
+color: var(--secondary-color);
+margin-right: 0.5rem;
+font-size: 0.8rem;
+}
+.heritage-footer {
+text-align: center;
+border-top: 1px solid rgba(212, 175, 55, 0.2);
+padding-top: 2rem;
+}
+.heritage-footer p {
+color: #F5F1EC;
+font-size: 0.8rem;
+margin-bottom: 0.5rem;
+opacity: 0.8;
+}
+.heritage-credit {
+color: #F5F1EC;
+font-size: 0.75rem;
+opacity: 0.7;
+}
+
+
 .steps-container {
 flex-direction: column;
 align-items: center;
@@ -1355,6 +1320,10 @@ justify-content: center;
 .stat-item {
 flex: 0 0 45%;
 }
+.heritage-info-grid {
+grid-template-columns: 1fr;
+gap: 2rem;
+}
 }
 @media (max-width: 768px) {
 .logo-image {
@@ -1374,6 +1343,22 @@ gap: 1.5rem;
 .timeline-item {
 font-size: 1rem;
 text-align: center;
+}
+.heritage-timeline-box {
+padding: 2rem 1rem;
+}
+.timeline-marker {
+font-size: 0.8rem;
+}
+.timeline-year {
+font-size: 1rem;
+}
+.timeline-label {
+font-size: 0.65rem;
+}
+.heritage-info-grid {
+grid-template-columns: 1fr;
+gap: 2rem;
 }
 .nav-toggle {
 display: flex;
