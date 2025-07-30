@@ -10,15 +10,15 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
-### July 30, 2025 - REVERTED TO BASIC VERSION
-- **REVERTED**: Website restored to earlier, simpler version per user request
-- **REMOVED**: All performance optimizations, security headers, and structured data
-- **SIMPLIFIED**: Basic HTML structure without inline critical CSS or deferred loading
-- **RESTORED**: Original static hero image instead of slideshow
-- **BASIC STYLING**: Simple CSS without minification or optimization
-- **STANDARD JAVASCRIPT**: Basic functionality without performance enhancements
-- **REMOVED FILES**: Deleted _headers, robots.txt, sitemap.xml, 404.html, favicon.ico
-- **FOCUS**: Simple, functional website with emphasis on readability and basic features
+### July 30, 2025 - RESTORED TO JULY 24 VERSION
+- **COMPLETELY REVERTED**: Website restored to the July 24, 2025 working version
+- **SIMPLE STRUCTURE**: Basic HTML with minimal sections (header, hero, about, steps)
+- **BURGUNDY/GOLD THEME**: Background #3d0000, gold #ddb63b accents
+- **MINIMAL STYLING**: style.css in root directory with simple CSS
+- **NO JAVASCRIPT**: Removed all JavaScript functionality
+- **BASIC LAYOUT**: No complex grids, slideshows, or modals
+- **REMOVED FOLDERS**: Deleted /css/ and /js/ directories completely
+- **LOGO**: Using logo.png in root directory
 
 ### July 28, 2025 - SLIDESHOW MOBILE FIX + COMPREHENSIVE RESPONSIVE OPTIMIZATION (ENTERPRISE READY)
 - **CRITICAL SLIDESHOW FIX**: Resolved image clipping on iPhone SE/12 mini - images now display fully

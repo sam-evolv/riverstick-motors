@@ -1,273 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riverstick Motors CVR Testing Centre</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Riverstick Motors CVR Testing</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
-    <!-- Sticky Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <a href="#home">
-                        <img src="assets/riverstick-motors-new-logo.png" alt="Riverstick Motors" class="logo-image">
-                    </a>
-                </div>
-                
-                <!-- Mobile menu button -->
-                <button class="nav-toggle" id="nav-toggle">
-                    <span class="nav-toggle-icon"></span>
-                </button>
-                
-                <!-- Navigation Menu -->
-                <div class="nav-center" id="nav-center">
-                    <a href="#home" class="nav-link">Home</a>
-                    <a href="#services" class="nav-link">Services</a>
-                    <a href="#how-it-works" class="nav-link">How It Works</a>
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#contact" class="nav-link">Contact</a>
-                </div>
-                
-                <div class="nav-menu" id="nav-menu">
-                    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
-                        <i class="fas fa-moon" id="theme-icon"></i>
-                    </button>
-                    <a href="#booking" class="btn btn-primary nav-cta">Book Now</a>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Professional CVR Testing Services You Can Trust</h1>
-                <p class="hero-subtitle">Get your vehicle tested quickly and efficiently at Riverstick Motors CVR Testing Centre. Certified, reliable, and convenient testing services for all vehicle types.</p>
-                <div class="hero-cta">
-                    <a href="#booking" class="btn btn-primary btn-large">Book Your Test Today</a>
-                    <a href="tel:+353214771362" class="btn btn-secondary btn-large">
-                        <i class="fas fa-phone"></i> Call 021-477-1362
-                    </a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="assets/hero-image.png" alt="Riverstick Motors Testing Centre" class="hero-image-photo">
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">Our Testing Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-van service-icon"></i>
-                    <h3>LCV Testing</h3>
-                    <p>Professional testing for Light Commercial Vehicles (vans and pickups up to 3,500kg).</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-truck service-icon"></i>
-                    <h3>HCV Testing</h3>
-                    <p>Comprehensive testing for Heavy Commercial Vehicles including trucks and buses.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-certificate service-icon"></i>
-                    <h3>Declaration of Conversion</h3>
-                    <p>Official documentation for vehicle conversions to ensure regulatory compliance.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-tachometer-alt service-icon"></i>
-                    <h3>Tachograph Calibration</h3>
-                    <p>Precision calibration services for digital and analogue tachographs.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="how-it-works">
-        <div class="container">
-            <h2 class="section-title">How It Works</h2>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h3>Book Online</h3>
-                    <p>Choose your preferred date and time through our easy online booking system.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h3>Bring Your Vehicle</h3>
-                    <p>Arrive at our testing centre with your vehicle and required documentation.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h3>Professional Testing</h3>
-                    <p>Our certified technicians perform a thorough inspection of your vehicle.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">4</div>
-                    <h3>Receive Your Certificate</h3>
-                    <p>Get your CVR certificate on the spot if your vehicle passes the test.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Book Your CVR Test?</h2>
-                <p>Fast, reliable testing with convenient online booking</p>
-                <a href="tel:+353214771362" class="btn btn-primary btn-large">
-                    <i class="fas fa-phone"></i> Call 021-477-1362
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Riverstick Motors</h2>
-            <div class="about-content">
-                <p>With over 40 years of experience in vehicle testing, Riverstick Motors CVR Testing Centre has been serving the Cork community with professional and reliable testing services. Our state-of-the-art facility and certified technicians ensure your vehicle meets all regulatory requirements.</p>
-                
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <h3>40+</h3>
-                        <p>Years Experience</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>500,000+</h3>
-                        <p>Vehicles Tested</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>100%</h3>
-                        <p>Certified</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>5,000+</h3>
-                        <p>Happy Customers</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h3>Phone</h3>
-                            <p><a href="tel:+353214771362">021-477-1362</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3>Email</h3>
-                            <p><a href="mailto:reception@riverstickmotors.ie">reception@riverstickmotors.ie</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h3>Opening Hours</h3>
-                            <p>Monday - Friday: 9:00am - 5:30pm<br>
-                            Saturday - Sunday: Closed</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3>Location</h3>
-                            <p>Riverstick<br>
-                            Co. Cork, Ireland</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <img src="assets/riverstick-motors-new-logo.png" alt="Riverstick Motors" class="footer-logo">
-                    <p>Your trusted partner for professional CVR testing services in Cork.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#services">Our Services</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#services">LCV Testing</a></li>
-                        <li><a href="#services">HCV Testing</a></li>
-                        <li><a href="#services">Tachograph Calibration</a></li>
-                        <li><a href="#services">Declaration of Conversion</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p><i class="fas fa-phone"></i> 021-477-1362</p>
-                    <p><i class="fas fa-envelope"></i> reception@riverstickmotors.ie</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Riverstick, Co. Cork</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Riverstick Motors CVR Testing Centre. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Booking Modal -->
-    <div id="booking-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Book Your CVR Test</h2>
-            <p>Select your vehicle type to proceed with booking:</p>
-            <div class="booking-options">
-                <button class="btn btn-primary btn-large booking-btn" onclick="alert('Redirecting to LCV booking portal...')">
-                    <i class="fas fa-van"></i> Book LCV Test
-                </button>
-                <button class="btn btn-primary btn-large booking-btn" onclick="alert('Redirecting to HCV booking portal...')">
-                    <i class="fas fa-truck"></i> Book HCV Test
-                </button>
-            </div>
-        </div>
+  <header>
+    <div class="container">
+      <img src="logo.png" alt="Riverstick Motors Logo" class="logo">
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#" class="cta-button">Book Now</a>
     </div>
+  </header>
 
-    <!-- JavaScript -->
-    <script src="js/script.js"></script>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Ready to Book Your CVR Test?</h1>
+      <p>Don't wait – secure your test slot today and ensure your vehicle meets all safety requirements.</p>
+      <div class="hero-buttons">
+        <a href="tel:0214771362" class="call-button"><i class="fas fa-phone"></i> Call 021-477 1362</a>
+        <a href="#" class="book-button">Book Test</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2>About Riverstick Motors</h2>
+    <p>Your trusted partner in vehicle testing and compliance</p>
+    <p>With over 57 years of experience in the automotive industry and 43 years specialising in CVR testing, Riverstick Motors has established itself as Cork's premier vehicle testing centre. We pride ourselves on professional service, quick turnaround times, and maintaining the highest standards of vehicle safety compliance.</p>
+  </section>
+
+  <section class="steps">
+    <h2>Simple steps to get your vehicle tested</h2>
+    <div class="step">
+      <div class="step-number">1</div>
+      <div class="step-content">
+        <h3>Book Online</h3>
+        <p>Choose your vehicle type and book your test slot online through our secure booking system.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-number">2</div>
+      <div class="step-content">
+        <h3>Bring Your Vehicle</h3>
+        <p>Arrive at our testing centre with your vehicle and required documentation.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-number">3</div>
+      <div class="step-content">
+        <h3>Professional Testing</h3>
+        <p>Our certified technicians conduct comprehensive testing to RSA standards.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-number">4</div>
+      <div class="step-content">
+        <h3>Receive Certificate</h3>
+        <p>Get your CVR certificate and disc within 2–3 working days once testing is complete.</p>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
