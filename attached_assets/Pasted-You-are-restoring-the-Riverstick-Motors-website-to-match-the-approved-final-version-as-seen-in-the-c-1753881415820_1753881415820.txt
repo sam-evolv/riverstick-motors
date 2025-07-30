@@ -1,0 +1,45 @@
+You are restoring the Riverstick Motors website to match the approved final version as seen in the client demo video. The current state is broken and misaligned. Follow these exact visual and structural guidelines from the video:
+
+CONTEXT FROM VIDEO:
+- The hero slideshow is crisp, sleek, and contained. It is horizontally centered and spans around 80% of the screen width. It is not full screen, and it sits just below the black navbar with appropriate spacing.
+- The navbar is fixed, with the Riverstick Motors logo on the left and a 'Riverstick Industries' link on the right.
+- The 'About Us' section has two columns: text content on the left and a logo on the right. These are cleanly aligned with generous padding.
+- The 'Our Heritage' section is a separate block below About Us (not nested inside it).
+- The services section includes 6 items arranged in two rows of 3, each with clear icons, titles, and small text blurbs.
+- The footer includes the business address, links, and Font Awesome icons.
+- All icons are visible and functioning, including service icons, contact icons, and social media icons.
+- The site has a clean, professional, slightly glossy aesthetic. All fonts are clear and dark against a light background. Text alignment is consistent.
+- All scroll spacing is visually smooth with sufficient padding between sections.
+
+TASKS TO FIX:
+1. Fix the hero slideshow:
+    - Reduce width to 80% max.
+    - Remove any pan/zoom effects.
+    - Improve image quality or scale properly.
+    - Ensure it's centered below the navbar with ~20px top margin.
+
+2. Rebuild the navbar:
+    - Left side: Riverstick Motors logo (proportional, not oversized).
+    - Right side: Nav links including a 'Riverstick Industries' link (target="_blank", styled the same).
+
+3. Rebuild the 'About Us' section:
+    - Use a 2-column layout.
+    - Left: Paragraph text, vertically centered.
+    - Right: Logo image (not missing), sized appropriately.
+
+4. Move 'Our Heritage' to a separate block after About Us.
+
+5. Rebuild the Services section:
+    - 6 services in two rows of 3.
+    - Each service: icon + title + short blurb.
+    - Ensure icons are working and clearly visible.
+
+6. Rebuild Footer:
+    - Include address, contact info, and social media icons using Font Awesome.
+    - Match colors, padding, and layout from the original.
+
+7. Fix any broken Font Awesome references.
+8. Improve all spacing and ensure consistent styling site-wide.
+9. Keep everything mobile responsive.
+
+Be pixel-accurate to the video. This is a client-facing commercial website, and visual precision is non-negotiable. Output code changes section-by-section if necessary.
