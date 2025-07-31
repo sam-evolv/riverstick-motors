@@ -155,3 +155,23 @@ window.addEventListener("click", (e) => {
         closeModal();
     }
 });
+
+// Slideshow functionality
+const slides = document.querySelectorAll('.slideshow-image');
+let currentSlide = 0;
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+// Start slideshow
+if (slides.length > 0) {
+    setInterval(nextSlide, 4000); // Change slide every 4 seconds
+}
