@@ -1,0 +1,97 @@
+. Preload the LCP Image (likely the hero image)
+bash
+Copy
+Edit
+Inspect the HTML and find the Largest Contentful Paint (LCP) image — likely the hero or top banner image. Add this preload tag into the <head> section:
+
+<link rel="preload" as="image" href="/path-to-hero.webp" type="image/webp">
+
+This improves first meaningful paint without altering layout.
+✅ 2. Convert Images to .webp and Lazy Load Below-the-Fold
+bash
+Copy
+Edit
+Losslessly convert all images (JPG/PNG) to .webp. For each <img> tag:
+- Replace src="*.jpg" or *.png with *.webp
+- Add loading="lazy" to all <img> tags not in viewport on load
+- Retain original dimensions to avoid CLS
+
+Do not alter layout, carousel timing, or responsive behaviour.
+✅ 3. Enable Brotli/Gzip Compression via Netlify _headers File
+bash
+Copy
+Edit
+Create or edit the `_headers` file at the project root and add:
+
+/*
+  Content-Encoding: br
+  Cache-Control: public, max-age=31536000
+  Vary: Accept-Encoding
+
+Ensure all assets are delivered compressed (HTML, CSS, JS, fonts, etc).
+✅ 4. Serve Static Assets with Proper Cache Policy
+bash
+Copy
+Edit
+For all static assets (CSS, JS, fonts, images), add this to your _headers file:
+
+/*.css
+  Cache-Control: public, max-age=31536000
+
+/*.js
+  Cache-Control: public, max-age=31536000
+
+/*.webp
+  Cache-Control: public, max-age=31536000
+
+This prevents repeat downloads and speeds up return visits.
+✅ 5. Minify and Compress JavaScript (Without Changing Logic)
+bash
+Copy
+Edit
+Minify all JavaScript files using Terser or equivalent. Strip out comments and whitespace only. Do NOT bundle or remove any lines of logic.
+
+If any legacy polyfills (e.g. IE11 support) are in place, remove them.
+✅ 6. Use HTTP/2 for Faster Concurrent Requests
+bash
+Copy
+Edit
+Ensure your Netlify site is set to deliver HTTP/2. In Netlify settings, under Domain Management or Site settings > Headers, confirm HTTP/2 is enabled. If using a _redirects file, avoid forcing HTTP 1.1 connections. No visual changes needed.
+✅ 7. Inline Critical CSS for Above-the-Fold Content
+bash
+Copy
+Edit
+Extract the CSS used for the visible area of the homepage and inline it directly inside a <style> block in <head>. This reduces render delay. Load the rest of your CSS via <link rel="stylesheet" media="print" onload="this.media='all'">.
+
+Ensure appearance is identical and styles load without flash.
+✅ 8. Remove Unused JavaScript
+bash
+Copy
+Edit
+Scan all JS bundles for unused functions or event listeners. Use tree-shaking or manual cleanup to remove dead code. Do NOT affect any existing UI behaviour or animation triggers.
+✅ 9. Enable Text Compression on HTML, CSS, JS
+bash
+Copy
+Edit
+Ensure Netlify serves all `.html`, `.css`, `.js` with gzip or Brotli compression. This may be automatic but should be explicitly set in Netlify build settings or _headers.
+
+Verify that compressed files reduce network payloads without any layout impact.
+✅ 10. Add HSTS and XFO Headers for Best Practices
+bash
+Copy
+Edit
+Improve Best Practices score by adding the following to your _headers file:
+
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Frame-Options: DENY
+  Content-Security-Policy: frame-ancestors 'none';
+
+These will not affect your UI but will boost security compliance.
+🚀 What Will Happen After These Changes
+Metric	Before	After (Target)
+Mobile Performance	62	✅ 90+
+Largest Contentful Paint	22.3s	✅ <2.5s
+JS Execution Time	2.5s	✅ <1s
+Total Page Size	7.4MB	✅ <2.5MB
+SEO	54	✅ >90
