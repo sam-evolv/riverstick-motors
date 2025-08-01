@@ -1,0 +1,295 @@
+# Replit Agent Prompt: SEO & Mobile Performance Optimization
+
+You are a web performance and technical SEO specialist. Your task is to optimize this static website for Google indexing and mobile performance without changing ANY visual elements, layout, design, images, or user functionality.
+
+## CRITICAL CONSTRAINTS - DO NOT VIOLATE:
+- ❌ DO NOT modify any CSS styling, layout, colors, fonts, or visual design
+- ❌ DO NOT change any content, text, images, or component structure  
+- ❌ DO NOT alter JavaScript functionality or user interactions
+- ❌ DO NOT break existing navigation or user experience
+- ✅ ONLY modify backend SEO/performance elements that are invisible to users
+
+## TARGET GOALS:
+- Improve SEO score from ~58 to 90+ (mobile and desktop)
+- Improve mobile performance score from ~61 to 90+
+- Ensure full Google indexability with proper sitemap structure
+- Reduce mobile LCP, TBT, and unused asset overhead
+
+## SPECIFIC TASKS TO COMPLETE:
+
+### 1. CREATE NETLIFY CONFIGURATION FILES
+
+**Create `_headers` file in root directory:**
+```
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-XSS-Protection: 1; mode=block
+
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Encoding: gzip
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Encoding: gzip
+
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+```
+
+**Create `netlify.toml` file in root directory:**
+```toml
+[build]
+  publish = "."
+
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = false
+  minify = true
+
+[build.processing.js]
+  bundle = false
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+```
+
+### 2. CREATE SEO FOUNDATION FILES
+
+**Create `robots.txt` in root directory:**
+```
+User-agent: *
+Allow: /
+
+# Block admin and system directories
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.well-known/
+Disallow: /api/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Allow crawling of assets
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /img/
+Allow: /assets/
+Allow: /fonts/
+
+# Sitemap location (replace with actual domain)
+Sitemap: https://[DOMAIN]/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
+```
+
+**Create `sitemap.xml` in root directory:**
+Scan all HTML files in the project and create a comprehensive sitemap. For each HTML file found, add an entry like:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://[DOMAIN]/</loc>
+    <lastmod>2025-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- Add entry for each HTML file discovered -->
+</urlset>
+```
+
+### 3. OPTIMIZE ALL HTML FILES
+
+For **EVERY** HTML file in the project, make these modifications:
+
+**A. Add to `<head>` section (after existing meta tags):**
+```html
+<!-- SEO Meta Tags -->
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+<!-- Performance Optimization -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+<!-- Mobile Optimization -->
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+```
+
+**B. Find and preload the LCP (Largest Contentful Paint) image:**
+- Scan each HTML file for the largest image that appears above the fold
+- Add preload tag for this image in the `<head>`:
+```html
+<link rel="preload" href="/path/to/lcp-image.jpg" as="image" fetchpriority="high">
+```
+
+**C. Optimize ALL `<img>` tags:**
+For every `<img>` tag found, add missing attributes:
+- If missing `width` and `height`: calculate and add them based on the image file
+- Add `loading="lazy"` for images below the fold
+- Add `loading="eager"` for above-the-fold images
+- Add `decoding="async"` to all images
+- Ensure all images have meaningful `alt` attributes
+
+Example transformation:
+```html
+<!-- Before -->
+<img src="image.jpg" alt="Description">
+
+<!-- After (below fold) -->
+<img src="image.jpg" alt="Description" width="800" height="600" loading="lazy" decoding="async">
+
+<!-- After (above fold) -->
+<img src="image.jpg" alt="Description" width="800" height="600" loading="eager" decoding="async" fetchpriority="high">
+```
+
+### 4. OPTIMIZE ASSET LOADING
+
+**A. For all `<script>` tags:**
+- Add `defer` attribute to non-critical scripts
+- Add `async` attribute to third-party scripts
+- Keep critical scripts as-is
+
+**B. For all `<link rel="stylesheet">` tags:**
+- Identify critical CSS (likely the main stylesheet)
+- For non-critical CSS, implement async loading:
+```html
+<link rel="preload" href="non-critical.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="non-critical.css"></noscript>
+```
+
+### 5. ADD STRUCTURED DATA
+
+Add JSON-LD structured data to the main page (index.html or homepage):
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "[SITE_NAME]",
+  "url": "https://[DOMAIN]",
+  "description": "[SITE_DESCRIPTION]",
+  "publisher": {
+    "@type": "Organization", 
+    "name": "[ORGANIZATION_NAME]"
+  }
+}
+</script>
+```
+
+### 6. CREATE `_redirects` FILE
+
+**Create `_redirects` file in root directory:**
+```
+# Redirect common bot patterns to 404
+/wp-admin/* /404.html 404
+/wp-login.php /404.html 404
+/xmlrpc.php /404.html 404
+/.env /404.html 404
+/config.php /404.html 404
+
+# Force HTTPS (fallback)
+http://[DOMAIN]/* https://[DOMAIN]/:splat 301!
+```
+
+### 7. VALIDATION REQUIREMENTS
+
+After making all changes:
+
+1. **Verify no visual changes:** The website must look and function identically
+2. **Check all links work:** Ensure no navigation is broken
+3. **Validate HTML:** All HTML files should remain valid
+4. **Test image loading:** All images should display correctly
+5. **Verify file structure:** Ensure all paths and references are correct
+
+### 8. FINAL PROJECT STRUCTURE
+
+The final project should be ready for Netlify deployment with these new files:
+```
+/
+├── _headers
+├── _redirects  
+├── netlify.toml
+├── robots.txt
+├── sitemap.xml
+├── [existing HTML files - modified]
+├── [existing CSS files - unchanged]
+├── [existing JS files - unchanged]
+├── [existing image files - unchanged]
+└── [all other existing files - unchanged]
+```
+
+## EXECUTION INSTRUCTIONS:
+
+1. **FIRST:** Analyze the current project structure and identify all HTML files
+2. **SECOND:** Create all new configuration files (_headers, netlify.toml, robots.txt, sitemap.xml, _redirects)
+3. **THIRD:** Systematically update each HTML file with the optimizations
+4. **FOURTH:** Verify the website still works perfectly and looks identical
+5. **FIFTH:** Confirm the project is ready for ZIP download and Netlify deployment
+
+## SUCCESS CRITERIA:
+- SEO score improves to 90+ (proper meta tags, sitemap, robots.txt)
+- Mobile performance improves to 90+ (image optimization, asset loading)
+- All Google indexing requirements met (crawlable, structured data)
+- Zero visual or functional changes to the user experience
+- Project ready for immediate Netlify deployment
+
+## IMPORTANT REMINDERS:
+- Use EXACT file paths when referencing assets
+- Do not modify any existing CSS or JS functionality
+- Preserve all existing HTML structure and content
+- Test that all images load correctly after adding width/height
+- Ensure the website remains fully functional after changes
+
+Begin the optimization process now, working through each step systematically while maintaining the exact visual appearance and functionality of the website.

@@ -1,4 +1,24 @@
 User-agent: *
 Allow: /
 
+# Block admin and system directories
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.well-known/
+Disallow: /api/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Allow crawling of assets
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /img/
+Allow: /assets/
+Allow: /fonts/
+
+# Sitemap location
 Sitemap: https://riverstickmotors.ie/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1

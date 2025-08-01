@@ -1,27 +1,24 @@
 /*
-  Content-Encoding: br
-  Cache-Control: public, max-age=31536000
-  Vary: Accept-Encoding
-  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
-  X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
-  Content-Security-Policy: default-src 'self'
+  X-XSS-Protection: 1; mode=block
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  Content-Encoding: br
+  Vary: Accept-Encoding
 
 /*.css
   Cache-Control: public, max-age=31536000, immutable
+  Content-Encoding: gzip
 
 /*.js
   Cache-Control: public, max-age=31536000, immutable
-
-/*.webp
-  Cache-Control: public, max-age=31536000, immutable
-
-/*.png
-  Cache-Control: public, max-age=31536000, immutable
+  Content-Encoding: gzip
 
 /*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.woff
   Cache-Control: public, max-age=31536000, immutable
 
 /*.jpg
@@ -29,3 +26,15 @@
 
 /*.jpeg
   Cache-Control: public, max-age=31536000, immutable
+
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
