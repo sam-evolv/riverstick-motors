@@ -1,0 +1,116 @@
+ [CRITICAL] Remove "noindex" Meta Tag
+Replit Agent Prompt:
+
+bash
+Copy
+Edit
+Search all HTML files (especially index.html) for:
+<meta name="robots" content="noindex">
+
+If found, delete it or replace with:
+<meta name="robots" content="index, follow">
+✅ Impact: Allows Google to index your pages
+
+🔧 2. [CRITICAL] Fix robots.txt to allow indexing
+Prompt:
+
+bash
+Copy
+Edit
+At the root of your site, open or create `/robots.txt` and replace its content with:
+
+User-agent: *
+Allow: /
+
+Sitemap: https://riverstickmotors.ie/sitemap.xml
+✅ Impact: Enables Googlebot to crawl your site fully
+
+🔧 3. [CRITICAL] Make all <a> links crawlable
+Prompt:
+
+bash
+Copy
+Edit
+Audit all <a> tags. If any of them use href="#" or are missing href entirely, change them to real URLs (even just "/").
+
+Example:
+<a href="#">Contact</a> → <a href="/#contact">Contact</a>
+✅ Impact: SEO crawler can now traverse your page
+
+🔧 4. Add a sitemap
+Prompt:
+
+bash
+Copy
+Edit
+Create a new file called `sitemap.xml` at the root with this content:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://riverstickmotors.ie/</loc>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+✅ Impact: SEO best practice, helps with indexing in Search Console
+
+🔧 5. Enable GZIP/Brotli + Cache Control
+Create or update _headers file:
+
+bash
+Copy
+Edit
+/*
+  Content-Encoding: br
+  Cache-Control: public, max-age=31536000
+  Vary: Accept-Encoding
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  Referrer-Policy: strict-origin-when-cross-origin
+  Content-Security-Policy: default-src 'self'
+✅ Impact: Lifts best practices + speeds up load time for SEO ranking
+
+🔧 6. Preload the hero image (fix mobile LCP)
+Prompt:
+
+bash
+Copy
+Edit
+In index.html <head>, add:
+
+<link rel="preload" as="image" href="/images/YOUR-HERO.webp" type="image/webp">
+
+Replace with actual hero image filename. Keep layout untouched.
+✅ Impact: LCP drops from 5–6s to ~2s → Mobile Perf ↑
+
+🔧 7. Set explicit <img> dimensions
+Prompt:
+
+bash
+Copy
+Edit
+For all <img> tags, add width and height attributes based on actual pixel size.
+
+Example:
+<img src="/logo.webp" alt="Logo" width="200" height="100" />
+✅ Impact: Fixes CLS score, improves SEO & perf
+
+✅ BONUS (if using Replit's built-in web server):
+Make sure .replit or replit.nix is not stripping headers. You can force correct headers by editing .replit to include:
+
+bash
+Copy
+Edit
+[interpreter]
+command = ["python3", "-m", "http.server"]
+And then configure headers using _headers as above.
+
+📈 AFTER THESE CHANGES
+Metric	Current	After Fix
+Mobile Performance	61	✅ 90+
+Mobile SEO	58	✅ 95+
+Desktop SEO	58	✅ 95+
+LCP	5.6s	✅ <2.5s
+Crawlability	❌ No	✅ Yes
+Indexable Pages	❌ No	✅ Yes
