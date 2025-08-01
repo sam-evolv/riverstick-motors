@@ -25,6 +25,9 @@ Preferred communication style: Simple, everyday language.
 - **IMAGE DIMENSIONS**: Added explicit width/height attributes to all images to prevent layout shifts
 - **EVOLVAI LOGO FIX**: Reduced footer logo size to 14px height to match text size while maintaining link functionality
 - **NO DESIGN CHANGES**: All optimizations maintain exact visual appearance and functionality
+- **MOBILE HEADER OPTIMIZATION**: Reduced mobile header height (logo 35px, nav padding 0.3rem) to ensure hero text visibility
+- **MOBILE NAVIGATION REORDER**: Logo left, menu center, theme toggle right; removed Book Now button on mobile
+- **MOBILE SLIDESHOW**: Added 10px border-radius to images while maintaining aspect ratio with object-fit: contain
 
 ### July 25, 2025 - Production Audit & Critical Fixes
 - **CRITICAL FIX**: Corrected hero call button phone number from incorrect +353214775555 to correct +353214771362
