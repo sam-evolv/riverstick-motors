@@ -1,0 +1,94 @@
+FINAL MENU BUG: Mobile Dropdown Doesn’t Work at ScrollY = 0
+🔍 Exact Behaviour:
+Menu button appears
+
+On tap at top of page, menu glitches downward, then doesn’t open correctly
+
+Once you scroll, it works perfectly
+
+🎯 Likely Cause:
+This is not a z-index issue anymore — it’s likely caused by:
+
+position: fixed or absolute on a parent causing layout reflow
+
+CSS transition conflicts or transform + overflow rules triggering a jump
+
+The menu being animated based on scroll position — and scroll = 0 breaks it
+
+✅ Replit Agent Prompt to Fix (Precise & Non-Destructive):
+bash
+Copy
+Edit
+Fix the mobile dropdown menu behaviour by ensuring:
+
+1. The dropdown element (e.g. .dropdown, .nav-links) has this CSS:
+.nav-links {
+  position: absolute; /* or fixed if needed */
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 9998;
+  transform: translateY(0);
+  transition: all 0.3s ease-in-out;
+  display: none;
+}
+
+.nav-links.active {
+  display: block;
+}
+
+2. Add the following to your JavaScript toggle logic to force a stable layout:
+
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+  document.body.scrollTop = 1; // tiny scroll trigger
+});
+
+3. Set this in your CSS to ensure scroll=0 still allows menu to display:
+html, body {
+  overflow-x: hidden;
+}
+✅ Result: The menu opens cleanly at the top of the page, no glitching, no scroll required.
+
+✅ 2. DARK/LIGHT MODE ICON — Replace Moon with On-Brand Icon
+You mentioned you want the same icon used on the desktop version, but smaller and visually in keeping.
+
+🎯 Solution:
+Use your existing sun/moon toggle SVG or icon class from desktop and scale it properly.
+
+✅ Replit Agent Prompt:
+bash
+Copy
+Edit
+1. Replace current moon icon with the same SVG or icon class used in desktop mode.
+If it's Font Awesome, use:
+<i class="fa-solid fa-circle-half-stroke"></i>
+
+2. Add this to the CSS for mobile sizing:
+.theme-toggle i {
+  font-size: 1.2rem;
+  color: #ccc; /* match your existing navbar tone */
+}
+
+@media (max-width: 768px) {
+  .theme-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    z-index: 9999;
+  }
+}
+✅ Result: The icon is visually consistent, non-intrusive, and in line with your branding.
+
+🎯 Final Checklist (Last 2 Fixes)
+Fix	Status
+🔧 Mobile menu opens perfectly at top	🟥 Must fix
+🎨 Dark mode toggle icon matches brand	🟥 Must fix
+✅ All other functionality stable	✅ Done
+✅ Desktop nav bar visible from start	✅ Done
+✅ Mobile slideshow full + clean	✅ Done
