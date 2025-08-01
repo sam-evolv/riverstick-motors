@@ -1,35 +1,53 @@
-// Mobile menu fix for scroll position 0
+// Mobile menu fix for all devices including iPhones
 document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
     const navCenter = document.getElementById('nav-center');
     
-    // Override the existing toggle behavior with a more stable approach
-    navToggle.addEventListener('click', function(e) {
+    // Ensure menu starts in correct state
+    navMenu.style.display = 'flex';
+    navCenter.style.display = 'flex';
+    
+    // Remove any conflicting event listeners by cloning
+    const newNavToggle = navToggle.cloneNode(true);
+    navToggle.parentNode.replaceChild(newNavToggle, navToggle);
+    
+    // Add reliable click handler
+    newNavToggle.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
         
-        // Toggle classes
         const isActive = navMenu.classList.contains('nav-menu-active');
         
         if (!isActive) {
-            // Opening the menu
+            // Opening - ensure visible before animation
+            navMenu.style.display = 'flex';
+            navCenter.style.display = 'flex';
+            
+            // Force reflow for Safari/iOS
+            void navMenu.offsetHeight;
+            void navCenter.offsetHeight;
+            
+            // Add active classes
             navMenu.classList.add('nav-menu-active');
             navCenter.classList.add('nav-center-active');
-            navToggle.classList.add('nav-toggle-active');
-            
-            // Force a tiny scroll to ensure proper rendering
-            if (window.scrollY === 0) {
-                window.scrollTo(0, 1);
-                setTimeout(() => window.scrollTo(0, 0), 10);
-            }
+            newNavToggle.classList.add('nav-toggle-active');
         } else {
-            // Closing the menu
+            // Closing
             navMenu.classList.remove('nav-menu-active');
             navCenter.classList.remove('nav-center-active');
-            navToggle.classList.remove('nav-toggle-active');
+            newNavToggle.classList.remove('nav-toggle-active');
         }
         
-        navToggle.setAttribute('aria-expanded', !isActive);
+        newNavToggle.setAttribute('aria-expanded', !isActive);
+    });
+    
+    // Close menu when clicking links
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('nav-menu-active');
+            navCenter.classList.remove('nav-center-active');
+            document.getElementById('nav-toggle').classList.remove('nav-toggle-active');
+        });
     });
 });
