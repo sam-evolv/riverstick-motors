@@ -1,0 +1,134 @@
+ Fix SEO Blockers: Indexing + Crawlability
+These are still present. If this is not fixed, your site will never rank.
+
+Replit Agent Prompt:
+
+bash
+Copy
+Edit
+Search the <head> of index.html for:
+<meta name="robots" content="noindex">
+
+If found, replace with:
+<meta name="robots" content="index, follow">
+
+Next, check for a file called /robots.txt. If it exists and contains `Disallow: /`, replace it with:
+
+User-agent: *
+Allow: /
+
+Finally, ensure there is at least one <a href="/"> link on the homepage with a real URL, not just a hash (#).
+✅ Impact: Instant SEO score increase (usually 20+ points)
+
+🔧 2. Add a Sitemap
+Even a basic sitemap boosts SEO by verifying structure.
+
+Replit Agent Prompt:
+
+bash
+Copy
+Edit
+Create a new file at the root called sitemap.xml with the following contents:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://riverstickmotors.ie/</loc>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+
+Submit this URL to Google Search Console if you haven't already.
+✅ Impact: Index coverage + improved crawl diagnostics
+
+🔧 3. Force Text Compression + Static Asset Caching
+This directly affects Mobile Performance and SEO Core Web Vitals.
+
+Create or update _headers file at root:
+
+bash
+Copy
+Edit
+/*
+  Cache-Control: public, max-age=31536000
+  Content-Encoding: br
+  Vary: Accept-Encoding
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'
+✅ Impact:
+
+Faster mobile loading
+
+Secure-by-default best practices
+
+Text compression enabled (~40 KB saved)
+
+🔧 4. Fix Image Tags for CLS + Size Hints
+Missing width and height on <img> tags damages CLS (Cumulative Layout Shift) — a core metric for SEO and performance.
+
+Replit Agent Prompt:
+
+bash
+Copy
+Edit
+For all <img> tags across the site, add accurate width and height attributes.
+
+Example:
+<img src="/images/banner.webp" alt="Banner" width="1600" height="900" loading="lazy">
+
+This does not affect layout due to CSS, but improves layout stability metrics.
+✅ Impact: Better LCP, CLS, and SEO audit pass
+
+🔧 5. Preload the Largest Contentful Paint Image
+LCP is dragging your mobile score. The fix: preload it silently.
+
+Replit Agent Prompt:
+
+bash
+Copy
+Edit
+In index.html, locate the hero or banner image identified as the LCP element.
+
+Add this to the <head>:
+
+<link rel="preload" as="image" href="/images/banner.webp" type="image/webp">
+
+Do not affect layout or classes.
+✅ Impact: Big LCP gain on mobile, faster perceived load
+
+🔧 6. Minify Unused JS (No Logic Changes)
+You’re shipping 1.6MB of unused JS. Just minify to reduce main thread blocking.
+
+Replit Agent Prompt:
+
+bash
+Copy
+Edit
+Use Terser or an online tool to minify all JS files by:
+- Removing comments
+- Stripping whitespace
+- NOT renaming variables or bundling
+
+Replace originals with .min.js versions if needed. Update <script src=...> if filename changes.
+✅ Impact: Main-thread time down from 4.1s → <2s. Mobile perf ↑
+
+🔧 7. Force HTTP/2 in Netlify (Non-Code)
+In Netlify dashboard:
+
+Go to Site Settings → Domain Management → HTTPS
+
+Confirm that HTTP/2 is active
+
+Enable Brotli compression
+
+✅ Impact: All requests served concurrently, not sequentially
+
+✅ Expected Results After Fixes
+Metric	Current	Target	Notes
+Mobile Performance	59	90+	LCP + compression + preload
+Mobile SEO	59	95+	Robots + links + sitemap
+Desktop SEO	58	95+	Indexing + sitemap
+Total Blocking Time	470ms	<150ms	Minified JS
+Largest Contentful Paint	5.6s	<2.5s	Preload + size attributes
