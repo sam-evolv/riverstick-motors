@@ -1,0 +1,89 @@
+ 1. [SEO] Unblock Search Indexing & Enable Crawlability (Both Reports)
+These are silent blockers. You're likely using either:
+
+A robots.txt that says Disallow: /
+
+A <meta name="robots" content="noindex">
+
+Prompt to fix:
+
+bash
+Copy
+Edit
+Check for any <meta name="robots" ...> tag in index.html. If found, change to:
+<meta name="robots" content="index, follow">
+
+Then check for /robots.txt. If it exists, overwrite with:
+User-agent: *
+Allow: /
+
+Add a sitemap URL if available:
+Sitemap: https://riverstickmotors.ie/sitemap.xml
+🔧 2. [Best Practices] Add Security Headers to _headers File (Both Reports)
+These are invisible but required for higher trust scores:
+
+Prompt:
+
+bash
+Copy
+Edit
+In the Netlify project root, add or update a file called `_headers` with:
+
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Content-Security-Policy: default-src 'self'
+
+This will fix COOP/XFO/CSP audit flags without breaking anything.
+🔧 3. [Performance – Mobile Only] Compress and Serve Static Assets Efficiently
+You’re seeing TBT and LCP delays from too much JS and image data at once. Don’t change files — just compress and cache them properly.
+
+Prompt:
+
+bash
+Copy
+Edit
+Create a `_headers` file (if not done in step 2) and add:
+
+/*
+  Cache-Control: public, max-age=31536000
+  Content-Encoding: br
+  Vary: Accept-Encoding
+
+This ensures all .html, .css, .js, .webp files are cached and Brotli-compressed.
+🔧 4. [Performance – Mobile Only] Add Missing Width & Height Attributes on <img>
+This avoids layout shift and allows proper lazy loading.
+
+Prompt:
+
+bash
+Copy
+Edit
+Add width and height attributes to all <img> tags where missing.
+
+Example:
+<img src="banner.webp" alt="Testing Centre" width="1600" height="900">
+
+This does NOT affect appearance, as you already use responsive CSS.
+🔧 5. [Optional] Slight JavaScript Minification
+Lighthouse flags ~150 KB unused JS. You don’t need to rewrite anything — just compress.
+
+Prompt:
+
+bash
+Copy
+Edit
+Use Terser to minify all JS files (strip comments, whitespace only). Keep all logic intact.
+
+Do not bundle or rename files. Just reduce size silently.
+✅ Summary of All Actions (Safe & Non-Visual)
+Area	Fix	Visual Risk	Confidence
+SEO	Allow indexing & crawling	🚫 None	✅ 100%
+SEO	Add sitemap (optional)	🚫 None	✅
+Best Practices	Add security headers	🚫 None	✅
+Mobile Perf	Cache, compress, and preload assets	🚫 None	✅
+Mobile Perf	Add width/height to <img>	🚫 None	✅
+Mobile Perf	JS/CSS minification	🚫 None	✅
+

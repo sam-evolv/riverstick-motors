@@ -21,7 +21,9 @@ Preferred communication style: Simple, everyday language.
 - **PRELOADING**: Added preload hints for critical resources (CSS, fonts, first hero image)
 - **JAVASCRIPT**: Minified JavaScript, fixed duplicate variable declarations, added defer attribute
 - **CACHING & COMPRESSION**: Created comprehensive _headers file for Brotli compression, caching, and security headers
+- **SECURITY HEADERS**: Added HSTS, X-Frame-Options, CSP, and other security headers for best practices
 - **IMAGE DIMENSIONS**: Added explicit width/height attributes to all images to prevent layout shifts
+- **EVOLVAI LOGO FIX**: Reduced footer logo size to 14px height to match text size while maintaining link functionality
 - **NO DESIGN CHANGES**: All optimizations maintain exact visual appearance and functionality
 
 ### July 25, 2025 - Production Audit & Critical Fixes
