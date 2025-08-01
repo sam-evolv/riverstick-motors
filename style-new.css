@@ -1425,10 +1425,66 @@ section {
 }
 
 @media (max-width: 768px) {
-    /* Logo responsive sizing */
+    /* Mobile header layout reordering */
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    /* Logo on the left */
+    .logo {
+        order: 1;
+        flex: 0 0 auto;
+    }
+    
     .logo-image {
-        height: 97px;
-        max-width: 390px;
+        height: 50px;
+        max-width: 200px;
+    }
+    
+    /* Menu toggle in center */
+    .nav-toggle {
+        display: flex;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10000;
+        pointer-events: auto;
+        -webkit-tap-highlight-color: transparent;
+        order: 2;
+    }
+    
+    /* Theme toggle on right */
+    .mobile-theme-toggle {
+        display: block;
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        order: 3;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #D4AF37;
+        border-radius: 50%;
+    }
+    
+    .mobile-theme-toggle i {
+        font-size: 0.9rem;
+    }
+    
+    /* Hide Book Now button on mobile */
+    .nav-cta {
+        display: none !important;
+    }
+    
+    /* Hide desktop theme toggle */
+    .theme-toggle {
+        display: none;
     }
     
     /* Watermark responsive sizing */
@@ -1448,19 +1504,6 @@ section {
     .timeline-item {
         font-size: 1rem;
         text-align: center;
-    }
-    
-    /* Mobile Navigation */
-    .nav-toggle {
-        display: flex;
-        position: relative;
-        z-index: 10000;
-        pointer-events: auto;
-        -webkit-tap-highlight-color: transparent;
-    }
-    
-    .mobile-theme-toggle {
-        display: block;
     }
     
     .nav-center {
@@ -1551,7 +1594,7 @@ section {
         border: none !important;
         box-shadow: none !important;
         background-color: transparent !important;
-        border-radius: 0 !important;
+        border-radius: 10px !important;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1581,6 +1624,7 @@ section {
         padding: 0 !important;
         display: block;
         background-color: transparent !important;
+        border-radius: 10px !important;
     }
     
     /* Sections */
