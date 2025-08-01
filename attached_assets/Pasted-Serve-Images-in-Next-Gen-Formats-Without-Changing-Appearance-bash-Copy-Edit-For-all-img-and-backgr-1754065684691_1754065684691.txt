@@ -1,0 +1,45 @@
+Serve Images in Next-Gen Formats Without Changing Appearance
+bash
+Copy
+Edit
+For all <img> and background images used on this site, convert them to `.webp` using lossless compression (cwebp or sharp). Replace only the image file references in the HTML/CSS/JS to point to `.webp` versions. Ensure fallback is in place for older browsers using <picture> tag if needed, but preserve current layout 100%.
+🎯 2. Lazy Load All Non-Critical Images (Below-the-Fold)
+bash
+Copy
+Edit
+Apply `loading="lazy"` to all <img> tags that are not within the initial viewport. Preserve the exact current dimensions to avoid layout shifts. Do not affect carousels, interactive buttons, or images within above-the-fold content.
+🧼 3. Minify All CSS and JS Files Without Changing Functionality
+bash
+Copy
+Edit
+Minify all external CSS and JavaScript files used in the project using Terser and Clean-CSS. Ensure file references are updated if file names change (e.g., `.min.js`). Verify that no minification alters functionality or layout. Disable source maps for production build to reduce size.
+⚙️ 4. Preload Critical Fonts and CSS
+bash
+Copy
+Edit
+Add `<link rel="preload" as="style">` and `<link rel="preload" as="font">` for the most critical CSS and fonts used in the first screen view. Ensure these preload tags are placed in <head> and do not block rendering. Keep styling and appearance 100% identical.
+📉 5. Defer All Non-Essential JavaScript
+bash
+Copy
+Edit
+Apply `defer` or `async` attributes to all <script> tags that are not required for above-the-fold content. Ensure scripts execute in order if needed. Validate that no interactivity is broken. This should reduce Total Blocking Time and JS execution delays.
+📦 6. Compress All Assets Using GZIP or Brotli
+bash
+Copy
+Edit
+Enable GZIP or Brotli compression for all assets served via Netlify (HTML, CSS, JS, fonts, SVG). Ensure compression headers are added to Netlify _headers file. Verify no impact to client rendering or interactivity.
+🧽 7. Remove Unused CSS and JS
+bash
+Copy
+Edit
+Use PurgeCSS or similar to strip unused CSS classes across all HTML and JS. Also eliminate any third-party JS or UI libraries not actually used. Ensure layout and animations remain identical after cleanup.
+🧩 8. Fix <img> Width and Height Attributes
+bash
+Copy
+Edit
+Add explicit `width` and `height` attributes to all <img> tags to prevent layout shifts. Use current rendered dimensions to set values. This helps reduce CLS (Cumulative Layout Shift) without visual change.
+🧵 9. Inline Critical CSS for First Paint
+bash
+Copy
+Edit
+Inline only the CSS used for above-the-fold content directly into the <head>. Load remaining stylesheets with `media="print"` and `onload="this.media='
