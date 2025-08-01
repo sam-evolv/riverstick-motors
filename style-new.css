@@ -141,9 +141,12 @@ p {
     left: 0;
     right: 0;
     background-color: var(--primary-color);
-    z-index: 1 !important;
+    z-index: 9999;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    opacity: 1;
+    visibility: visible;
+    display: block;
 }
 
 .header-scrolled {
@@ -319,7 +322,7 @@ p {
     align-items: center;
     position: relative;
     overflow: hidden;
-    z-index: 1 !important;
+    z-index: 1;
 }
 
 /* Dark mode hero */
@@ -394,7 +397,7 @@ p {
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 2px 15px rgba(75, 12, 12, 0.15);
-    z-index: 1 !important;
+    z-index: 1;
 }
 
 .hero-slideshow .slide {
@@ -1373,6 +1376,21 @@ section {
 }
 
 /* Responsive Design */
+/* Desktop header fix - always visible */
+@media (min-width: 1025px) {
+    .header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 9999;
+        background-color: var(--primary-color);
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: block !important;
+        transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+    }
+}
+
 @media (max-width: 1024px) {
     .hero-container {
         grid-template-columns: 1fr;
@@ -1522,13 +1540,16 @@ section {
         aspect-ratio: 4/3;
         overflow: hidden;
         max-height: 80vh;
-        border: none;
-        box-shadow: none;
+        border: none !important;
+        box-shadow: none !important;
+        background-color: transparent;
+        border-radius: 0;
     }
     
     .hero-slideshow .slide {
         position: relative;
         height: 100%;
+        background-color: transparent;
     }
     
     .hero-image-photo {
@@ -1537,8 +1558,17 @@ section {
         object-fit: contain;
         object-position: center;
         max-height: 80vh;
-        border: none;
-        box-shadow: none;
+        border: none !important;
+        box-shadow: none !important;
+        display: block;
+    }
+    
+    .hero-slideshow, 
+    .hero-slideshow .slide, 
+    .hero-slideshow .slide img {
+        border: none !important;
+        box-shadow: none !important;
+        background-color: transparent !important;
     }
     
     /* Sections */

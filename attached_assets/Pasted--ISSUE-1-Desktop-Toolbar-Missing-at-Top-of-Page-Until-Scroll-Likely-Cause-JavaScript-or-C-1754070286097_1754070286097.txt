@@ -1,0 +1,120 @@
+🛠️ ISSUE 1: 🔧 Desktop Toolbar Missing at Top of Page Until Scroll
+🔍 Likely Cause:
+JavaScript or CSS is hiding .navbar or .header at scrollY = 0, possibly as part of a "hide on load" or dynamic scroll effect.
+
+✅ Replit Agent Prompt:
+bash
+Copy
+Edit
+Locate the CSS and JS controlling the visibility of the top navigation bar (e.g. .navbar, .header, .topbar).
+
+Fix the visibility issue by ensuring the header is always visible on desktop:
+
+1. In CSS:
+@media (min-width: 1024px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    background-color: #000; /* or match current header */
+    opacity: 1;
+    visibility: visible;
+    transition: none;
+  }
+}
+
+2. In JS:
+If any scroll event listener is toggling `.navbar` visibility or class based on scrollY = 0, disable that behaviour for desktop:
+
+if (window.innerWidth > 1024) {
+  navbar.style.display = 'block'; // or remove hidden class
+}
+✅ Result: On desktop, the toolbar is always visible at the top, immediately on page load.
+
+🛠️ ISSUE 2: 📱 Mobile Menu Must Work at Scroll Position 0
+🔍 Root Issue:
+Button was likely fixed with insufficient z-index or blocked by overlapping carousel.
+
+✅ Replit Agent Prompt:
+bash
+Copy
+Edit
+Ensure mobile menu button (e.g. .menu-toggle, .hamburger) is always on top:
+
+.menu-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+  pointer-events: auto;
+}
+
+Ensure no other section (e.g. hero, slideshow, .carousel) is overlapping it:
+
+.hero, .carousel {
+  z-index: 1 !important;
+}
+
+Confirm by tapping the menu at top scroll on mobile — the menu should open instantly.
+✅ Result: Mobile menu toggle works at the very top of the screen reliably.
+
+🛠️ ISSUE 3: 🎞️ Mobile Slideshow — All Images Must Appear, Full Quality
+🔍 Problem:
+Only partial slideshow visible (likely JS init issue)
+
+Images cropped or zoomed (CSS object-fit or background-size: cover)
+
+Box/frame appears on mobile (CSS styling inconsistency)
+
+✅ Replit Agent Prompt:
+bash
+Copy
+Edit
+1. Ensure all slideshow images are visible in the carousel:
+- Verify all <img> elements are present and rotating correctly via JS or static render.
+
+2. Apply CSS for mobile to ensure images are fully visible and fit cleanly:
+
+@media (max-width: 768px) {
+  .slideshow-container {
+    width: 100%;
+    max-height: 80vh;
+    overflow: hidden;
+  }
+
+  .slideshow-image, .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    box-shadow: none;
+    border: none;
+  }
+}
+
+3. Remove any unintended border/box on mobile only:
+
+@media (max-width: 768px) {
+  .carousel-slide, .slideshow-wrapper {
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+  }
+}
+✅ Result: On mobile, all images in the slideshow:
+
+Display in full, not cropped
+
+Are centered and clean
+
+Retain desktop quality
+
+Have no ugly border or visual artefacts
+
+🎯 Final Checklist for Agent Execution
+Task	Priority	Visual Risk	Confirm on
+✅ Restore fixed desktop navbar at top	🔥 High	🔒 Zero	Desktop
+✅ Fix mobile menu tap-at-top issue	🔥 High	🔒 Zero	Mobile
+✅ Full slideshow on mobile, no cropping	🔥 High	🔒 Zero	Mobile
