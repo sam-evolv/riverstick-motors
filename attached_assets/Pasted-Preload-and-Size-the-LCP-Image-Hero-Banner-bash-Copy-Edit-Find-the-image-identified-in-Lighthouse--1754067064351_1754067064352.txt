@@ -1,0 +1,94 @@
+Preload and Size the LCP Image (Hero Banner)
+bash
+Copy
+Edit
+Find the image identified in Lighthouse as the "Largest Contentful Paint" element — likely the full-width hero banner image.
+
+In index.html, in the <head>, add:
+
+<link rel="preload" as="image" href="/images/HERO_IMAGE_NAME.webp" type="image/webp">
+
+Then, in the <img> or CSS that renders that image, explicitly define `width` and `height` attributes or use:
+
+style="aspect-ratio: 16 / 9; width: 100%; height: auto;"
+
+Do not change how it looks. Only add preload + dimensions.
+🧼 2. Strip All Unused JavaScript and Polyfills
+bash
+Copy
+Edit
+Audit all JS files for functions that do not run on page load or user interaction. Comment out or remove these functions.
+
+Also remove any polyfills or shims targeting IE, Edge Legacy, or unused animations.
+
+Do NOT touch any scripts related to navbar, carousel, contact form, or RSA integration.
+🧠 3. Use Brotli or Gzip Compression via _headers
+bash
+Copy
+Edit
+At the project root, add a `_headers` file with the following:
+
+/*
+  Content-Encoding: br
+  Cache-Control: public, max-age=31536000
+  Vary: Accept-Encoding
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+This ensures text, scripts, and images are delivered compressed. Will not alter appearance.
+🪶 4. Convert and Serve Images in WebP Format
+bash
+Copy
+Edit
+Convert all .jpg and .png files to .webp using cwebp or an online converter.
+
+Replace:
+
+<img src="/images/whatever.jpg">
+
+With:
+
+<img src="/images/whatever.webp" loading="lazy" width="xxx" height="yyy">
+
+Leave class, alt text, and layout styling 100% unchanged. If inside CSS, change URLs and ensure fallback is in place.
+📉 5. Inline Critical CSS for Above-the-Fold Content Only
+bash
+Copy
+Edit
+Identify the minimum CSS required to style the hero, header, navbar, and top text (above-the-fold). Copy that CSS into a <style> tag in the <head> of index.html.
+
+Defer the main stylesheet with:
+
+<link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
+
+No layout will be affected. This just prioritises fast initial paint.
+⚡ 6. Force HTTP/2 (Netlify)
+bash
+Copy
+Edit
+In Netlify Site Settings → Domain Management → HTTPS:
+
+- Make sure **HTTP/2** is enabled under CDN layer
+- Enable Brotli compression (Netlify’s Asset Optimization panel)
+
+No domain changes required. This improves parallel asset loading.
+📦 7. Shrink Network Payload and JS Execution Time
+bash
+Copy
+Edit
+Compress all JavaScript files using Terser:
+- Strip comments and whitespace
+- Do not remove or change logic
+
+For any script over 100KB that doesn't affect first-load visuals (like footer interaction), defer it:
+
+<script src="/js/footer.js" defer></script>
+📈 Your New Target Metrics
+Metric	Now	After Fixes
+First Contentful Paint	5.0s	✅ <2.0s
+Largest Contentful Paint	39.6s	✅ <2.5s
+Speed Index	25.1s	✅ <4.0s
+JS Execution Time	4.4s	✅ <1.5s
+Main Thread Work	7.4s	✅ <3.0s
+Mobile Performance Score	34	✅ 90+
