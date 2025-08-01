@@ -10,6 +10,18 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+### August 1, 2025 - Performance Optimization
+- **PERFORMANCE**: Implemented comprehensive performance optimizations for better PageSpeed scores
+- **IMAGE OPTIMIZATION**: Converted all images to WebP format with PNG fallbacks using <picture> elements
+- **CSS OPTIMIZATION**: Minified CSS from 33KB to 22KB (33% reduction) using clean-css
+- **CRITICAL CSS**: Inlined critical above-the-fold CSS to reduce render-blocking
+- **LAZY LOADING**: Added lazy loading to below-the-fold images (modal images)
+- **PRELOADING**: Added preload hints for critical resources (CSS, fonts)
+- **JAVASCRIPT**: Minified JavaScript and added defer attribute for non-critical scripts
+- **CACHING**: Created Netlify configuration for optimal caching and compression
+- **IMAGE DIMENSIONS**: Added explicit width/height attributes to all images to prevent layout shifts
+- **NO DESIGN CHANGES**: All optimizations maintain exact visual appearance and functionality
+
 ### July 25, 2025 - Production Audit & Critical Fixes
 - **CRITICAL FIX**: Corrected hero call button phone number from incorrect +353214775555 to correct +353214771362
 - **CRITICAL FIX**: Added favicon integration using watermark-r.png for proper browser tab display
