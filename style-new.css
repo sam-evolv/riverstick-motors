@@ -270,6 +270,8 @@ p {
     border: none;
     cursor: pointer;
     padding: 5px;
+    position: relative;
+    z-index: 9999;
 }
 
 .nav-toggle-icon {
@@ -1490,10 +1492,25 @@ section {
         align-items: center;
     }
     
-    .hero-image-photo {
-        width: 300px;
+    /* Fix for slideshow images on mobile - prevent cropping */
+    .hero-slideshow {
+        width: 100%;
+        max-width: 350px;
         height: auto;
-        max-width: 100%;
+        aspect-ratio: 4/3;
+    }
+    
+    .hero-slideshow .slide {
+        position: relative;
+        height: 100%;
+    }
+    
+    .hero-image-photo {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center center;
+        max-height: 80vh;
     }
     
     /* Sections */

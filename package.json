@@ -11,6 +11,7 @@
   "description": "",
   "dependencies": {
     "clean-css": "^5.3.3",
+    "clean-css-cli": "^5.6.3",
     "cssnano": "^7.1.0",
     "imagemin": "^9.0.1",
     "imagemin-webp": "^8.0.0",
