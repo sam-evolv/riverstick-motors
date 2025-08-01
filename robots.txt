@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://melodic-smakager-41e9df.netlify.app/sitemap.xml
