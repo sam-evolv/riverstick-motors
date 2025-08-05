@@ -4,9 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.getElementById('nav-menu');
     const navCenter = document.getElementById('nav-center');
     
-    // Ensure menu starts in correct state
-    navMenu.style.display = 'flex';
-    navCenter.style.display = 'flex';
+    // Ensure menu starts hidden on mobile
+    if (window.innerWidth <= 768) {
+        navMenu.classList.remove('nav-menu-active');
+        navCenter.classList.remove('nav-center-active');
+        navToggle.classList.remove('nav-toggle-active');
+    }
     
     // Remove any conflicting event listeners by cloning
     const newNavToggle = navToggle.cloneNode(true);

@@ -1527,10 +1527,12 @@ section {
         transition: transform 0.3s ease-in-out;
         z-index: 9998;
         overflow: visible;
+        display: none;
     }
     
     .nav-center-active {
         transform: translateY(0);
+        display: flex !important;
     }
     
     .nav-menu {
@@ -1548,11 +1550,12 @@ section {
         transition: transform 0.3s ease-in-out;
         z-index: 9997;
         overflow: visible;
+        display: none;
     }
     
     .nav-menu-active {
         transform: translateY(0);
-        display: flex;
+        display: flex !important;
     }
     
     .nav-list {
