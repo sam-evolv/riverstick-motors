@@ -4,11 +4,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.getElementById('nav-menu');
     const navCenter = document.getElementById('nav-center');
     
-    // Ensure menu starts hidden on mobile
+    // Force hide menu on mobile initially
     if (window.innerWidth <= 768) {
+        navMenu.style.display = 'none';
+        navCenter.style.display = 'none';
         navMenu.classList.remove('nav-menu-active');
         navCenter.classList.remove('nav-center-active');
         navToggle.classList.remove('nav-toggle-active');
+        navToggle.setAttribute('aria-expanded', 'false');
     }
     
     // Remove any conflicting event listeners by cloning
