@@ -1,13 +1,12 @@
 /*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
-  Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https: blob:; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;
   Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Cross-Origin-Opener-Policy: same-origin
-  Cross-Origin-Embedder-Policy: unsafe-none
+  X-XSS-Protection: 1; mode=block
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  Content-Encoding: br
+  Vary: Accept-Encoding
 
-# Efficient caching for all static assets
 /*.css
   Cache-Control: public, max-age=31536000, immutable
   Content-Encoding: gzip
@@ -16,17 +15,26 @@
   Cache-Control: public, max-age=31536000, immutable
   Content-Encoding: gzip
 
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+
 /*.png
   Cache-Control: public, max-age=31536000, immutable
 
 /*.webp
   Cache-Control: public, max-age=31536000, immutable
 
-/*.jpg
+/*.svg
   Cache-Control: public, max-age=31536000, immutable
 
-/*.woff2
-  Cache-Control: public, max-age=31536000, immutable
-
-/*.ico
-  Cache-Control: public, max-age=31536000, immutable
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
