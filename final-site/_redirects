@@ -1,0 +1,9 @@
+# Redirect common bot patterns to 404
+/wp-admin/* /404.html 404
+/wp-login.php /404.html 404
+/xmlrpc.php /404.html 404
+/.env /404.html 404
+/config.php /404.html 404
+
+# Force HTTPS (fallback)
+http://riverstickmotors.ie/* https://riverstickmotors.ie/:splat 301!
