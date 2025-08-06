@@ -1455,8 +1455,9 @@ section {
     }
 }
 
-@media (max-width: 768px) {
-    /* Universal mobile header - works on ALL devices */
+/* Mobile styles - all devices 320px to 768px */
+@media screen and (max-width: 768px) {
+    /* Fixed header container */
     .header {
         position: fixed;
         top: 0;
@@ -1466,97 +1467,146 @@ section {
         padding: 0;
         z-index: 9999;
         background-color: var(--primary-color);
+        width: 100%;
     }
     
     .nav {
         width: 100%;
         height: 60px;
         padding: 0;
+        display: flex;
+        align-items: center;
     }
     
-    /* Three-column grid layout for perfect distribution */
+    /* Flexbox layout with proper spacing */
     .nav-container {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr 1fr;
+        display: flex !important;
+        justify-content: space-between;
         align-items: center;
         width: 100%;
         height: 60px;
-        padding: 0 15px;
-        gap: 0;
+        padding: 0 16px; /* Minimum 16px edge padding */
+        position: relative;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
     }
     
-    /* Logo - left column */
+    /* Logo - left aligned with padding */
     .logo {
-        grid-column: 1;
+        flex: 0 0 auto;
         display: flex;
         align-items: center;
         justify-content: flex-start;
+        min-width: 100px;
+        max-width: 140px;
         height: 100%;
+        padding-right: 10px;
     }
     
     .logo-image {
         height: 35px;
         width: auto;
-        max-width: 140px;
+        max-width: 100%;
         display: block;
         object-fit: contain;
     }
     
-    /* Menu button - center column */
+    /* Menu button - absolutely centered */
     .nav-toggle {
-        grid-column: 2;
+        position: absolute !important;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
         display: flex !important;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 40px;
-        height: 40px;
-        margin: 0 auto;
+        min-width: 44px;
+        min-height: 44px;
+        width: 44px;
+        height: 44px;
         padding: 0;
         background: transparent;
         border: none;
         cursor: pointer;
-        z-index: 10000;
+        z-index: 10001;
         -webkit-tap-highlight-color: transparent;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .nav-toggle span {
         display: block;
-        width: 25px;
+        width: 24px;
         height: 3px;
         background-color: #D4AF37;
-        margin: 4px 0;
+        margin: 3px 0;
         transition: 0.3s;
         border-radius: 2px;
+        pointer-events: none;
     }
     
-    /* Theme toggle - right column */
+    /* Theme toggle - right aligned with padding */
     .mobile-theme-toggle {
-        grid-column: 3;
+        flex: 0 0 auto;
         display: flex !important;
         align-items: center;
-        justify-content: flex-end;
-        width: 32px;
-        height: 32px;
-        margin-left: auto;
+        justify-content: center;
+        min-width: 44px;
+        min-height: 44px;
+        width: 44px;
+        height: 44px;
         border: 1px solid #D4AF37;
         border-radius: 50%;
         padding: 0;
         background-color: transparent;
         cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .mobile-theme-toggle i {
-        font-size: 14px;
+        font-size: 16px;
         line-height: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
+        display: block;
         margin: 0;
         padding: 0;
         color: #D4AF37;
+        pointer-events: none;
     }
+}
+
+/* iPhone SE specific adjustments */
+@media screen and (max-width: 375px) {
+    .nav-container {
+        padding: 0 12px; /* Slightly smaller padding on very small screens */
+    }
+    
+    .logo {
+        min-width: 80px;
+        max-width: 120px;
+    }
+    
+    .logo-image {
+        height: 30px;
+    }
+}
+
+/* Large mobile devices (iPhone Pro Max, etc) */
+@media screen and (min-width: 414px) and (max-width: 768px) {
+    .nav-toggle {
+        display: flex !important; /* Force display on larger mobiles */
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .mobile-theme-toggle {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
     
     /* Hide Book Now button on mobile */
     .nav-cta {
