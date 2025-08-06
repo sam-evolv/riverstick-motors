@@ -1456,51 +1456,78 @@ section {
 }
 
 @media (max-width: 768px) {
-    /* Mobile header layout with grid for proper centering */
+    /* Universal mobile header fix for ALL devices */
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        z-index: 9999;
+    }
+    
+    .nav {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0;
+    }
+    
+    /* Mobile header layout - universal solution */
     .nav-container {
-        display: grid;
-        grid-template-columns: 1fr auto 1fr;
+        display: flex;
+        justify-content: space-between;
         align-items: center;
         width: 100%;
-        gap: 0;
-        height: 60px;
+        height: 100%;
         padding: 0 15px;
+        position: relative;
     }
     
     /* Logo on the left */
     .logo {
-        grid-column: 1;
-        justify-self: start;
+        flex: 0 0 auto;
         display: flex;
         align-items: center;
+        height: 100%;
     }
     
     .logo-image {
         height: 35px;
         max-width: 140px;
         display: block;
+        object-fit: contain;
     }
     
-    /* Menu toggle perfectly centered */
+    /* Menu toggle absolutely centered */
     .nav-toggle {
-        display: flex;
-        grid-column: 2;
-        justify-self: center;
+        display: flex !important;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
         align-items: center;
+        justify-content: center;
         z-index: 10000;
         pointer-events: auto;
         -webkit-tap-highlight-color: transparent;
-        position: relative;
         margin: 0;
         padding: 5px;
-        height: 32px;
+        width: 40px;
+        height: 40px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
     }
     
-    /* Theme toggle on right - properly aligned */
+    /* Theme toggle on right - universally aligned */
     .mobile-theme-toggle {
-        display: flex;
-        grid-column: 3;
-        justify-self: end;
+        display: flex !important;
+        flex: 0 0 auto;
         width: 32px;
         height: 32px;
         align-items: center;
@@ -1511,7 +1538,6 @@ section {
         margin: 0;
         padding: 0;
         background-color: transparent;
-        flex-shrink: 0;
         cursor: pointer;
     }
     
@@ -1521,6 +1547,7 @@ section {
         display: block;
         margin: 0;
         padding: 0;
+        color: #D4AF37;
     }
     
     /* Hide Book Now button on mobile */
