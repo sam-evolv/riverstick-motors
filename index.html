@@ -40,6 +40,9 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
+    <!-- Universal Scaling Mechanism -->
+    <link rel="stylesheet" href="universal-scaling.css">
+    
     <!-- Custom CSS with fallback -->
     <link rel="stylesheet" href="style-new.min.css" onerror="this.href='style-new.css'">
     <noscript>
@@ -519,6 +522,9 @@
         </div>
     </div>
 
+    <!-- Universal Device Scaling (load first) -->
+    <script src="device-scaling.js"></script>
+    
     <!-- Load modal functions first (needed for onclick handlers) -->
     <script src="modal-functions.min.js" onerror="console.log('Modal functions not loaded')"></script>
     
