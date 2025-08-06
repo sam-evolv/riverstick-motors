@@ -1577,19 +1577,41 @@ section {
     }
 }
 
-/* iPhone SE specific adjustments */
+/* iPhone SE and small screen specific adjustments */
 @media screen and (max-width: 375px) {
     .nav-container {
-        padding: 0 12px; /* Slightly smaller padding on very small screens */
+        padding: 0 16px; /* Consistent padding for proper spacing */
+        align-items: center; /* Ensure vertical alignment */
+        height: 60px;
     }
     
     .logo {
         min-width: 80px;
         max-width: 120px;
+        display: flex;
+        align-items: center; /* Vertically center logo */
+        height: 100%;
     }
     
     .logo-image {
         height: 30px;
+    }
+    
+    /* Ensure theme toggle is properly aligned and spaced */
+    .mobile-theme-toggle {
+        margin-right: 0; /* Remove any extra margin */
+        align-self: center; /* Perfect vertical alignment */
+        position: relative;
+        top: 0; /* Reset any position offsets */
+        transform: none; /* Reset any transforms */
+    }
+    
+    /* Ensure menu button stays centered */
+    .nav-toggle {
+        position: absolute !important;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
 }
 
