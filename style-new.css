@@ -1431,52 +1431,49 @@ section {
 }
 
 @media (max-width: 768px) {
-    /* Mobile header layout reordering */
+    /* Mobile header layout with grid for proper centering */
     .nav-container {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
         align-items: center;
-        justify-content: space-between;
         width: 100%;
+        gap: 0;
     }
     
     /* Logo on the left */
     .logo {
-        order: 1;
-        flex: 0 0 auto;
+        grid-column: 1;
+        justify-self: start;
     }
     
     .logo-image {
         height: 35px;
-        max-width: 160px;
+        max-width: 140px;
     }
     
-    /* Menu toggle in center */
+    /* Menu toggle perfectly centered */
     .nav-toggle {
         display: flex;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+        grid-column: 2;
+        justify-self: center;
         z-index: 10000;
         pointer-events: auto;
         -webkit-tap-highlight-color: transparent;
-        order: 2;
+        position: relative;
     }
     
     /* Theme toggle on right */
     .mobile-theme-toggle {
-        display: block;
-        position: relative;
-        right: auto;
-        top: auto;
-        transform: none;
-        order: 3;
+        display: flex;
+        grid-column: 3;
+        justify-self: end;
         width: 30px;
         height: 30px;
-        display: flex;
         align-items: center;
         justify-content: center;
         border: 1px solid #D4AF37;
         border-radius: 50%;
+        position: relative;
     }
     
     .mobile-theme-toggle i {
