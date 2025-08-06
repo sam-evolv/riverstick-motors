@@ -1456,7 +1456,7 @@ section {
 }
 
 @media (max-width: 768px) {
-    /* Universal mobile header fix for ALL devices */
+    /* Universal mobile header - works on ALL devices */
     .header {
         position: fixed;
         top: 0;
@@ -1464,78 +1464,82 @@ section {
         right: 0;
         height: 60px;
         padding: 0;
-        display: flex;
-        align-items: center;
         z-index: 9999;
+        background-color: var(--primary-color);
     }
     
     .nav {
         width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
+        height: 60px;
         padding: 0;
     }
     
-    /* Mobile header layout - universal solution */
+    /* Three-column grid layout for perfect distribution */
     .nav-container {
-        display: flex;
-        justify-content: space-between;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr;
         align-items: center;
         width: 100%;
-        height: 100%;
+        height: 60px;
         padding: 0 15px;
-        position: relative;
+        gap: 0;
     }
     
-    /* Logo on the left */
+    /* Logo - left column */
     .logo {
-        flex: 0 0 auto;
+        grid-column: 1;
         display: flex;
         align-items: center;
+        justify-content: flex-start;
         height: 100%;
     }
     
     .logo-image {
         height: 35px;
+        width: auto;
         max-width: 140px;
         display: block;
         object-fit: contain;
     }
     
-    /* Menu toggle absolutely centered */
+    /* Menu button - center column */
     .nav-toggle {
+        grid-column: 2;
         display: flex !important;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
         align-items: center;
         justify-content: center;
-        z-index: 10000;
-        pointer-events: auto;
-        -webkit-tap-highlight-color: transparent;
-        margin: 0;
-        padding: 5px;
         width: 40px;
         height: 40px;
+        margin: 0 auto;
+        padding: 0;
         background: transparent;
         border: none;
         cursor: pointer;
+        z-index: 10000;
+        -webkit-tap-highlight-color: transparent;
     }
     
-    /* Theme toggle on right - universally aligned */
+    .nav-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #D4AF37;
+        margin: 4px 0;
+        transition: 0.3s;
+        border-radius: 2px;
+    }
+    
+    /* Theme toggle - right column */
     .mobile-theme-toggle {
+        grid-column: 3;
         display: flex !important;
-        flex: 0 0 auto;
+        align-items: center;
+        justify-content: flex-end;
         width: 32px;
         height: 32px;
-        align-items: center;
-        justify-content: center;
+        margin-left: auto;
         border: 1px solid #D4AF37;
         border-radius: 50%;
-        position: relative;
-        margin: 0;
         padding: 0;
         background-color: transparent;
         cursor: pointer;
@@ -1544,7 +1548,11 @@ section {
     .mobile-theme-toggle i {
         font-size: 14px;
         line-height: 1;
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
         margin: 0;
         padding: 0;
         color: #D4AF37;
