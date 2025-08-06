@@ -1455,8 +1455,9 @@ section {
     }
 }
 
-@media (max-width: 768px) {
-    /* Universal mobile header - works on ALL devices */
+/* Mobile styles - 320px and up */
+@media screen and (max-width: 768px) {
+    /* Fixed header container */
     .header {
         position: fixed;
         top: 0;
@@ -1466,96 +1467,104 @@ section {
         padding: 0;
         z-index: 9999;
         background-color: var(--primary-color);
+        width: 100%;
     }
     
     .nav {
         width: 100%;
         height: 60px;
         padding: 0;
+        display: flex;
+        align-items: center;
     }
     
-    /* Three-column grid layout for perfect distribution */
+    /* Flexbox layout for perfect distribution */
     .nav-container {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr 1fr;
+        display: flex !important;
+        justify-content: space-between;
         align-items: center;
         width: 100%;
         height: 60px;
         padding: 0 15px;
-        gap: 0;
+        position: relative;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
     }
     
-    /* Logo - left column */
+    /* Logo - firmly on the left */
     .logo {
-        grid-column: 1;
+        flex: 0 0 auto;
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        height: 100%;
+        height: 40px;
+        order: 1;
     }
     
     .logo-image {
         height: 35px;
         width: auto;
-        max-width: 140px;
+        max-width: 120px;
         display: block;
         object-fit: contain;
     }
     
-    /* Menu button - center column */
+    /* Menu button - perfectly centered */
     .nav-toggle {
-        grid-column: 2;
+        position: absolute !important;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
         display: flex !important;
         align-items: center;
         justify-content: center;
-        width: 40px;
-        height: 40px;
-        margin: 0 auto;
-        padding: 0;
+        width: 44px;
+        height: 44px;
+        padding: 10px;
         background: transparent;
         border: none;
         cursor: pointer;
-        z-index: 10000;
+        z-index: 10001;
         -webkit-tap-highlight-color: transparent;
+        order: 2;
     }
     
     .nav-toggle span {
         display: block;
-        width: 25px;
+        width: 24px;
         height: 3px;
         background-color: #D4AF37;
         margin: 4px 0;
         transition: 0.3s;
         border-radius: 2px;
+        pointer-events: none;
     }
     
-    /* Theme toggle - right column */
+    /* Theme toggle - firmly on the right */
     .mobile-theme-toggle {
-        grid-column: 3;
+        flex: 0 0 auto;
         display: flex !important;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: center;
         width: 32px;
         height: 32px;
-        margin-left: auto;
         border: 1px solid #D4AF37;
         border-radius: 50%;
         padding: 0;
         background-color: transparent;
         cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        order: 3;
     }
     
     .mobile-theme-toggle i {
         font-size: 14px;
         line-height: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
+        display: block;
         margin: 0;
         padding: 0;
         color: #D4AF37;
+        pointer-events: none;
     }
     
     /* Hide Book Now button on mobile */
