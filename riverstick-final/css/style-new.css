@@ -1456,7 +1456,7 @@ section {
 }
 
 @media (max-width: 768px) {
-    /* Mobile header - clean two-column layout */
+    /* Universal mobile header - works on ALL devices */
     .header {
         position: fixed;
         top: 0;
@@ -1474,20 +1474,23 @@ section {
         padding: 0;
     }
     
-    /* Two-column layout: logo left, menu right */
+    /* Three-column grid layout for perfect distribution */
     .nav-container {
-        display: flex !important;
-        justify-content: space-between;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr;
         align-items: center;
         width: 100%;
         height: 60px;
         padding: 0 15px;
+        gap: 0;
     }
     
-    /* Logo on the left */
+    /* Logo - left column */
     .logo {
+        grid-column: 1;
         display: flex;
         align-items: center;
+        justify-content: flex-start;
         height: 100%;
     }
     
@@ -1499,13 +1502,15 @@ section {
         object-fit: contain;
     }
     
-    /* Menu button on the right */
+    /* Menu button - center column */
     .nav-toggle {
+        grid-column: 2;
         display: flex !important;
         align-items: center;
         justify-content: center;
         width: 40px;
         height: 40px;
+        margin: 0 auto;
         padding: 0;
         background: transparent;
         border: none;
@@ -1524,44 +1529,33 @@ section {
         border-radius: 2px;
     }
     
-    /* Mobile theme toggle in dropdown menu */
-    .mobile-theme-menu-toggle {
+    /* Theme toggle - right column */
+    .mobile-theme-toggle {
+        grid-column: 3;
+        display: flex !important;
+        align-items: center;
+        justify-content: flex-end;
+        width: 32px;
+        height: 32px;
+        margin-left: auto;
+        border: 1px solid #D4AF37;
+        border-radius: 50%;
+        padding: 0;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    
+    .mobile-theme-toggle i {
+        font-size: 14px;
+        line-height: 1;
         display: flex;
         align-items: center;
-        gap: 10px;
+        justify-content: center;
         width: 100%;
-        padding: 0.75rem 1rem;
-        background: transparent;
-        border: none;
-        color: var(--text-primary);
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        font-size: 1rem;
-        font-family: 'Poppins', sans-serif;
-    }
-    
-    .mobile-theme-menu-toggle:hover {
-        background-color: rgba(212, 175, 55, 0.1);
-    }
-    
-    .mobile-theme-menu-toggle i {
-        font-size: 16px;
+        height: 100%;
+        margin: 0;
+        padding: 0;
         color: #D4AF37;
-        width: 20px;
-        text-align: center;
-    }
-    
-    .mobile-theme-menu-toggle span {
-        flex: 1;
-        text-align: left;
-    }
-    
-    /* Menu divider */
-    .nav-menu-divider {
-        width: 100%;
-        height: 1px;
-        background-color: rgba(212, 175, 55, 0.2);
-        margin: 0.5rem 0;
     }
     
     /* Hide Book Now button on mobile */
@@ -1569,13 +1563,9 @@ section {
         display: none !important;
     }
     
-    /* Hide desktop elements on mobile */
+    /* Hide desktop theme toggle */
     .theme-toggle {
         display: none;
-    }
-    
-    .nav-right-desktop {
-        display: none !important;
     }
     
     /* Watermark responsive sizing */
@@ -1622,14 +1612,14 @@ section {
     
     .nav-menu {
         position: fixed;
-        top: 60px;
+        top: 115px;
         left: 0;
         right: 0;
         width: 100%;
         background-color: #4B0C0C;
         flex-direction: column;
-        align-items: stretch;
-        padding: 1rem 0;
+        align-items: center;
+        padding: 1rem 2rem 2rem;
         box-shadow: 0 2px 15px rgba(75, 12, 12, 0.15);
         transform: translateY(-120%);
         transition: transform 0.3s ease-in-out;
