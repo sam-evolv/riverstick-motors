@@ -5,6 +5,25 @@
     box-sizing: border-box;
 }
 
+/* Responsive Images - Bulletproof */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+picture {
+    display: block;
+}
+
+/* Prevent broken images from showing */
+img[src=""],
+img:not([src]),
+img[src*="undefined"] {
+    opacity: 0;
+    visibility: hidden;
+}
+
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
