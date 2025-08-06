@@ -430,6 +430,7 @@ p {
     border-radius: 8px;
     box-shadow: 0 2px 15px rgba(75, 12, 12, 0.15);
     z-index: 1;
+    background-color: transparent;
 }
 
 .hero-slideshow .slide {
@@ -440,6 +441,9 @@ p {
     height: 100%;
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-slideshow .slide.active {
@@ -451,10 +455,11 @@ p {
 }
 
 .hero-image-photo {
+    width: auto;
+    height: auto;
     max-width: 100%;
-    height: 100%;
-    width: 100%;
-    object-fit: contain;  /* Changed from cover to contain to prevent distortion */
+    max-height: 100%;
+    object-fit: contain;
     border-radius: 8px;
     image-rendering: high-quality;
     image-rendering: -webkit-optimize-contrast;
