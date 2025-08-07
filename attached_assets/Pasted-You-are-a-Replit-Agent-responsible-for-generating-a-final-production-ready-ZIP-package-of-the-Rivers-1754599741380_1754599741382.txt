@@ -1,0 +1,73 @@
+You are a Replit Agent responsible for generating a final production-ready ZIP package of the Riverstick Motors website for Netlify deployment. This ZIP must be clean, complete, and fully functional. The Riverstick Industries site deployed perfectly — follow the same success model here.
+
+🎯 GOAL:
+Package the entire Riverstick Motors website into a correctly structured ZIP folder that can be uploaded and deployed immediately to Netlify **without errors**. The website must look and function exactly as expected across all devices.
+
+---
+
+✅ STRUCTURE & FILE INTEGRITY
+- Ensure the ZIP folder includes a proper **index.html** file at the root
+- Include all necessary CSS, JS, fonts, and assets in appropriately referenced subfolders (e.g. /css, /js, /images, /fonts)
+- Ensure all file references in the HTML are **relative paths** (not Replit-specific, local dev paths, or absolute)
+- Double-check that **no missing files or broken paths** exist in the final ZIP
+
+---
+
+📱 RESPONSIVENESS & UI CHECKS
+- Confirm the site renders properly on all major screen sizes:
+  - iPhone SE/13 Pro Max
+  - iPads (portrait and landscape)
+  - Desktop (1920x1080 and above)
+- Ensure the top toolbar (logo left, menu center, toggle right) remains perfectly aligned and spaced on **all screen sizes**
+- All buttons and clickable elements must be easy to interact with on mobile
+- No text should overflow or clip on small screens
+
+---
+
+📊 PERFORMANCE OPTIMISATION
+- Minify all CSS and JS before packaging
+- Compress images where possible without quality loss
+- Remove unused CSS and JS
+- Implement lazy-loading on large images
+- Use `preload` or `async` where beneficial for scripts
+- Ensure `meta` tags for viewport, charset, SEO, and accessibility are correct
+
+---
+
+🔗 FUNCTIONALITY CHECKS
+- All internal anchor links (e.g. navigation scrolls) must work
+- External links (like "Book A Test" and “Riverstick Industries”) must work
+- The "Riverstick Industries" box in Contact Us must:
+  - Be fully clickable (not just the text)
+  - Open the external Industries site
+  - Not highlight or underline the text on click
+- Fix the contact email box formatting (text must stay inside the box on all devices)
+- Use the correct icon for Riverstick Industries (bark mulch/rubber matting style)
+
+---
+
+🔒 ACCESSIBILITY & BEST PRACTICES
+- No console errors
+- No deprecated tags or code
+- All images must have descriptive alt text
+- No overlapping or invisible elements
+- Colour contrast ratios must meet WCAG AA standards
+
+---
+
+🛡️ FINAL CHECK
+- Confirm that the final `.zip` file includes:
+  - index.html
+  - All asset folders (images, fonts, css, js)
+  - favicon and manifest files if applicable
+- Ensure the ZIP **does not include any .replit, README, or dev-only files**
+- Ensure nothing is missing that would break layout or cause errors after deployment
+
+---
+
+📦 OUTPUT FORMAT
+- Final output must be a single clean `.zip` file
+- File should be named clearly (e.g. `riverstick-motors-site-final.zip`)
+- This ZIP should work when uploaded directly to [Netlify](https://app.netlify.com) as a static site
+
+Do not stop or exit until the file is properly prepared and you are confident it will work exactly like the Riverstick Industries deployment.
