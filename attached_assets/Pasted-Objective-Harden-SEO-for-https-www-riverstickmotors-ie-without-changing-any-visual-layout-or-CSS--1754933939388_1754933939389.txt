@@ -1,0 +1,119 @@
+Objective
+Harden SEO for https://www.riverstickmotors.ie without changing any visual layout or CSS positioning. Apply metadata, structured data, robots/sitemap hygiene, social share cards, and canonicalisation. Redeploy and verify live.
+
+Guardrails
+- Do NOT modify any CSS that affects layout or spacing.
+- Do NOT change existing classes, IDs, or JavaScript behavior.
+- All changes must be additive/surgical in <head> or in non-visual files (robots.txt, sitemap.xml).
+- Keep the existing google-site-verification tag as-is:
+  <meta name="google-site-verification" content="cDaahRPOMX4NVhibX5jd5-0neH0cGcdYKUxmI7j0a9g" />
+
+Files to update
+1) index.html
+2) robots.txt
+3) sitemap.xml
+
+Tasks
+
+A) Head metadata (index.html)
+1) Confirm <title> exists. Set to:
+   Riverstick Motors | DOE Vehicle Testing & Repairs in Cork
+2) Confirm/insert a single meta description:
+   <meta name="description" content="Book your DOE commercial vehicle test at Riverstick Motors in Riverstick, Cork. Certified CVR testing, tachograph calibration, conversions, and repairs. Fast, professional service." />
+3) Add or update canonical:
+   <link rel="canonical" href="https://www.riverstickmotors.ie/" />
+4) Open Graph (for Facebook/LinkedIn):
+   <meta property="og:type" content="website" />
+   <meta property="og:url" content="https://www.riverstickmotors.ie/" />
+   <meta property="og:title" content="Riverstick Motors | DOE Vehicle Testing & Repairs in Cork" />
+   <meta property="og:description" content="Certified CVR testing centre in Riverstick, Cork. Book your DOE test today." />
+   <meta property="og:image" content="https://www.riverstickmotors.ie/truck-golden-hour.png" />
+   <meta property="og:site_name" content="Riverstick Motors" />
+5) Twitter Card:
+   <meta name="twitter:card" content="summary_large_image" />
+   <meta name="twitter:title" content="Riverstick Motors | DOE Vehicle Testing & Repairs in Cork" />
+   <meta name="twitter:description" content="Certified CVR testing centre in Riverstick, Cork. Book your DOE test today." />
+   <meta name="twitter:image" content="https://www.riverstickmotors.ie/truck-golden-hour.png" />
+6) Ensure there is a single H1 on the page (keep existing copy); if multiple H1s exist, demote extras to H2 without changing visual style (only the tag level).
+7) Ensure all significant images already have descriptive alt text; if any are empty, add a concise alt that describes the image (no visual changes).
+
+B) LocalBusiness JSON-LD (index.html)
+Append/replace a single JSON-LD block before </head> with:
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Riverstick Motors CVR Testing Centre",
+  "url": "https://www.riverstickmotors.ie/",
+  "logo": "https://www.riverstickmotors.ie/riverstick-motors-new-logo.png",
+  "image": "https://www.riverstickmotors.ie/truck-golden-hour.png",
+  "description": "Certified CVR testing and vehicle repair services in Riverstick, Cork. DOE testing, tachograph calibration, conversions and SQI reports.",
+  "telephone": "+353214771362",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Main Street, Riverstick",
+    "addressLocality": "Riverstick",
+    "addressRegion": "Co. Cork",
+    "postalCode": "P43 EY24",
+    "addressCountry": "IE"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "17:30"
+    }
+  ],
+  "sameAs": [],
+  "areaServed": "Cork"
+}
+</script>
+
+C) Robots & Sitemap hygiene
+1) robots.txt at web root must be exactly:
+User-agent: *
+Allow: /
+Sitemap: https://www.riverstickmotors.ie/sitemap.xml
+
+2) sitemap.xml at web root:
+- Include only canonical crawlable URLs (no hash fragments).
+- At minimum include the homepage.
+- Use ISO 8601 UTC in <lastmod>.
+Example content:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.riverstickmotors.ie/</loc>
+    <lastmod>2025-08-11T12:00:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+
+If additional real pages exist at clean paths (e.g., /services.html), include them; do NOT include anchors like #services.
+
+D) Internal linking (safe, non-visual)
+- In existing copy blocks where links already exist, ensure there is at least one internal link from the hero or services area that points to the contact/booking anchor you already use (e.g., href="#contact" or your modal trigger). Use existing class patterns; don’t introduce new styling.
+
+E) Deployment
+- Redeploy the current project build linked to https://www.riverstickmotors.ie.
+- Ensure no change to layout or spacing on mobile/desktop.
+
+Verification (run and return outputs inline)
+1) Show the updated <title>, meta description, canonical, and that only one google-site-verification tag exists:
+   - Print the 20 lines surrounding </head> from the live homepage.
+2) Confirm Open Graph/Twitter tags are present (grep og:title and twitter:card from live HTML).
+3) Validate robots and sitemap live:
+   - curl -s https://www.riverstickmotors.ie/robots.txt | head -5
+   - curl -s https://www.riverstickmotors.ie/sitemap.xml | head -20
+4) Confirm JSON-LD present and valid:
+   - Extract the JSON-LD block from live HTML and show the first 10 lines.
+5) Confirm only ONE <h1> is present on the live page (return the count and the H1 text).
+
+Deliverables
+- List of files edited with line ranges.
+- Post-deploy verification snippets showing live tags and endpoints.
+- Confirmation that no layout-affecting CSS was modified.
