@@ -1,0 +1,62 @@
+Objective: Ensure https://www.riverstickmotors.ie verifies in Google Search Console today.
+Do the following in THIS Replit project and current deployment (no Netlify):
+
+VERIFICATION TOKENS:
+- HTML <meta> method:
+  <meta name="google-site-verification" content="google43f7d31146011043.html">
+- HTML FILE method:
+  File name: google43f7d31146011043.html
+  File contents: google-site-verification: google43f7d31146011043.html
+
+Tasks:
+
+A) Identify the live source of the homepage <head> and align the deployment
+1) Fetch the current live HTML:
+   curl -s https://www.riverstickmotors.ie | head -200 > /tmp/live.html
+   Extract unique markers such as <title>, key <link rel="stylesheet"> hrefs, and any inline comments.
+2) In the repo, locate the actual source file that produces that DOM:
+   - Check common static entrypoints: ./index.html, ./public/index.html, ./src/index.html
+   - If templated, check layouts/partials (e.g., *.ejs, *.pug, *.hbs), frameworks (Next: pages/_document.*, Astro: src/pages/*.astro, Vite/React: public/index.html).
+3) Confirm which Replit deployment the custom domain is attached to:
+   - Open Deployments panel, list all deployments for this project.
+   - Ensure the domain https://www.riverstickmotors.ie is linked to THIS project’s active deployment target.
+   - If the domain is linked to an older deployment or a different project, re-link it to the current one.
+
+B) Implement BOTH verification methods for redundancy
+4) Insert the meta tag INSIDE the <head> of the correct source file, before </head> exactly:
+   <meta name="google-site-verification" content="google43f7d31146011043.html">
+5) Create the verification file at the site root:
+   - Create ./google43f7d31146011043.html with this exact content:
+     google-site-verification: google43f7d31146011043.html
+   - Ensure it will be published to the web root after build (if there’s a build step, place it in the correct public/static folder so it deploys at /google43f7d31146011043.html).
+
+C) Rebuild and redeploy the SAME deployment target the domain is linked to
+6) Trigger a fresh build/deploy from the current branch/folder.
+7) Wait until deploy completes successfully.
+
+D) Verify live (no caching false positives)
+8) Fetch the live site and confirm both methods are visible:
+   - Meta tag:
+     curl -s https://www.riverstickmotors.ie | awk 'NR<=300' | grep -A2 -B2 "google-site-verification"
+     Also confirm the meta is before the first </head>.
+   - HTML file:
+     curl -s https://www.riverstickmotors.ie/google43f7d31146011043.html | tr -d '\r' | sed -n '1,3p'
+     Expect exact output:
+     google-site-verification: google43f7d31146011043.html
+9) If either check fails:
+   - Inspect build output directory (dist/ or build/) to ensure the file and head made it through.
+   - If using a template pipeline, add the meta tag in the correct head partial and relocate the verification file to the emitted public assets directory.
+   - Redeploy and retest.
+
+E) Report back
+10) Return:
+   - The exact file path(s) edited for the meta tag.
+   - The path of the verification file included in the final build.
+   - The deployment target used and confirmation that the custom domain is linked to this deployment.
+   - Two short command outputs proving success:
+     a) the two lines around the meta tag from live HTML,
+     b) the single-line content from /google43f7d31146011043.html
+
+Edge handling:
+- If a service worker or CDN cache is present, add a one-character no-op change to <head> (e.g., an HTML comment) to bust cache, then redeploy and re-fetch until live content updates.
+- If both the app URL and the custom domain exist (e.g., https://riverstick-motors-*.replit.app), confirm both serve the new build.
