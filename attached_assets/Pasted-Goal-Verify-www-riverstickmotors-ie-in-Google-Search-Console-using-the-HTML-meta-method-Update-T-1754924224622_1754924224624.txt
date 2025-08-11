@@ -1,0 +1,35 @@
+Goal: Verify www.riverstickmotors.ie in Google Search Console using the HTML <meta> method. Update THIS Replit project’s live source (no zips), redeploy, and confirm the tag is live.
+
+Token to use:
+<meta name="google-site-verification" content="google43f7d31146011043.html">
+
+Tasks:
+
+1) Identify the actual file that generates the live homepage <head>.
+   - Search the repo for likely entry points: "index.html", "public/index.html", "src/index.html", templates (*.ejs, *.pug, *.hbs), or framework-specific files (Next.js: pages/_document.js, Astro: src/pages/*.astro, Vite/React: public/index.html, etc.).
+   - Cross-check by fetching the current live HTML (curl -s https://www.riverstickmotors.ie) and matching a unique string from <title> or a meta/stylesheet href to the source file to ensure we’re editing the correct one.
+
+2) Insert the Google meta tag INSIDE the <head> of the correct source file:
+   <meta name="google-site-verification" content="google43f7d31146011043.html">
+   - Place it on its own line before </head>.
+   - Do not alter other tags or minified bundles.
+   - If the stack uses a head template/partial (e.g., layouts/_head.ejs), add it there.
+
+3) Redeploy the current Replit deployment for this project.
+   - Use the existing deployment target and settings.
+   - Ensure the deployment completes successfully.
+
+4) Verify live:
+   - Fetch the deployed HTML and confirm the tag is present inside <head>.
+     Command example: curl -s https://www.riverstickmotors.ie | grep -A2 -B2 "google-site-verification"
+   - If the tag is NOT present, check for build output folders (dist/, build/) and whether the head file is generated from a template. Fix placement accordingly and redeploy again.
+
+5) Report back:
+   - File(s) edited (with full path).
+   - Confirmation snippet showing the <meta> tag present from the live site’s HTML (2–3 lines around it).
+   - Confirmation that the site is fully redeployed and ready to verify in Google Search Console.
+
+Edge cases to handle:
+- If multiple heads exist (SPA with shell + server template), ensure the public-facing index that serves https://www.riverstickmotors.ie contains the tag.
+- If there is an HTTP->HTTPS redirect or caching, wait a moment after deploy and re-fetch until the tag appears.
+Quick heads-up: your value google43f7d31146011043.html looks like the file verification token. It often still works in the meta tag, but if Google rejects it, grab the exact HTML tag value from Search Console and replace the content="..." with that string, then redeploy using the same prompt.
