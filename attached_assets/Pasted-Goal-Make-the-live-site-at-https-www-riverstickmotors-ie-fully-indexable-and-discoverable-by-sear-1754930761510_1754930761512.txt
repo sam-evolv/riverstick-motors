@@ -1,0 +1,62 @@
+Goal: Make the live site at https://www.riverstickmotors.ie fully indexable and discoverable by search engines.
+
+Tasks:
+
+1) Add or update the following files in the project root so they will deploy at the web root:
+
+robots.txt
+------------
+User-agent: *
+Allow: /
+Sitemap: https://www.riverstickmotors.ie/sitemap.xml
+
+sitemap.xml
+------------
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://www.riverstickmotors.ie/</loc>
+        <lastmod>2025-08-11T15:30:00Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://www.riverstickmotors.ie/#services</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.riverstickmotors.ie/#how-it-works</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.riverstickmotors.ie/#about</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.riverstickmotors.ie/#contact</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+</urlset>
+
+2) Edit the homepage’s <head> (index.html or equivalent template) and insert the sitemap link before </head>:
+<!-- Sitemap Link -->
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
+3) Ensure the files above are in the correct location so they deploy directly at:
+- https://www.riverstickmotors.ie/robots.txt
+- https://www.riverstickmotors.ie/sitemap.xml
+
+4) Redeploy the project to the existing deployment linked to www.riverstickmotors.ie.
+
+5) After deployment, verify live by fetching:
+- curl -s https://www.riverstickmotors.ie/robots.txt | head -5
+- curl -s https://www.riverstickmotors.ie/sitemap.xml | head -20
+- curl -s https://www.riverstickmotors.ie | grep -A1 -B1 "sitemap"
+
+6) Return a short confirmation with:
+- Confirmation that robots.txt and sitemap.xml are live at the URLs above.
+- The line from <head> containing the sitemap link.
