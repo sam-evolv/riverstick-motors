@@ -1,0 +1,188 @@
+Objective
+Improve organic discoverability for CVRT queries in Cork and Riverstick, then update both “Riverstick Industries” buttons to point to https://www.riverstickindustries.ie. Make the smallest possible diffs and redeploy safely via Replit.
+
+Constraints
+
+Do not change layout, copy tone, nav structure, colors, or animations.
+
+Only touch SEO surfaces, obvious technical SEO gaps, and the two CTA targets.
+
+Keep link text, classes, aria labels, and button styling unchanged.
+
+No new dependencies. No breaking changes.
+
+Preserve existing URLs. No route renames.
+
+Primary SEO goals
+
+Improve relevance for: CVRT testing Cork, CVRT testing Riverstick, Riverstick Motors CVRT, DOE test Cork, CVRT near me Riverstick.
+
+Ensure fast indexing: valid sitemap, robots, canonical tags, and Search Console verification options ready.
+
+Implement Local SEO signals for a service business in County Cork.
+
+Tasks
+
+Create safety branch and backup
+
+Create git branch chore/seo-and-industries-link-update.
+
+Export a repo snapshot to backup/<timestamp>-pre-seo.zip.
+
+Audit current codebase for SEO surfaces
+
+Identify site entry pages: homepage, CVRT service page, contact page, booking page, any location page.
+
+Detect templating system if present. Do not refactor.
+
+List files that will be touched.
+
+On-page SEO upgrades (surgical edits)
+
+Title tags:
+
+Homepage <title>: CVRT Testing Riverstick | DOE Test Centre Cork | Riverstick Motors
+
+CVRT service page <title> (if exists): CVRT Testing in Riverstick, Cork | Book Your CVRT | Riverstick Motors
+
+Meta descriptions (155–165 chars, no keyword stuffing):
+
+Homepage: Book reliable CVRT testing in Riverstick, Cork. Fast scheduling, professional service, and friendly support at Riverstick Motors. Call or book your test today.
+
+CVRT page: Need a CVRT in Riverstick, Cork? Book your commercial vehicle test with Riverstick Motors. Clear pricing, quick turnarounds, and local expertise.
+
+Canonicals: add <link rel="canonical" href="https://<primary-domain>/>" for each page. Use the live production hostname used by Replit hosting.
+
+Headings: ensure one H1 per page. H1 examples:
+
+Homepage H1: CVRT Testing in Riverstick, Cork
+
+Service page H1: Commercial Vehicle CVRT in Riverstick
+
+Image alts: add human alt text to all meaningful images, including any hero or fleet photos.
+
+Internal links: ensure prominent internal link from homepage to CVRT page with anchor text like CVRT testing in Riverstick.
+
+Performance hygiene:
+
+Add loading="lazy" to non-critical images.
+
+Ensure existing critical CSS or preloads remain intact. Do not introduce new build tooling.
+
+Open Graph and Twitter:
+
+og:title, og:description, og:image (use existing hero if available), og:url, og:type=website.
+
+Mirror for Twitter cards.
+
+Local SEO structured data
+
+Inject JSON-LD on homepage and Contact page using existing business details found in the site:
+
+@type: AutoRepair or AutomotiveBusiness
+
+name: Riverstick Motors
+
+address object with street, locality Riverstick, region Cork, postal code if available
+
+telephone and email from the Contact section
+
+url set to the live site URL
+
+openingHoursSpecification if hours exist on site
+
+areaServed: Cork
+
+Add a FAQPage JSON-LD block on the CVRT page with 4–6 short Q&A using existing site copy. Examples:
+
+What vehicles need a CVRT?
+
+How do I book a CVRT in Riverstick?
+
+What documents do I need for CVRT?
+
+How long does a CVRT test take?
+
+robots.txt and sitemap
+
+Ensure robots.txt exists at /robots.txt with:
+
+pgsql
+Copy
+Edit
+User-agent: *
+Allow: /
+Sitemap: https://<primary-domain>/sitemap.xml
+Generate a clean sitemap.xml that lists all public pages. No querystring or duplicate entries.
+
+Link sitemap in the <head> via <link rel="sitemap" type="application/xml" href="/sitemap.xml">.
+
+Search Console readiness
+
+Add a non-invasive HTML tag placeholder for Google Search Console verification in <head>:
+
+Comment block: <!-- GSC verification meta goes here when token is available -->
+
+Create a single source file or config spot where the token can be dropped later without code churn.
+
+Replace Riverstick Industries CTAs
+
+Find both “Riverstick Industries” buttons on the Riverstick Motors site.
+
+Replace the current temporary Replit URL with the final URL:
+
+For anchors: href="https://www.riverstickindustries.ie" plus target="_blank" rel="noopener noreferrer".
+
+For JS handlers: window.open("https://www.riverstickindustries.ie","_blank").
+
+Do not alter button text, classes, or styling.
+
+Automated checks
+
+Run a search to confirm exactly two CTA changes made and no other URLs altered.
+
+Build the site using the project’s documented build command.
+
+Start a preview server and verify:
+
+Titles, meta descriptions, canonical, robots, sitemap, and JSON-LD render in the built HTML.
+
+Validate JSON-LD with a local schema validator if available or by simple JSON parse and presence of required fields.
+
+Confirm both Industry buttons open https://www.riverstickindustries.ie in a new tab.
+
+curl -I https://www.riverstickindustries.ie returns 200 or 30x to 200.
+
+Lighthouse or equivalent quick check: ensure no new critical regressions and that pages are indexable.
+
+Deploy via Replit
+
+Use the existing Replit deployment method for this project. Do not change environment settings.
+
+Trigger a clean production deployment.
+
+Provide the live URL after deploy and confirm the new <title>, meta, and JSON-LD appear in production HTML responses.
+
+Confirm the two CTAs target the new Industries URL in production.
+
+Rollback plan
+
+If any step fails, revert to the backup/<timestamp>-pre-seo.zip or git reset --hard to the previous commit.
+
+Report failure diagnostics and stop.
+
+Acceptance criteria
+
+Production pages have updated <title>, meta description, canonical, OG/Twitter tags.
+
+robots.txt and sitemap.xml are reachable at root.
+
+JSON-LD for LocalBusiness and FAQPage is present and valid JSON in page source.
+
+Two “Riverstick Industries” CTAs point to https://www.riverstickindustries.ie and open in a new tab.
+
+No layout or styling changes elsewhere.
+
+Deployment completes without errors.
+
+Provide a short changelog: files changed, lines modified, and verification screenshots or command outputs.
