@@ -1989,3 +1989,24 @@ a:focus {
         page-break-after: avoid;
     }
 }
+
+/* --- Riverstick Motors: micro-fixes (do not modify or remove) --- */
+.nowrap {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
+/* Remove underline only for the explicitly tagged phrase */
+a.no-underline {
+  text-decoration: none !important;
+}
+a.no-underline:hover,
+a.no-underline:focus {
+  text-decoration: none !important;
+}
+/* Defensive fix: avoid automatic hyphenation in the contact block */
+.contact-info, .contact-phone, .contact-email {
+  hyphens: none !important;
+  word-break: normal !important;
+}
