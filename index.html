@@ -12,7 +12,19 @@
     <meta name="theme-color" content="#4B0C0C">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Riverstick Motors">
+    <meta name="application-name" content="Riverstick Motors CVR Testing Centre">
+    <meta name="format-detection" content="telephone=yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Apple Touch Icons for iPhone -->
+    <link rel="apple-touch-icon" sizes="180x180" href="watermark-r.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="watermark-r.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="watermark-r.png">
+    
+    <!-- Bing/Microsoft Specific -->
+    <meta name="msapplication-TileColor" content="#4B0C0C">
+    <meta name="msapplication-TileImage" content="watermark-r.png">
     
     <!-- Favicon with fallbacks -->
     <link rel="icon" type="image/webp" href="watermark-r.webp">
@@ -75,18 +87,25 @@
       "@context": "https://schema.org",
       "@type": "AutoRepair",
       "name": "Riverstick Motors CVR Testing Centre",
+      "alternateName": "Riverstick Motors",
       "url": "https://www.riverstickmotors.ie/",
       "logo": "https://www.riverstickmotors.ie/riverstick-motors-new-logo.png",
       "image": "https://www.riverstickmotors.ie/truck-golden-hour.png",
       "description": "Certified CVRT testing and vehicle repair services in Riverstick, Cork. DOE testing, tachograph calibration, conversions and SQI reports.",
       "telephone": "+353214771362",
+      "email": "reception@riverstickmotors.ie",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Main Street, Riverstick",
+        "streetAddress": "Main Street",
         "addressLocality": "Riverstick",
         "addressRegion": "Co. Cork",
         "postalCode": "P43 EY24",
         "addressCountry": "IE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 51.7599,
+        "longitude": -8.5295
       },
       "openingHoursSpecification": [
         {
@@ -97,7 +116,8 @@
         }
       ],
       "sameAs": [],
-      "areaServed": "Cork"
+      "areaServed": ["Cork", "Riverstick", "Ballincollig", "Bandon", "Kinsale", "Carrigaline"],
+      "priceRange": "€€"
     }
     </script>
     
@@ -691,9 +711,11 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Riverstick Motors CVR Testing Centre",
+      "alternateName": "Riverstick Motors",
       "image": "https://www.riverstickmotors.ie/assets/og-cover.jpg",
+      "logo": "https://www.riverstickmotors.ie/riverstick-motors-new-logo.png",
       "url": "https://www.riverstickmotors.ie/",
-      "telephone": "+353-21-477-1362",
+      "telephone": "+353214771362",
       "email": "reception@riverstickmotors.ie",
       "address": {
         "@type": "PostalAddress",
@@ -717,8 +739,31 @@
         }
       ],
       "priceRange": "€€",
-      "areaServed": "Cork, Ireland",
-      "keywords": "Riverstick CVRT, Riverstick DOE, CVRT test Cork, van testing Riverstick, HCV testing Cork, LCV testing Riverstick, tachograph calibration Riverstick, speed limiter calibration"
+      "areaServed": ["Cork", "Riverstick", "Ballincollig", "Bandon", "Kinsale", "Carrigaline"],
+      "keywords": "Riverstick CVRT, Riverstick DOE, CVRT test Cork, van testing Riverstick, HCV testing Cork, LCV testing Riverstick, tachograph calibration Riverstick, speed limiter calibration",
+      "sameAs": [],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Vehicle Testing Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "LCV CVRT Testing",
+              "description": "Light Commercial Vehicle testing up to 3.5 tonnes"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "HCV CVRT Testing",
+              "description": "Heavy Commercial Vehicle testing over 3.5 tonnes"
+            }
+          }
+        ]
+      }
     }
     </script>
 

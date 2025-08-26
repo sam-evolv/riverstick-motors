@@ -8,6 +8,33 @@ This project delivers a professional website for Riverstick Motors CVR Testing C
 
 Preferred communication style: Simple, everyday language.
 
+## Recent Changes
+
+### August 26, 2025 - NAP Consistency & Multi-Platform Optimization
+- **NAP CONSISTENCY**: Reinforced Name, Address, Phone consistency across all structured data
+- **APPLE BUSINESS CONNECT**: Added Apple-specific meta tags and touch icons for iPhone users
+- **BING PLACES**: Created import CSV for quick Bing Places submission
+- **STRUCTURED DATA**: Enhanced LocalBusiness and AutoRepair schemas with geo coordinates
+- **DIRECTORY TEMPLATES**: Created submission guides for Irish directories (Golden Pages, Cork Chamber, etc.)
+- **SOCIAL MEDIA**: Prepared Facebook, LinkedIn, Instagram templates with consistent NAP
+- **APPLE OPTIMIZATION**: Added apple-mobile-web-app tags, touch icons, and format detection
+- **MICROSOFT/BING**: Added msapplication tags for Windows tiles
+- **SERVICE CATALOG**: Added OfferCatalog schema for LCV and HCV testing services
+- **DOCUMENTATION**: Created comprehensive NAP guide, directory submission checklist, and social templates
+
+### August 26, 2025 - Comprehensive SEO Optimization
+- **TITLE & META**: Updated page title to "Riverstick CVRT & DOE Testing | Riverstick Motors, Cork" with targeted keywords
+- **META DESCRIPTION**: Enhanced with call-to-action and phone number for better CTR
+- **OPEN GRAPH**: Updated all OG tags with proper title, description, and new image path (assets/og-cover.jpg)
+- **TWITTER CARDS**: Configured Twitter Card meta tags for social sharing
+- **STRUCTURED DATA**: Added LocalBusiness Schema markup with complete NAP details and geographic coordinates
+- **ROBOTS.TXT**: Created allowing all crawlers with sitemap reference
+- **SITEMAP.XML**: Generated XML sitemap with all page sections
+- **INTERNAL LINKING**: Added contextual link from hero section to services for better PageRank flow
+- **NAP CONSISTENCY**: Enhanced footer with business name and consistent contact information
+- **IMAGE ALT TEXT**: Updated modal images with descriptive, keyword-rich alt attributes
+- **DEPLOYMENT PACKAGE**: Created riverstickmotors-seo-final.zip with all optimized assets
+
 ## System Architecture
 
 ### Frontend Architecture

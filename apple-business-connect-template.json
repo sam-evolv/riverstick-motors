@@ -1,0 +1,63 @@
+{
+  "businessName": "Riverstick Motors CVR Testing Centre",
+  "category": "Automotive Repair Shop",
+  "subcategories": [
+    "Vehicle Inspection",
+    "Commercial Vehicle Service",
+    "Testing Facility"
+  ],
+  "address": {
+    "street": "Main Street",
+    "city": "Riverstick",
+    "state": "Co. Cork",
+    "postalCode": "P43 EY24",
+    "country": "Ireland"
+  },
+  "phone": {
+    "primary": "021-477 1362",
+    "international": "+353 21 477 1362"
+  },
+  "email": "reception@riverstickmotors.ie",
+  "website": "https://www.riverstickmotors.ie/",
+  "hours": {
+    "monday": "09:00-17:30",
+    "tuesday": "09:00-17:30",
+    "wednesday": "09:00-17:30",
+    "thursday": "09:00-17:30",
+    "friday": "09:00-17:30",
+    "saturday": "Closed",
+    "sunday": "Closed"
+  },
+  "services": [
+    "CVRT Testing",
+    "DOE Testing",
+    "LCV Testing (up to 3.5 tonnes)",
+    "HCV Testing (over 3.5 tonnes)",
+    "Tachograph Calibration",
+    "Speed Limiter Calibration",
+    "Declaration of Conversion",
+    "SQI Engineer Reports"
+  ],
+  "paymentMethods": [
+    "Cash",
+    "Credit Card",
+    "Debit Card",
+    "Bank Transfer"
+  ],
+  "attributes": {
+    "wheelchairAccessible": true,
+    "parkingAvailable": true,
+    "appointmentRequired": true,
+    "onlineBooking": true
+  },
+  "description": "Certified CVRT testing centre in Riverstick, Cork. Professional commercial vehicle testing services including LCV and HCV testing, tachograph calibration, and DOE testing. Established 1968, over 500,000 vehicles tested.",
+  "keywords": [
+    "CVRT testing Riverstick",
+    "DOE test Cork",
+    "Commercial vehicle testing",
+    "LCV testing",
+    "HCV testing",
+    "Tachograph calibration Cork",
+    "RSA approved test centre"
+  ]
+}
