@@ -1,0 +1,125 @@
+You are a senior web engineer. Make the following SEO upgrades to the project for https://www.riverstickmotors.ie, then redeploy.
+
+Operating principles:
+- Be idempotent: if files already exist, update in place; if not, create them.
+- Keep existing branding and content. Only add the SEO elements described.
+- Use LF line endings and UTF-8.
+- After changes, run the project build or restart the server as appropriate for this Repl, and confirm no build errors.
+
+Tasks:
+
+1) Locate all top-level HTML files that render public pages (e.g., index.html, about.html, services.html, contact.html, how-it-works.html). If this is a templated site (e.g., /public, /dist, /app), find the source templates that generate those pages instead. Work against the source, not the build output.
+
+2) HEAD TAG UPGRADES (apply to every public page)
+   - Ensure each page has a single <title> and a <meta name="description">.
+   - For the homepage use:
+     <title>Riverstick CVRT & DOE Testing | Riverstick Motors, Cork</title>
+     <meta name="description" content="Book CVRT and DOE tests in Riverstick, Cork. LCV & HCV testing, tachograph and speed limiter services. Call 021-477 1362.">
+     <link rel="canonical" href="https://www.riverstickmotors.ie/">
+   - For Services page (if exists):
+     <title>CVRT, DOE, Tachograph & Speed Limiter | Riverstick Motors</title>
+     <meta name="description" content="LCV & HCV CVRT testing, DOE tests, tachograph calibration and speed limiter services in Riverstick, Co. Cork.">
+   - For Contact page (if exists):
+     <title>Contact Riverstick Motors | CVRT & DOE Centre, Riverstick</title>
+     <meta name="description" content="Call 021-477 1362 or email reception@riverstickmotors.ie. Find our CVRT & DOE testing centre on Main Street, Riverstick, Co. Cork.">
+   - Add Open Graph + Twitter tags (homepage at minimum, mirror title/description above):
+     <meta property="og:type" content="website">
+     <meta property="og:title" content="Riverstick CVRT & DOE Testing | Riverstick Motors, Cork">
+     <meta property="og:description" content="LCV & HCV CVRT testing, DOE, tachograph and speed limiter services in Riverstick, Cork.">
+     <meta property="og:url" content="https://www.riverstickmotors.ie/">
+     <meta property="og:image" content="https://www.riverstickmotors.ie/assets/og-cover.jpg">
+     <meta name="twitter:card" content="summary_large_image">
+     <meta name="twitter:title" content="Riverstick CVRT & DOE Testing | Riverstick Motors, Cork">
+     <meta name="twitter:description" content="Book your CVRT or DOE test in Riverstick today.">
+     <meta name="twitter:image" content="https://www.riverstickmotors.ie/assets/og-cover.jpg">
+   - If these tags already exist, update values only (do not duplicate).
+
+3) STRUCTURED DATA (JSON-LD)
+   - Create a reusable partial file at: /partials/localbusiness-schema.html
+     Contents exactly:
+     <script type="application/ld+json">
+     {
+       "@context": "https://schema.org",
+       "@type": "LocalBusiness",
+       "name": "Riverstick Motors CVR Testing Centre",
+       "image": "https://www.riverstickmotors.ie/assets/og-cover.jpg",
+       "url": "https://www.riverstickmotors.ie/",
+       "telephone": "+353-21-477-1362",
+       "email": "reception@riverstickmotors.ie",
+       "address": {
+         "@type": "PostalAddress",
+         "streetAddress": "Main Street",
+         "addressLocality": "Riverstick",
+         "addressRegion": "Co. Cork",
+         "postalCode": "P43 EY24",
+         "addressCountry": "IE"
+       },
+       "geo": {
+         "@type": "GeoCoordinates",
+         "latitude": 51.7599,
+         "longitude": -8.5295
+       },
+       "openingHoursSpecification": [
+         {
+           "@type": "OpeningHoursSpecification",
+           "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+           "opens": "09:00",
+           "closes": "17:30"
+         }
+       ],
+       "priceRange": "€€",
+       "areaServed": "Cork, Ireland",
+       "keywords": "Riverstick CVRT, Riverstick DOE, CVRT test Cork, van testing Riverstick, HCV testing Cork, LCV testing Riverstick, tachograph calibration Riverstick, speed limiter calibration"
+     }
+     </script>
+   - Include this partial once per page just before </body>. If the site lacks a templating system, paste the script block directly into each public page before </body>.
+
+4) ROBOTS + SITEMAP
+   - Create /robots.txt at project root with:
+     User-agent: *
+     Disallow:
+     Sitemap: https://www.riverstickmotors.ie/sitemap.xml
+   - Create /sitemap.xml at project root with:
+     <?xml version="1.0" encoding="UTF-8"?>
+     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+       <url><loc>https://www.riverstickmotors.ie/</loc></url>
+       <url><loc>https://www.riverstickmotors.ie/services</loc></url>
+       <url><loc>https://www.riverstickmotors.ie/how-it-works</loc></url>
+       <url><loc>https://www.riverstickmotors.ie/about</loc></url>
+       <url><loc>https://www.riverstickmotors.ie/contact</loc></url>
+     </urlset>
+   - If some of these URLs do not exist, include only the ones that do. If there are additional indexable pages (e.g., /booking), add them.
+
+5) ASSETS
+   - Ensure /assets/og-cover.jpg exists. If missing, export the current hero section’s main image as a 1200x630 JPG (approx) named og-cover.jpg, place it in /assets, and update references accordingly. Do not change page visuals.
+
+6) ACCESSIBILITY & INTERNAL LINKS
+   - For all <img> tags without alt text, add concise, descriptive alt attributes. Example: alt="LCV CVRT testing bay in Riverstick".
+   - Add at least one keyword-rich internal link from the homepage hero or first screen to the Services section, using anchor text like: "LCV & HCV CVRT testing in Riverstick".
+
+7) FOOTER NAP CONSISTENCY
+   - In the site footer, ensure the following appears exactly (update formatting to match site style):
+     Riverstick Motors CVR Testing Centre
+     Main Street, Riverstick, Co. Cork, P43 EY24
+     Tel: 021-477 1362 • reception@riverstickmotors.ie
+   - If the footer already contains this info but formatted differently, keep the style but correct the text to match exactly.
+
+8) VERIFY NO REGRESSION
+   - Validate HTML builds without errors.
+   - Run a quick Lighthouse-style sanity check if available in this environment (no need to save reports), focusing on:
+     - Presence of title/description on all pages
+     - Canonical link on homepage
+     - robots.txt reachable at /robots.txt
+     - sitemap.xml reachable at /sitemap.xml
+     - JSON-LD script present on pages
+
+9) REDEPLOY
+   - Use the project’s standard deploy/run command for this Repl. If a Procfile or run command is defined, use it. If the site is static and auto-served, restart the Repl to pick up changes.
+
+10) OUTPUT
+   - When finished, list:
+     - Files created or updated with paths
+     - Any pages where you injected JSON-LD
+     - Confirmation that /robots.txt and /sitemap.xml resolve
+     - The final <title> and <meta description> for each page
+     - Confirmation of redeploy success (or the exact command used and its output)
