@@ -217,7 +217,7 @@
                 <p class="hero-subtitle">Get your vehicle tested quickly and efficiently at Riverstick Motors CVR Testing Centre. Certified, reliable, and convenient testing services for all vehicle types.</p>
                 <div class="hero-cta">
                     <a href="javascript:void(0);" onclick="openModal()" class="btn btn-primary btn-large">Book Your Test Today</a>
-                    <a href="javascript:void(0);" onclick="showPhoneNumber(event)" class="btn btn-secondary btn-large phone-button" data-phone="+353214771362" data-display="021-477 1362">
+                    <a href="tel:+353214771362" class="btn btn-secondary btn-large js-call-now">
                         <i class="fas fa-phone"></i> Call Now
                     </a>
                 </div>
@@ -395,7 +395,7 @@
                 <p>Don't wait until the last minute. Book your CVR test today and ensure your vehicle meets all safety requirements. Our friendly team is ready to help you schedule at a time that works for you.</p>
                 <div class="booking-cta">
                     <div class="booking-buttons">
-                        <a href="javascript:void(0);" onclick="showPhoneNumber(event)" class="btn btn-primary btn-large phone-button" data-phone="+353214771362" data-display="021-477 1362">
+                        <a href="tel:+353214771362" class="btn btn-primary btn-large js-call-now">
                             <i class="fas fa-phone"></i> Call 021-477 1362
                         </a>
                         <button onclick="openModal()" class="btn btn-primary btn-large">
@@ -634,75 +634,156 @@
         </div>
     </div>
 
-    <!-- Phone Display Modal -->
-    <div id="phone-modal" class="modal">
-        <div class="modal-content" style="max-width: 500px;">
-            <button class="close-modal" onclick="closePhoneModal()" aria-label="Close modal">&times;</button>
-            <h2>
-                <i class="fas fa-phone-alt"></i>
-                Call Us Today
-            </h2>
-            <div style="background: rgba(212, 175, 55, 0.1); padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem; border: 2px solid #D4AF37;">
-                <p style="font-size: 2.5rem; font-weight: 700; color: #D4AF37; margin-bottom: 0.5rem; letter-spacing: 2px; text-align: center; font-family: 'Poppins', sans-serif;">
-                    021-477 1362
-                </p>
-                <p style="color: #F5F1EC; margin-bottom: 0; text-align: center; font-size: 1rem;">
-                    International: +353 21 477 1362
-                </p>
-            </div>
-            <div style="background: rgba(75, 12, 12, 0.3); padding: 1rem; border-radius: 8px; border-left: 4px solid #D4AF37; margin-bottom: 1.5rem;">
-                <p style="font-size: 0.9rem; color: #F5F1EC; margin: 0; line-height: 1.6;">
-                    <strong style="color: #D4AF37;">Opening Hours:</strong><br>
-                    Monday to Friday: 9:00am - 5:30pm<br>
-                    Saturday & Sunday: Closed
-                </p>
-            </div>
-            <p style="text-align: center; font-style: italic; color: #F5F1EC; font-size: 0.95rem;">
-                Write down this number and call us from your phone to book your CVRT test
-            </p>
-        </div>
-    </div>
+    <!-- Phone Display Modal - dynamically created by JavaScript -->
 
-    <!-- Phone number display functions (defined early for onclick handlers) -->
+    <!-- Call Modal CSS -->
+    <style>
+        #callModal{position:fixed;inset:0;display:none;z-index:10000;}
+        #callModal[aria-hidden="false"]{display:block;}
+        .call-modal__backdrop{position:absolute;inset:0;background:rgba(75,12,12,0.85);backdrop-filter:blur(4px);}
+        .call-modal__card{
+            position:relative;max-width:420px;margin:10vh auto;background:#7a1e1e;color:#F5F1EC;
+            border-radius:12px;padding:32px;box-shadow:0 8px 32px rgba(0,0,0,.35);
+            border:2px solid #D4AF37;font-family:'Poppins',sans-serif;
+        }
+        .call-modal__title{margin:0 0 16px;font-size:1.5rem;font-weight:600;color:#D4AF37;}
+        .call-modal__number{font-size:2rem;font-weight:700;letter-spacing:1px;margin:12px 0 20px;color:#D4AF37;}
+        .call-modal__actions{display:flex;gap:12px;margin-bottom:16px;}
+        .call-modal__copy{
+            padding:12px 20px;border-radius:8px;border:2px solid #D4AF37;background:rgba(212,175,55,0.1);
+            cursor:pointer;color:#D4AF37;font-weight:600;font-size:1rem;transition:all 0.3s ease;
+            font-family:'Poppins',sans-serif;
+        }
+        .call-modal__copy:hover{background:rgba(212,175,55,0.2);transform:translateY(-2px);}
+        .call-modal__copy.copied{background:#D4AF37;color:#4B0C0C;}
+        .call-modal__close{
+            position:absolute;top:12px;right:16px;font-size:28px;background:transparent;
+            border:0;cursor:pointer;color:#D4AF37;transition:all 0.3s ease;
+            width:32px;height:32px;display:flex;align-items:center;justify-content:center;
+            border-radius:50%;
+        }
+        .call-modal__close:hover{background:rgba(212,175,55,0.2);}
+        .call-modal__hint{font-size:0.9rem;color:#F5F1EC;opacity:0.8;margin:0;}
+        @media (max-width: 480px) {
+            .call-modal__card{margin:5vh 10px;padding:24px;}
+            .call-modal__number{font-size:1.5rem;}
+        }
+    </style>
+    
+    <!-- Call Modal JavaScript -->
     <script>
-        // Phone number display function - defined globally
-        function showPhoneNumber(event) {
+    (function(){
+        const isMobile = () => /Mobi|Android/i.test(navigator.userAgent) || window.matchMedia('(pointer:coarse)').matches;
+        
+        const ensureModal = () => {
+            if (document.getElementById('callModal')) return document.getElementById('callModal');
+            const wrapper = document.createElement('div');
+            wrapper.innerHTML = `
+                <div id="callModal" aria-hidden="true" role="dialog" aria-modal="true">
+                    <div class="call-modal__backdrop" data-close></div>
+                    <div class="call-modal__card" role="document" tabindex="-1">
+                        <button class="call-modal__close" aria-label="Close" data-close>×</button>
+                        <h2 class="call-modal__title">Call Riverstick Motors</h2>
+                        <p class="call-modal__number" data-number="+353214771362">(021) 477 1362</p>
+                        <div class="call-modal__actions">
+                            <button class="call-modal__copy">Copy number</button>
+                        </div>
+                        <p class="call-modal__hint">Or type it into your phone now.</p>
+                    </div>
+                </div>`;
+            document.body.appendChild(wrapper.firstElementChild);
+            return document.getElementById('callModal');
+        };
+        
+        const openModal = () => {
+            const m = ensureModal();
+            m.setAttribute('aria-hidden','false');
+            const card = m.querySelector('.call-modal__card');
+            if (card) card.focus();
+            document.body.style.overflow='hidden';
+        };
+        
+        const closeModal = () => {
+            const m = document.getElementById('callModal');
+            if (!m) return;
+            m.setAttribute('aria-hidden','true');
+            document.body.style.overflow='';
+            // Reset copy button text
+            const copyBtn = m.querySelector('.call-modal__copy');
+            if (copyBtn) {
+                copyBtn.textContent = 'Copy number';
+                copyBtn.classList.remove('copied');
+            }
+        };
+        
+        const attachEvents = () => {
+            const modal = ensureModal();
+            modal.addEventListener('click', (e) => {
+                if (e.target.hasAttribute('data-close')) closeModal();
+            });
+            document.addEventListener('keydown', (e) => { 
+                if (e.key === 'Escape') closeModal(); 
+            });
+            
+            const copyBtn = modal.querySelector('.call-modal__copy');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', async () => {
+                    const number = modal.querySelector('.call-modal__number').dataset.number || '+353214771362';
+                    try { 
+                        await navigator.clipboard.writeText(number);
+                        copyBtn.textContent = 'Copied!';
+                        copyBtn.classList.add('copied');
+                        setTimeout(() => {
+                            copyBtn.textContent = 'Copy number';
+                            copyBtn.classList.remove('copied');
+                        }, 2000);
+                    } catch(e) { 
+                        // Fallback: select the text
+                        const range = document.createRange();
+                        const numberEl = modal.querySelector('.call-modal__number');
+                        range.selectNodeContents(numberEl);
+                        window.getSelection().removeAllRanges();
+                        window.getSelection().addRange(range);
+                    }
+                });
+            }
+        };
+        
+        const interceptDesktopClicks = () => {
+            // Find all phone links and add the js-call-now class
+            document.querySelectorAll('a[href^="tel:"], a[onclick*="showPhoneNumber"]').forEach(el => {
+                el.classList.add('js-call-now');
+                // Remove old onclick handlers
+                el.removeAttribute('onclick');
+                // Update href to tel: format
+                if (!el.href.startsWith('tel:')) {
+                    el.href = 'tel:+353214771362';
+                }
+                
+                el.addEventListener('click', (evt) => {
+                    if (isMobile()) return; // allow default tel: on mobile
+                    evt.preventDefault();
+                    openModal();
+                }, {passive: false});
+            });
+        };
+        
+        // Also handle the global showPhoneNumber function calls
+        window.showPhoneNumber = function(event) {
             if (event) event.preventDefault();
-            
-            // Check if on mobile device (width <= 768px or has touch support)
-            const isMobile = window.innerWidth <= 768 || 
-                           ('ontouchstart' in window) || 
-                           (navigator.maxTouchPoints > 0);
-            
-            if (isMobile) {
-                // On mobile, make the actual phone call
+            if (isMobile()) {
                 window.location.href = 'tel:+353214771362';
             } else {
-                // On desktop, show the phone modal
-                const phoneModal = document.getElementById('phone-modal');
-                if (phoneModal) {
-                    phoneModal.classList.add('modal-active');
-                    document.body.style.overflow = 'hidden';
-                }
+                openModal();
             }
             return false;
-        }
+        };
         
-        function closePhoneModal() {
-            const phoneModal = document.getElementById('phone-modal');
-            if (phoneModal) {
-                phoneModal.classList.remove('modal-active');
-                document.body.style.overflow = '';
-            }
-        }
-        
-        // Close phone modal when clicking outside
-        window.addEventListener('click', function(event) {
-            const phoneModal = document.getElementById('phone-modal');
-            if (event && event.target === phoneModal) {
-                closePhoneModal();
-            }
+        document.addEventListener('DOMContentLoaded', () => {
+            attachEvents();
+            interceptDesktopClicks();
         });
+    })();
     </script>
 
     <!-- Load modal functions first (needed for onclick handlers) -->

@@ -1,0 +1,146 @@
+On desktop/laptop, clicking any “Call Now” button should open a clean inline modal that displays the business phone number with a copy button. On mobile/tablet devices, keep the existing tel: behavior unchanged. Do not modify anything else on the site.
+
+Scope & Constraints
+
+Apply to all clickable phone CTAs (anchors or buttons) that currently dial the number.
+
+Detect device type robustly: treat as mobile if navigator.userAgent contains Mobi or Android or if window.matchMedia("(pointer:coarse)") is true. Otherwise treat as desktop.
+
+Phone number: primary (021) 477 1362 [international: +353 21 477 1362].
+
+Visuals must match site theme: subtle overlay, rounded card, same font stack, no layout shifts, keyboard accessible, ESC to close, click-outside to close, focus trap within modal.
+
+Idempotent: safe to run multiple times.
+
+Do not change copy, layout, colors, or behavior anywhere else.
+
+Implementation Plan
+
+Add hook class to all call CTAs without changing their appearance: ensure they have .js-call-now (add class only). Typical selectors to enhance:
+
+a[href^="tel:"]
+
+elements with text matching /call now/i
+Leave href="tel:0214771362" intact — we’ll intercept on desktop only.
+
+Create modal markup once, appended to <body> at runtime. Include:
+
+<div id="callModal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="call-modal__backdrop"></div>
+  <div class="call-modal__card" role="document">
+    <button class="call-modal__close" aria-label="Close">×</button>
+    <h2 class="call-modal__title">Call Riverstick Motors</h2>
+    <p class="call-modal__number" data-number="+353214771362">
+      (021) 477 1362
+    </p>
+    <div class="call-modal__actions">
+      <button class="call-modal__copy">Copy number</button>
+    </div>
+    <p class="call-modal__hint">Tip: press Ctrl+C / Cmd+C after selecting.</p>
+  </div>
+</div>
+
+
+Minimal CSS (add to the site’s main CSS file or inject in <head>):
+
+#callModal{position:fixed;inset:0;display:none;}
+#callModal[aria-hidden="false"]{display:block;}
+.call-modal__backdrop{position:absolute;inset:0;background:rgba(0,0,0,.45);}
+.call-modal__card{
+  position:relative;max-width:420px;margin:10vh auto;background:#fff;color:#111;
+  border-radius:12px;padding:24px;box-shadow:0 8px 32px rgba(0,0,0,.25)
+}
+.call-modal__title{margin:0 0 8px;font-size:1.25rem;font-weight:600}
+.call-modal__number{font-size:1.5rem;font-weight:700;letter-spacing:.5px;margin:8px 0 16px}
+.call-modal__actions{display:flex;gap:12px}
+.call-modal__copy{padding:10px 14px;border-radius:8px;border:1px solid #ddd;background:#f6f7f8;cursor:pointer}
+.call-modal__close{
+  position:absolute;top:10px;right:12px;font-size:20px;background:transparent;border:0;cursor:pointer
+}
+@media (prefers-color-scheme: dark){
+  .call-modal__card{background:#171717;color:#f2f2f2;border:1px solid #2a2a2a}
+  .call-modal__copy{background:#1f1f1f;border-color:#333;color:#f2f2f2}
+}
+
+
+JavaScript (add to the main JS bundle or a new call-modal.js and include it):
+
+(function(){
+  const isMobile = () => /Mobi|Android/i.test(navigator.userAgent) || window.matchMedia('(pointer:coarse)').matches;
+  const ensureModal = () => {
+    if (document.getElementById('callModal')) return document.getElementById('callModal');
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = `
+      <div id="callModal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="call-modal__backdrop" data-close></div>
+        <div class="call-modal__card" role="document" tabindex="-1">
+          <button class="call-modal__close" aria-label="Close" data-close>×</button>
+          <h2 class="call-modal__title">Call Riverstick Motors</h2>
+          <p class="call-modal__number" data-number="+353214771362">(021) 477 1362</p>
+          <div class="call-modal__actions">
+            <button class="call-modal__copy">Copy number</button>
+          </div>
+          <p class="call-modal__hint">Or type it into your phone now.</p>
+        </div>
+      </div>`;
+    document.body.appendChild(wrapper.firstElementChild);
+    return document.getElementById('callModal');
+  };
+  const openModal = () => {
+    const m = ensureModal();
+    m.setAttribute('aria-hidden','false');
+    const card = m.querySelector('.call-modal__card');
+    card.focus();
+    document.body.style.overflow='hidden';
+  };
+  const closeModal = () => {
+    const m = document.getElementById('callModal');
+    if (!m) return;
+    m.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  };
+  const attachEvents = () => {
+    const modal = ensureModal();
+    modal.addEventListener('click', (e)=>{
+      if (e.target.hasAttribute('data-close')) closeModal();
+    });
+    document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') closeModal(); });
+    modal.querySelector('.call-modal__copy').addEventListener('click', async ()=>{
+      const number = modal.querySelector('.call-modal__number').dataset.number || '+353214771362';
+      try { await navigator.clipboard.writeText(number); } catch(e) { /* fallback noop */ }
+    });
+  };
+  const interceptDesktopClicks = () => {
+    document.querySelectorAll('a[href^="tel:"], .js-call-now').forEach(el=>{
+      el.classList.add('js-call-now');
+      el.addEventListener('click', (evt)=>{
+        if (isMobile()) return; // allow default tel: on mobile
+        evt.preventDefault();
+        openModal();
+      }, {passive:false});
+    });
+  };
+  document.addEventListener('DOMContentLoaded', ()=>{
+    attachEvents();
+    interceptDesktopClicks();
+  });
+})();
+
+
+Testing & Acceptance
+
+Desktop Chrome/Firefox/Safari: clicking any “Call Now” opens the modal; background scroll locks; ESC closes; clicking backdrop closes; Copy button copies +353214771362.
+
+iPhone/Android: clicking “Call Now” still triggers the dialer via tel: with no modal.
+
+No CLS, no console errors, Lighthouse remains unchanged.
+
+No other content, styles, or behaviors are altered.
+
+Deliverables:
+
+Updated HTML/JS/CSS per above.
+
+Note in PR/commit message: “Desktop call modal implemented; mobile call behavior unchanged.”
+
+Do not change anything else on the site.
