@@ -217,7 +217,7 @@
                 <p class="hero-subtitle">Get your vehicle tested quickly and efficiently at Riverstick Motors CVR Testing Centre. Certified, reliable, and convenient testing services for all vehicle types.</p>
                 <div class="hero-cta">
                     <a href="javascript:void(0);" onclick="openModal()" class="btn btn-primary btn-large">Book Your Test Today</a>
-                    <a href="tel:+353214771362" class="btn btn-secondary btn-large">
+                    <a href="javascript:void(0);" onclick="showPhoneNumber(event)" class="btn btn-secondary btn-large phone-button" data-phone="+353214771362" data-display="021-477 1362">
                         <i class="fas fa-phone"></i> Call Now
                     </a>
                 </div>
@@ -395,7 +395,7 @@
                 <p>Don't wait until the last minute. Book your CVR test today and ensure your vehicle meets all safety requirements. Our friendly team is ready to help you schedule at a time that works for you.</p>
                 <div class="booking-cta">
                     <div class="booking-buttons">
-                        <a href="tel:+353214771362" class="btn btn-primary btn-large">
+                        <a href="javascript:void(0);" onclick="showPhoneNumber(event)" class="btn btn-primary btn-large phone-button" data-phone="+353214771362" data-display="021-477 1362">
                             <i class="fas fa-phone"></i> Call 021-477 1362
                         </a>
                         <button onclick="openModal()" class="btn btn-primary btn-large">
@@ -634,6 +634,35 @@
         </div>
     </div>
 
+    <!-- Phone Display Modal -->
+    <div id="phone-modal" class="modal">
+        <div class="modal-content" style="max-width: 500px; text-align: center;">
+            <button class="close-modal" onclick="closePhoneModal()" aria-label="Close modal">&times;</button>
+            <h2 style="color: var(--secondary-color); margin-bottom: 1.5rem;">
+                <i class="fas fa-phone-alt" style="margin-right: 0.5rem;"></i>
+                Call Us Today
+            </h2>
+            <div style="background: var(--section-bg); padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem;">
+                <p style="font-size: 2rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; letter-spacing: 2px;">
+                    021-477 1362
+                </p>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                    International: +353 21 477 1362
+                </p>
+            </div>
+            <div style="background: #f0f8ff; padding: 1rem; border-radius: 8px; border-left: 4px solid var(--secondary-color); text-align: left;">
+                <p style="font-size: 0.9rem; color: var(--text-primary); margin: 0;">
+                    <strong>Opening Hours:</strong><br>
+                    Monday to Friday: 9:00am - 5:30pm<br>
+                    Saturday & Sunday: Closed
+                </p>
+            </div>
+            <p style="margin-top: 1.5rem; font-style: italic; color: var(--text-secondary);">
+                Write down this number and call us from your phone to book your CVRT test
+            </p>
+        </div>
+    </div>
+
     <!-- Load modal functions first (needed for onclick handlers) -->
     <script src="modal-functions.min.js" onerror="console.log('Modal functions not loaded')"></script>
     
@@ -668,6 +697,44 @@
                 }, 100);
             });
         }
+        
+        // Phone number display function
+        function showPhoneNumber(event) {
+            event.preventDefault();
+            
+            // Check if on mobile device (width <= 768px or has touch support)
+            const isMobile = window.innerWidth <= 768 || 
+                           ('ontouchstart' in window) || 
+                           (navigator.maxTouchPoints > 0);
+            
+            if (isMobile) {
+                // On mobile, make the actual phone call
+                window.location.href = 'tel:+353214771362';
+            } else {
+                // On desktop, show the phone modal
+                const phoneModal = document.getElementById('phone-modal');
+                if (phoneModal) {
+                    phoneModal.classList.add('modal-active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+        }
+        
+        function closePhoneModal() {
+            const phoneModal = document.getElementById('phone-modal');
+            if (phoneModal) {
+                phoneModal.classList.remove('modal-active');
+                document.body.style.overflow = '';
+            }
+        }
+        
+        // Close phone modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const phoneModal = document.getElementById('phone-modal');
+            if (event.target === phoneModal) {
+                closePhoneModal();
+            }
+        });
     </script>
     
     <!-- Structured Data -->
