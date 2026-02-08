@@ -1,5 +1,6 @@
 [build]
-  publish = "."
+  publish = "netlify-final"
+  command = ""
 
 [build.processing]
   skip_processing = false
