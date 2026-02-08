@@ -2,3 +2,6 @@
 replit.nix
 node_modules/
 .git
+# large backups
+backup/
+*.zip
