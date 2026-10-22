@@ -1188,11 +1188,14 @@ section{
 }
 
 
-.evolvai-attribution{
+.donworth-attribution{
+ max-width:100%;
  text-align:right;
 }
 
-.evolvai-link{
+.donworth-link{
+ max-width:100%;
+ gap:8px;
  text-decoration:none;
  font-size:0.9rem;
  color:#F5F1EC;
@@ -1202,21 +1205,19 @@ section{
  font-family:'Poppins', sans-serif;
 }
 
-.evolvai-link:hover{
+.donworth-link:hover{
  color:var(--secondary-color);
  transform:translateY(-1px);
 }
 
-.evolvai-logo{
- height:14px;
- width:auto;
- margin-left:6px;
- filter:brightness(0.6) sepia(1) saturate(0) hue-rotate(0deg);
+.donworth-logo{
+ height:20px;
+ width:27px;
+ flex:0 0 27px;
  transition:all 0.3s ease;
 }
 
-.evolvai-link:hover .evolvai-logo{
- filter:brightness(1.2) sepia(1) saturate(2) hue-rotate(35deg);
+.donworth-link:hover .donworth-logo{
  transform:scale(1.05);
 }
 
@@ -1885,7 +1886,7 @@ section{
  text-align:center;
  }
  
- .evolvai-attribution{
+ .donworth-attribution{
  text-align:center;
  }
  
